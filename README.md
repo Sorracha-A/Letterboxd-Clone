@@ -1,7 +1,7 @@
 # Letterboxd-Clone
 Letterboxd-Clone is a web application built using the MERN (MongoDB, Express, React, Node.js) stack. It is a clone of the popular movie and television review website, Letterboxd. The application allows users to search for and review movies and television shows, view ratings and reviews from other users, and keep track of their own watchlist.
 
-# Roadmap for Developing a Letterboxd Clone with MERN Stack
+# Roadmap 
 
 ## 1. Design the Database Schema
 - Determine the data required for users, movies, and reviews
