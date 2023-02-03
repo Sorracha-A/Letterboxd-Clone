@@ -20,3 +20,8 @@ Letterboxd-Clone is a web application built using the MERN (MongoDB, Express, Re
 ## 4. Implement Authentication and Authorization
 - Allow users to sign up, log in, and securely access their data
 - Implement security measures to ensure the protection of sensitive user information
+
+
+
+# Preview
+![screencapture-127-0-0-1-5500-index-html-2023-02-03-16_38_03](https://user-images.githubusercontent.com/90688030/216566321-25045cb4-e22f-490e-a105-542f1abb06f1.png)
