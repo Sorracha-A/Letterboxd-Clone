@@ -10203,6 +10203,7 @@ ul.tags-columns li span {
   position: absolute;
   right: 110px;
   top: 22px;
+  margin-right: 45px;
 }
 .no-mobile .site-header .main-nav {
   transition: right 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
