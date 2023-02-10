@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Letterboxd - Register</title>
+    <style>
+      body {
+        background: #14181c;
+        font-family: "Proxima Nova", sans-serif;
+        color: #ffffff;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      form {
+        background: #435565;
+        padding: 60px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #000000;
+        width: 400px;
+      }
+      label {
+        font-size: 14px;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+      }
+      input[type="checkbox"] {
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+      input[type="submit"] {
+        background: #00b300;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 5px;
+        border: none;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="/register" method="post">
+        <h1 style="color: #9ab">Join Letterboxd</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+        <br /><br />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <br /><br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <div style="display: flex; align-items: center">
+          <input
+            type="checkbox"
+            id="terms-of-use"
+            name="terms-of-use"
+            required
+          />
+          <label for="terms-of-use" style="color: #9ab"
+            >I’m at least 16 years old and accept the
+            <a
+              href="https://letterboxd.com/terms/"
+              target="_blank"
+              style="color: #fff; text-decoration: none"
+              >Terms of Use</a
+            >.
+          </label>
+        </div>
+        <div style="display: flex; align-items: center">
+          <input
+            type="checkbox"
+            id="privacy-policy"
+            name="privacy-policy"
+            required
+          />
+          <label for="privacy-policy" style="color: #9ab"
+            >I accept the
+            <a
+              href="https://letterboxd.com/privacy/"
+              target="_blank"
+              style="color: #fff; text-decoration: none"
+              >Privacy Policy</a
+            >
+            and consent to the processing of my personal information in
+            accordance with it.
+          </label>
+        </div>
+
+        <input type="submit" value="Sign Up" />
+      </form>
+    </div>
+  </body>
+</html>

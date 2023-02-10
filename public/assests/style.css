@@ -485,6 +485,9 @@ aside .friends-watched + .everyone-watched {
 aside p.icon-text {
   margin-bottom: 0;
 }
+
+
+
 .content-wrap {
   margin: 0 auto;
   width: 950px;
