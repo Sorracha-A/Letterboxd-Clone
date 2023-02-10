@@ -65,166 +65,166 @@
   font-family: TiemposHeadlineWeb-Bold;
   font-style: normal;
   font-weight: 400;
-  src: url(fonts/TiemposHeadlineWeb-Bold.eot);
-  src: url(fonts/TiemposHeadlineWeb-Bold.eot#iefix)
+  src: url(../fonts/TiemposHeadlineWeb-Bold.eot);
+  src: url(../fonts/TiemposHeadlineWeb-Bold.eot#iefix)
       format("embedded-opentype"),
-    url(fonts/TiemposHeadlineWeb-Bold.woff2)
+    url(../fonts/TiemposHeadlineWeb-Bold.woff2)
       format("woff2"),
-    url(fonts/TiemposHeadlineWeb-Bold.woff) format("woff");
+    url(../fonts/TiemposHeadlineWeb-Bold.woff) format("woff");
 }
 @font-face {
   font-family: TiemposHeadlineWeb-Bold;
   font-style: italic;
   font-weight: 400;
-  src: url(fonts/TiemposHeadlineWeb-BoldItalic.eot);
-  src: url(fonts/TiemposHeadlineWeb-BoldItalic.eot?#iefix)
+  src: url(../fonts/TiemposHeadlineWeb-BoldItalic.eot);
+  src: url(../fonts/TiemposHeadlineWeb-BoldItalic.eot?#iefix)
       format("embedded-opentype"),
-    url(fonts/TiemposHeadlineWeb-BoldItalic.woff2)
+    url(../fonts/TiemposHeadlineWeb-BoldItalic.woff2)
       format("woff2"),
-    url(fonts/TiemposHeadlineWeb-BoldItalic.woff)
+    url(../fonts/TiemposHeadlineWeb-BoldItalic.woff)
       format("woff");
 }
 @font-face {
   font-family: TiemposTextWeb-Regular;
   font-style: normal;
   font-weight: 400;
-  src: url(fonts/TiemposTextWeb-Regular.eot);
-  src: url(fonts/TiemposTextWeb-Regular.eot?#iefix)
+  src: url(../fonts/TiemposTextWeb-Regular.eot);
+  src: url(../fonts/TiemposTextWeb-Regular.eot?#iefix)
       format("embedded-opentype"),
-    url(fonts/TiemposTextWeb-Regular.woff2) format("woff2"),
-    url(fonts/TiemposTextWeb-Regular.woff) format("woff");
+    url(../fonts/TiemposTextWeb-Regular.woff2) format("woff2"),
+    url(../fonts/TiemposTextWeb-Regular.woff) format("woff");
 }
 @font-face {
   font-family: TiemposTextWeb-Regular;
   font-style: italic;
   font-weight: 400;
-  src: url(fonts/TiemposTextWeb-RegularItalic.eot);
-  src: url(fonts/TiemposTextWeb-RegularItalic.eot?#iefix)
+  src: url(../fonts/TiemposTextWeb-RegularItalic.eot);
+  src: url(../fonts/TiemposTextWeb-RegularItalic.eot?#iefix)
       format("embedded-opentype"),
-    url(fonts/TiemposTextWeb-RegularItalic.woff2)
+    url(../fonts/TiemposTextWeb-RegularItalic.woff2)
       format("woff2"),
-    url(fonts/TiemposTextWeb-RegularItalic.woff)
+    url(../fonts/TiemposTextWeb-RegularItalic.woff)
       format("woff");
 }
 @font-face {
   font-family: TiemposTextWeb-Semibold;
   font-style: normal;
   font-weight: 400;
-  src: url(fonts/TiemposTextWeb-Semibold.eot);
-  src: url(fonts/TiemposTextWeb-Semibold.eot?#iefix)
+  src: url(../fonts/TiemposTextWeb-Semibold.eot);
+  src: url(../fonts/TiemposTextWeb-Semibold.eot?#iefix)
       format("embedded-opentype"),
-    url(fonts/TiemposTextWeb-Semibold.woff2)
+    url(../fonts/TiemposTextWeb-Semibold.woff2)
       format("woff2"),
-    url(fonts/TiemposTextWeb-Semibold.woff) format("woff");
+    url(../fonts/TiemposTextWeb-Semibold.woff) format("woff");
 }
 @font-face {
   font-family: TiemposTextWeb-Semibold;
   font-style: italic;
   font-weight: 400;
-  src: url(fonts/TiemposTextWeb-SemiboldItalic.eot);
-  src: url(fonts/TiemposTextWeb-SemiboldItalic.eot?#iefix)
+  src: url(../fonts/TiemposTextWeb-SemiboldItalic.eot);
+  src: url(../fonts/TiemposTextWeb-SemiboldItalic.eot?#iefix)
       format("embedded-opentype"),
-    url(fonts/TiemposTextWeb-SemiboldItalic.woff2)
+    url(../fonts/TiemposTextWeb-SemiboldItalic.woff2)
       format("woff2"),
-    url(fonts/TiemposTextWeb-SemiboldItalic.woff)
+    url(../fonts/TiemposTextWeb-SemiboldItalic.woff)
       format("woff");
 }
 @font-face {
   font-family: Graphik-Light-Web;
   font-style: normal;
   font-weight: 400;
-  src: url(fonts/Graphik-Light-Web.eot);
-  src: url(fonts/Graphik-Light-Web.eot?#iefix)
+  src: url(../fonts/Graphik-Light-Web.eot);
+  src: url(../fonts/Graphik-Light-Web.eot?#iefix)
       format("embedded-opentype"),
-    url(fonts/Graphik-Light-Web.woff) format("woff");
+    url(../fonts/Graphik-Light-Web.woff) format("woff");
 }
 @font-face {
   font-family: Graphik-Regular-Web;
   font-style: normal;
   font-weight: 400;
-  src: url(fonts/Graphik-Regular-Web.eot);
-  src: url(fonts/Graphik-Regular-Web.eot?#iefix)
+  src: url(../fonts/Graphik-Regular-Web.eot);
+  src: url(../fonts/Graphik-Regular-Web.eot?#iefix)
       format("embedded-opentype"),
-    url(fonts/Graphik-Regular-Web.woff) format("woff");
+    url(../fonts/Graphik-Regular-Web.woff) format("woff");
 }
 @font-face {
   font-family: Graphik-Regular-Web;
   font-style: italic;
   font-weight: 400;
-  src: url(fonts/Graphik-RegularItalic-Web.eot);
-  src: url(fonts/Graphik-RegularItalic-Web.eot?#iefix)
+  src: url(../fonts/Graphik-RegularItalic-Web.eot);
+  src: url(../fonts/Graphik-RegularItalic-Web.eot?#iefix)
       format("embedded-opentype"),
-    url(fonts/Graphik-RegularItalic-Web.woff)
+    url(../fonts/Graphik-RegularItalic-Web.woff)
       format("woff");
 }
 @font-face {
   font-family: Graphik-Semibold-Web;
   font-style: normal;
   font-weight: 400;
-  src: url(fonts/Graphik-Semibold-Web.eot);
-  src: url(fonts/Graphik-Semibold-Web.eot?#iefix)
+  src: url(../fonts/Graphik-Semibold-Web.eot);
+  src: url(../fonts/Graphik-Semibold-Web.eot?#iefix)
       format("embedded-opentype"),
-    url(fonts/Graphik-Semibold-Web.woff) format("woff");
+    url(../fonts/Graphik-Semibold-Web.woff) format("woff");
 }
 @font-face {
   font-family: Graphik-Semibold-Web;
   font-style: italic;
   font-weight: 400;
-  src: url(fonts/Graphik-SemiboldItalic-Web.eot);
-  src: url(fonts/Graphik-SemiboldItalic-Web.eot?#iefix)
+  src: url(../fonts/Graphik-SemiboldItalic-Web.eot);
+  src: url(../fonts/Graphik-SemiboldItalic-Web.eot?#iefix)
       format("embedded-opentype"),
-    url(fonts/Graphik-SemiboldItalic-Web.woff)
+    url(../fonts/Graphik-SemiboldItalic-Web.woff)
       format("woff");
 }
 @font-face {
   font-family: Graphik-Bold-Web;
   font-style: normal;
   font-weight: 400;
-  src: url(fonts/Graphik-Bold-Web.eot);
-  src: url(fonts/Graphik-Bold-Web.eot?#iefix)
+  src: url(../fonts/Graphik-Bold-Web.eot);
+  src: url(../fonts/Graphik-Bold-Web.eot?#iefix)
       format("embedded-opentype"),
-    url(fonts/Graphik-Bold-Web.woff) format("woff");
+    url(../fonts/Graphik-Bold-Web.woff) format("woff");
 }
 @font-face {
   font-family: Graphik-Bold-Web;
   font-style: italic;
   font-weight: 400;
-  src: url(fonts/Graphik-BoldItalic-Web.woff2)
+  src: url(../fonts/Graphik-BoldItalic-Web.woff2)
       format("woff2"),
-    url(fonts/Graphik-BoldItalic-Web.woff) format("woff");
+    url(../fonts/Graphik-BoldItalic-Web.woff) format("woff");
 }
 @font-face {
   font-family: Graphik-Black-Web;
   font-style: normal;
   font-weight: 400;
-  src: url(fonts/Graphik-Black-Web.woff2) format("woff2"),
-    url(fonts/Graphik-Black-Web.woff) format("woff");
+  src: url(../fonts/Graphik-Black-Web.woff2) format("woff2"),
+    url(../fonts/Graphik-Black-Web.woff) format("woff");
 }
 @font-face {
   font-family: Graphik-Black-Web;
   font-style: italic;
   font-weight: 400;
-  src: url(fonts/Graphik-BlackItalic-Web.woff2)
+  src: url(../fonts/Graphik-BlackItalic-Web.woff2)
       format("woff2"),
-    url(fonts/Graphik-BlackItalic-Web.woff) format("woff");
+    url(../fonts/Graphik-BlackItalic-Web.woff) format("woff");
 }
 @font-face {
   font-family: PitchSansWeb-Medium;
   font-style: normal;
   font-weight: 400;
-  src: url(fonts/PitchSansWeb-Medium.eot);
-  src: url(fonts/PitchSansWeb-Medium.eot?#iefix)
+  src: url(../fonts/PitchSansWeb-Medium.eot);
+  src: url(../fonts/PitchSansWeb-Medium.eot?#iefix)
       format("embedded-opentype"),
-    url(fonts/PitchSansWeb-Medium.woff) format("woff");
+    url(../fonts/PitchSansWeb-Medium.woff) format("woff");
 }
 @font-face {
   font-family: PitchSansWeb-MediumItalic;
   font-style: italic;
   font-weight: 400;
-  src: url(fonts/PitchSansWeb-MediumItalic.eot);
-  src: url(fonts/PitchSansWeb-MediumItalic.eot?#iefix)
+  src: url(../fonts/PitchSansWeb-MediumItalic.eot);
+  src: url(../fonts/PitchSansWeb-MediumItalic.eot?#iefix)
       format("embedded-opentype"),
-    url(fonts/PitchSansWeb-MediumItalic.woff)
+    url(../fonts/PitchSansWeb-MediumItalic.woff)
       format("woff");
 }
 /* .main-nav > .navitems{
