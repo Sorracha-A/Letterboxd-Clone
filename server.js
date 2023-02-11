@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-const filmsRouter = require('./routes/films');
-const registerRouter = require('./routes/create-account');
-const listRouter = require('./routes/lists');
-const membersRouter = require('./routes/members');
-const journalRouter = require('./routes/journal');
-const signinRouter = require('./routes/sign-in');
+const filmsRouter = require('./routes/navbar/films');
+const registerRouter = require('./routes/navbar/create-account');
+const listRouter = require('./routes/navbar/lists');
+const membersRouter = require('./routes/navbar/members');
+const journalRouter = require('./routes/navbar/journal');
+const signinRouter = require('./routes/navbar/sign-in');
 
 // using app.use to serve up static CSS files in public/assets/ folder when /public link is called in ejs files
 // app.use("/route", express.static("foldername"));
