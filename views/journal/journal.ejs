@@ -1,0 +1,4429 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]> <html lang="en" class="ie6 lte9 lte8 lte7 lte6 no-js"> <![endif]-->
+<!--[if IE 7]>    <html lang="en" class="ie7 lte9 lte8 lte7 no-js"> <![endif]-->
+<!--[if IE 8]>    <html lang="en" class="ie8 lte9 lte8 no-js"> <![endif]-->
+<!--[if IE 9]>    <html lang="en" class="ie9 lte9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html id="html" lang="en" class="no-mobile no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="description"
+      content="Journal is Letterboxd’s online magazine. Our mission is to get more films, big and small, onto your watchlists, spotlight the best writing from our community, and bring you news from our crew behind the scenes. Along the way, we dig deeper into the movies we’re obsessed with, meet the people who make them, and explore the culture that surrounds them."
+    />
+
+    <meta property="og:url" content="https://letterboxd.com/journal/" />
+    <meta property="og:title" content="Journal • A Letterboxd Magazine" />
+    <meta
+      property="og:description"
+      content="Journal is Letterboxd’s online magazine. Our mission is to get more films, big and small, onto your watchlists, spotlight the best writing from our community, and bring you news from our crew behind the scenes. Along the way, we dig deeper into the movies we’re obsessed with, meet the people who make them, and explore the culture that surrounds them."
+    />
+    <meta
+      property="og:image"
+      content="https://a.ltrbxd.com/sm/upload/os/np/db/qa/default-share-journal.png?k=bb86489d2c"
+    />
+    <meta property="og:image:width" content="1000" />
+    <meta property="og:image:height" content="1000" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@letterboxd" />
+    <meta name="twitter:url" content="https://letterboxd.com/journal/" />
+    <meta name="twitter:title" content="Journal • A Letterboxd Magazine" />
+    <meta
+      name="twitter:description"
+      content="Journal is Letterboxd’s online magazine. Our mission is to get more films, big and small, onto your watchlists, spotlight the best writing from our community, and bring you news from our crew behind…"
+    />
+    <meta
+      name="twitter:image"
+      content="https://a.ltrbxd.com/sm/upload/os/np/db/qa/default-share-journal.png?k=bb86489d2c"
+    />
+
+    <meta name="application-name" content="Letterboxd" />
+    <meta name="theme-color" content="#445566" />
+    <meta name="msapplication-TileColor" content="#445566" />
+    <meta
+      name="apple-itunes-app"
+      content="app-id=1054271011, affiliate-data=11l5KW"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <title>&lrm;Journal • A Letterboxd Magazine • Letterboxd</title>
+
+    <script
+      id="twitter-wjs"
+      src="https://platform.twitter.com/widgets.js"
+    ></script>
+    <script
+      type="text/javascript"
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=G-L0W7RDZXX3&amp;l=dataLayer&amp;cx=c"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag =
+        window.gtag ||
+        function () {
+          dataLayer.push(arguments);
+        };
+      function ga() {}
+
+      // Default consent to 'denied'.
+      gtag("consent", "default", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+      });
+    </script>
+
+    <script
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=G-D3ECBB4D7L"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag =
+        window.gtag ||
+        function () {
+          dataLayer.push(arguments);
+        };
+      gtag("js", new Date());
+
+      var analytic_params = {};
+
+      analytic_params["user_type"] = "Visitor";
+      analytic_params["template"] = "/object/journal";
+
+      if (analytic_params.member_type) {
+        gtag("set", "user_properties", {
+          member_type: analytic_params.member_type,
+        });
+        delete analytic_params.member_type;
+      }
+      var config = {
+        ...analytic_params,
+        cookie_domain: "letterboxd.com",
+        optimize_id: "GTM-TB8HSDN",
+      };
+      gtag("config", "G-D3ECBB4D7L", config);
+    </script>
+
+    <script>
+      var isMobile = false,
+        isMobileOptimised = true,
+        renderMobile = false,
+        useStaticFonts = false,
+        disableFrameProtection = false,
+        baseURL = "",
+        successMessages = [],
+        errorMessages = [],
+        stickyMessages = [],
+        globals = {
+          autoAddFilm: false,
+          spinners: {
+            ajax_242d35:
+              "https://s.ltrbxd.com/static/img/spinner-dark-2x.fda24f88.gif",
+            spinner_12_2C3641:
+              "https://s.ltrbxd.com/static/img/spinner-dark-2x.fda24f88.gif",
+            spinner_14_20272f:
+              "https://s.ltrbxd.com/static/img/spinner-dark-2x.fda24f88.gif",
+            spinner_16_161B21:
+              "https://s.ltrbxd.com/static/img/spinner-dark-2x.fda24f88.gif",
+          },
+        },
+        supermodelCSRF = "",
+        gRecaptchaKey = "6Le3mMIUAAAAAEXbwZ7M1R5jEv0V5xbvj7bgXq2g",
+        person = {
+          username: "",
+          loggedIn: false,
+
+          showAds: true,
+          role: "guest",
+          hasExtendedServiceFilters: false,
+          canBulkAddToLists: false,
+          canFilterOwned: false,
+          hasHqRole: false,
+          canHaveHqDashboard: false,
+          hasMemberStatistics: false,
+          blockedMembers: [],
+          showAdultContent: false,
+          validated: null,
+          trusted: false,
+          hasBlocked: function (member) {
+            for (var i = 0; i !== person.blockedMembers.length; i++) {
+              if (person.blockedMembers[i] === member) return true;
+            }
+            return false;
+          },
+          viewingTags: [],
+          hasMoreTags: true,
+          getCustomPoster: function (filmId) {
+            return null;
+          },
+        },
+        disableAds = false;
+
+      supermodelCSRF = "ebe3002e486755588947";
+
+      if (screen.width < 768) {
+        var date = new Date();
+        var maxAge = 365 * 24 * 60 * 60;
+        date.setTime(date.getTime() + maxAge * 1000);
+        var expires = "; expires=" + date.toUTCString();
+        document.cookie =
+          "useMobileSite=yes" + expires + "; path=/; maxAge=" + maxAge;
+        if (
+          document.cookie &&
+          document.cookie.indexOf("useMobileSite=yes") >= 0
+        ) {
+          window.location.reload(true);
+        } else {
+          // No cookies.  No Mobile version.
+        }
+      }
+
+      var isWindows = navigator.platform.toUpperCase().indexOf("WIN") >= 0; // Detect windows platform
+      if (isWindows) {
+        document.documentElement.classList.add("is-windows");
+      }
+    </script>
+
+    <script>
+      window.ramp = window.ramp || {};
+      window.ramp.que = window.ramp.que || [];
+      window.ramp.passiveMode = false;
+      window.ramp.forcePath = "";
+      window.ramp.custom_tags = ["", "", "intl_true", "", ""];
+    </script>
+    <script src="//cdn.intergient.com/1024338/72804/ramp_config.js"></script>
+    <script>
+      window._pwGA4PageviewId = "".concat(Date.now());
+      window.dataLayer = window.dataLayer || [];
+      window.gtag =
+        window.gtag ||
+        function () {
+          dataLayer.push(arguments);
+        };
+      gtag("js", new Date());
+      gtag("config", "G-L0W7RDZXX3", { send_page_view: false });
+      gtag("event", "ramp_js", {
+        send_to: "G-L0W7RDZXX3",
+        pageview_id: window._pwGA4PageviewId,
+      });
+    </script>
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="author" type="text/plain" href="/humans.txt" />
+    <link
+      rel="mask-icon"
+      href="https://s.ltrbxd.com/static/img/icons/letterboxd-decal-l-16px.5fe24c7d.svg"
+      color="#445566"
+    />
+    <link
+      rel="shortcut icon"
+      sizes="196x196"
+      href="https://s.ltrbxd.com/static/img/icons/touch-icon-192x192.257b84e7.png"
+    />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link
+      rel="search"
+      type="application/opensearchdescription+xml"
+      title="Letterboxd"
+      href="/static/opensearch.xml"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS Feed"
+      href="/journal/rss/"
+    />
+
+    <!--[if lte IE 9]>
+      <link
+        href="https://s.ltrbxd.com/static/css/ie9-1.min.5bb7feb2.css"
+        rel="stylesheet"
+        media="screen, projection"
+      />
+      <link
+        href="https://s.ltrbxd.com/static/css/ie9-2.min.d4ff16a3.css"
+        rel="stylesheet"
+        media="screen, projection"
+      />
+    <![endif]-->
+    <!--[if (gt IE 9)|!(IE)]><!-->
+    <link
+      href="https://s.ltrbxd.com/static/css/main.min.69d14dec.css"
+      rel="stylesheet"
+      media="screen, projection"
+    />
+    <!--<![endif]-->
+    <!--[if lte IE 6
+      ]><script>
+        location.replace("/errors/ie6");
+      </script><!
+    [endif]-->
+    <!--[if IE 7
+      ]><script>
+        location.replace("/errors/ie7");
+      </script><!
+    [endif]-->
+    <!--[if IE 8
+      ]><script>
+        location.replace("/errors/ie8");
+      </script><!
+    [endif]-->
+    <!--[if IE 9
+      ]><script>
+        location.replace("/errors/ie9");
+      </script><!
+    [endif]-->
+
+    <meta name="twitter:widgets:autoload" content="off" />
+    <link
+      href="https://s.ltrbxd.com/static/css/journal.min.4a6e53ad.css"
+      rel="stylesheet"
+    />
+    <script src="https://s.ltrbxd.com/static/js/journal.min.8401e72f.js"></script>
+    <style></style>
+
+    <link
+      href="https://s.ltrbxd.com/static/css/desktop.min.1c7835d9.css"
+      rel="stylesheet"
+      media="screen, projection"
+    />
+
+    <!-- <script src="https://s.ltrbxd.com/static/js/main.min.508166e3.js"></script> -->
+    <style></style>
+    <style title="lb-spinner"></style>
+
+    <script>
+      if ($.cookie("letterboxd.admin.signed.in") === person.username) {
+        successMessages.push("You are signed in as " + person.username);
+        $(function () {
+          $("#header, #content, body").css("background", "#543");
+        });
+      }
+    </script>
+  </head>
+
+  <body class="journal -root logged-out" style="">
+    <script>
+      var mainMenu = [];
+
+      mainMenu.push({
+        id: 1,
+        url: "/sign-in/",
+        name: "Sign In",
+        cssClassCode: "sign-in-menu",
+        hideWhenSignedIn: true,
+        hideWhenNotSignedIn: false,
+        showInMainNavForMobile: true,
+        tooltip: "",
+        selected: false,
+      });
+
+      mainMenu.push({
+        id: 2,
+        url: "/create-account/",
+        name: "Create Account",
+        cssClassCode: "create-account-menu",
+        hideWhenSignedIn: true,
+        hideWhenNotSignedIn: false,
+        showInMainNavForMobile: false,
+        tooltip: "",
+        selected: false,
+      });
+
+      mainMenu.push({
+        id: 3,
+        url: "/",
+        name: "Home",
+        cssClassCode: "person-home",
+        hideWhenSignedIn: true,
+        hideWhenNotSignedIn: true,
+        showInMainNavForMobile: false,
+        tooltip: "",
+        selected: false,
+      });
+
+      mainMenu.push({
+        id: 4,
+        url: "/activity/",
+        name: "Activity",
+        cssClassCode: "main-nav-activity",
+        hideWhenSignedIn: false,
+        hideWhenNotSignedIn: true,
+        showInMainNavForMobile: false,
+        tooltip: "Activity",
+        selected: false,
+      });
+
+      mainMenu.push({
+        id: 5,
+        url: "/films/",
+        name: "Films",
+        cssClassCode: "films-page main-nav-films",
+        hideWhenSignedIn: false,
+        hideWhenNotSignedIn: false,
+        showInMainNavForMobile: false,
+        tooltip: "",
+        selected: false,
+      });
+
+      mainMenu.push({
+        id: 6,
+        url: "/lists/",
+        name: "Lists",
+        cssClassCode: "lists-page main-nav-lists",
+        hideWhenSignedIn: false,
+        hideWhenNotSignedIn: false,
+        showInMainNavForMobile: false,
+        tooltip: "",
+        selected: false,
+      });
+
+      mainMenu.push({
+        id: 7,
+        url: "/members/",
+        name: "Members",
+        cssClassCode: "main-nav-people",
+        hideWhenSignedIn: false,
+        hideWhenNotSignedIn: false,
+        showInMainNavForMobile: false,
+        tooltip: "",
+        selected: false,
+      });
+
+      mainMenu.push({
+        id: 8,
+        url: "/journal/",
+        name: "Journal",
+        cssClassCode: "main-nav-journal",
+        hideWhenSignedIn: false,
+        hideWhenNotSignedIn: false,
+        showInMainNavForMobile: false,
+        tooltip: "",
+        selected: true,
+      });
+
+      mainMenu.push({
+        id: 9,
+        url: "/search/",
+        name: "Search results",
+        cssClassCode: "",
+        hideWhenSignedIn: true,
+        hideWhenNotSignedIn: true,
+        showInMainNavForMobile: false,
+        tooltip: "",
+        selected: false,
+      });
+    </script>
+
+    <header class="site-header js-hide-in-app -searchopen" id="header">
+      <div class="site-header-bg"></div>
+      <section>
+        <h1 class="site-logo">
+          <a href="/" class="logo replace">Letterboxd — Your life in film</a>
+        </h1>
+
+        <div
+          class="react-component"
+          data-component-class="globals.comps.NavComponent"
+        >
+          <div>
+            <nav class="main-nav">
+              <ul class="navitems">
+                <li class="navitem sign-in-menu">
+                  <a href="/sign-in/" class="navlink has-icon"
+                    ><span class="icon"></span
+                    ><span class="label">Sign In</span></a
+                  >
+                </li>
+                <li class="navitem create-account-menu">
+                  <a
+                    href="/create-account/"
+                    class="navlink has-icon cboxElement"
+                    ><span class="icon"></span
+                    ><span class="label">Create Account</span></a
+                  >
+                </li>
+                <li class="navitem films-page main-nav-films">
+                  <a href="/films/" class="navlink has-icon"
+                    ><span class="icon"></span
+                    ><span class="label">Films</span></a
+                  >
+                </li>
+                <li class="navitem lists-page main-nav-lists">
+                  <a href="/lists/" class="navlink has-icon"
+                    ><span class="icon"></span
+                    ><span class="label">Lists</span></a
+                  >
+                </li>
+                <li class="navitem main-nav-people">
+                  <a href="/members/" class="navlink has-icon"
+                    ><span class="icon"></span
+                    ><span class="label">Members</span></a
+                  >
+                </li>
+                <li class="navitem main-nav-journal -selected">
+                  <a href="/journal/" class="navlink has-icon"
+                    ><span class="icon"></span
+                    ><span class="label">Journal</span></a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <form
+          method="post"
+          action="#"
+          id="signin"
+          class="signin signin-form js-header-signin-form js-signin -hidden"
+          data-url="/user/login.do"
+          data-recaptcha-action="signin"
+          novalidate="novalidate"
+          autocorrect="off"
+          autocapitalize="off"
+          style="opacity: 0; display: none"
+        >
+          <input type="hidden" name="__csrf" value="ebe3002e486755588947" />
+          <fieldset class="fieldset">
+            <div class="fields">
+              <div class="col">
+                <label for="username">Username or Email</label>
+                <input
+                  type="email"
+                  name="username"
+                  id="username"
+                  class="field signin-field"
+                  tabindex="1"
+                  data-focus-control="signingIn"
+                  autocomplete="email"
+                  inputmode="email"
+                  value=""
+                />
+              </div>
+              <div class="col">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  class="field signin-field"
+                  tabindex="2"
+                  autocomplete="current-password"
+                  value=""
+                />
+              </div>
+              <div class="signin-actions">
+                <label for="remember" class="option-label -checkbox -small">
+                  <input
+                    type="checkbox"
+                    name="remember"
+                    id="remember"
+                    class="checkbox"
+                    tabindex="3"
+                    value="true"
+                  /><i class="substitute"></i>
+                  <span class="focus"
+                    >Remember<span class="mob-hide"> me</span></span
+                  >
+                </label>
+                <p class="reset" tabindex="5">
+                  <a
+                    class="reset-password-link"
+                    href="/user/request-password-reset"
+                    target="_top"
+                    >Forgotten<span class="elongated"> password</span>?</a
+                  >
+                </p>
+              </div>
+              <div class="col buttons">
+                <div class="button-container">
+                  <input
+                    type="submit"
+                    value="Sign in"
+                    class="button -action button-green"
+                    tabindex="4"
+                  /><i></i>
+                </div>
+                <div class="close js-close-signin">×</div>
+              </div>
+            </div>
+          </fieldset>
+          <div id="signin-message" class="errormessage"></div>
+        </form>
+
+        <form
+          id="search"
+          class="js-search-form search-form"
+          action="/search/"
+          method="get"
+          autocorrect="off"
+        >
+          <input
+            autocomplete="false"
+            name="hidden"
+            type="text"
+            style="display: none"
+          />
+          <fieldset>
+            <label for="search-q" class="hidden">Search:</label>
+            <input
+              type="text"
+              name="q"
+              id="search-q"
+              class="field -borderless"
+              data-lpignore="true"
+              inputmode="search"
+              value=""
+            />
+            <input type="submit" value="Search" class="action" />
+          </fieldset>
+        </form>
+      </section>
+    </header>
+
+    <main class="page-body journal-body js-journal-body">
+      <header class="journal-header" data-js-component="JournalHeader">
+        <nav
+          class="journal-navigation width-limit js-navigation js-hide-in-app"
+          aria-role="navigation"
+        >
+          <div class="constraint width-limit">
+            <div class="wordmark js-wordmark">
+              <a class="trigger" href="/journal/">
+                <span class="label">Journal</span>
+                <svg
+                  class="graphic"
+                  aria-hidden="true"
+                  width="115"
+                  height="13"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2.093 12.141c2.755 0 4.094-1.446 4.094-4.17V.999H2.693v6.956c0 1.078-.57 1.432-1.385 1.432-.6 0-.954-.093-1.308-.2v2.57c.462.23 1.016.384 2.093.384zM20.479.83c3.386 0 5.91 2.047 5.91 5.525v.123c0 3.432-2.355 5.725-5.972 5.725-3.6 0-5.817-2.293-5.817-5.633v-.123c0-3.4 2.585-5.617 5.879-5.617zm0 2.724c-1.354 0-2.232 1-2.232 2.878v.123c0 1.878.878 2.909 2.263 2.909 1.37 0 2.247-1.078 2.247-2.909v-.123c0-1.862-.893-2.878-2.278-2.878zM39.482 12.203c3.078 0 5.048-1.462 5.048-4.77V.998h-3.509v6.31c0 1.447-.307 2.155-1.539 2.155-1.246 0-1.554-.708-1.554-2.14V1H34.45v6.464c0 3.14 1.816 4.74 5.032 4.74zM57.494 1c3.032 0 4.601 1.215 4.601 3.57v.061c0 1.524-.77 2.386-1.862 2.878l2.509 4.494h-3.663l-2.047-3.77h-.554v3.77H53V.999zm-.185 2.616h-.83v2.37h.815c.97 0 1.431-.4 1.431-1.2v-.062c0-.8-.477-1.108-1.416-1.108zM73.828 12.003V5.416l3.678 6.587h3.34V.999h-3.063v5.818L74.66.999H70.75v11.004zM96.222 1l3.447 11.003h-3.693l-.508-1.831H91.99l-.493 1.83H88.25L91.713 1h4.509zm-2.478 2.816l-1.093 3.986h2.17l-1.077-3.986zM114.495 12.003V9.31h-4.002V1H107v11.003z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+
+            <div class="navlist">
+              <div class="navitem -default js-navitem">
+                <button
+                  id="journal-navigation-menu-drawer-topics-trigger"
+                  class="trigger"
+                  type="button"
+                  aria-label="Toggle Archive Menu"
+                  aria-controls="journal-navigation-menu-drawer-topics"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  tabindex="0"
+                >
+                  <span class="label">Archive</span>
+                  <svg
+                    class="chevron"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke="#000"
+                      d="M2.5 4.5l4.5 5 4.5-5"
+                      fill="none"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+
+              <div class="navitem -default js-navitem">
+                <button
+                  id="journal-navigation-menu-drawer-call-sheet-trigger"
+                  class="trigger"
+                  type="button"
+                  aria-label="Toggle Call Sheet Archive Menu"
+                  aria-controls="journal-navigation-menu-drawer-call-sheet"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  tabindex="0"
+                >
+                  <span class="label">Newsletter</span>
+                  <svg
+                    class="chevron"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke="#000"
+                      d="M2.5 4.5l4.5 5 4.5-5"
+                      fill="none"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+
+              <div class="navitem -default js-navitem">
+                <button
+                  id="journal-navigation-menu-drawer-podcast-trigger"
+                  class="trigger"
+                  type="button"
+                  aria-label="Toggle Podcast Menu"
+                  aria-controls="journal-navigation-menu-drawer-podcast"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  tabindex="0"
+                >
+                  <span class="label">Podcast</span>
+                  <svg
+                    class="chevron"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke="#000"
+                      d="M2.5 4.5l4.5 5 4.5-5"
+                      fill="none"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <button
+              id="journal-navigation-menu-dropdown-trigger"
+              class="dropdowntoggle trigger"
+              type="button"
+              aria-label="Toggle Journal Navigation"
+              aria-controls="journal-navigation-menu-dropdown"
+            >
+              <span class="label _sr-only">Toggle Journal Navigation</span>
+              <svg
+                class="chevron"
+                width="16"
+                height="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke="#000"
+                  d="M1 4.25l7 7 7-7"
+                  fill="none"
+                  fill-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div class="_context-observer" aria-hidden="true"></div>
+        </nav>
+
+        <div
+          class="journal-navigation-menu journal-navigation-drawer -hidden js-menu"
+          style="padding-top: 58px; height: 58px"
+        >
+          <div
+            id="journal-navigation-menu-drawer-topics"
+            class="journal-navigation-menu-section -topics"
+            role="menu"
+            aria-labelledby="journal-navigation-menu-drawer-topics-trigger"
+            aria-hidden="true"
+            tabindex="-1"
+          >
+            <div class="menusection">
+              <div class="constraint width-limit">
+                <ul class="category-chip-list menulist" role="presentation">
+                  <li class="menuitem listitem js-menuitem" role="none">
+                    <a
+                      class="category-chip -default"
+                      href="/journal/archive/"
+                      role="menuitem"
+                      tabindex="-1"
+                      ><span class="label">All Topics</span></a
+                    >
+                  </li>
+
+                  <li class="menuitem listitem js-menuitem" role="none">
+                    <a
+                      class="category-chip -default"
+                      href="/journal/archive/topic/big-picture/"
+                      role="menuitem"
+                      tabindex="-1"
+                      ><span class="label">Big Picture</span></a
+                    >
+                  </li>
+
+                  <li class="menuitem listitem js-menuitem" role="none">
+                    <a
+                      class="category-chip -default"
+                      href="/journal/archive/topic/cinemascope/"
+                      role="menuitem"
+                      tabindex="-1"
+                      ><span class="label">Cinemascope</span></a
+                    >
+                  </li>
+
+                  <li class="menuitem listitem js-menuitem" role="none">
+                    <a
+                      class="category-chip -default"
+                      href="/journal/archive/topic/community/"
+                      role="menuitem"
+                      tabindex="-1"
+                      ><span class="label">Community</span></a
+                    >
+                  </li>
+
+                  <li class="menuitem listitem js-menuitem" role="none">
+                    <a
+                      class="category-chip -default"
+                      href="/journal/archive/topic/deep-impact/"
+                      role="menuitem"
+                      tabindex="-1"
+                      ><span class="label">Deep Impact</span></a
+                    >
+                  </li>
+
+                  <li class="menuitem listitem js-menuitem" role="none">
+                    <a
+                      class="category-chip -default"
+                      href="/journal/archive/topic/festival-circuit/"
+                      role="menuitem"
+                      tabindex="-1"
+                      ><span class="label">Festival Circuit</span></a
+                    >
+                  </li>
+
+                  <li class="menuitem listitem js-menuitem" role="none">
+                    <a
+                      class="category-chip -default"
+                      href="/journal/archive/topic/interview/"
+                      role="menuitem"
+                      tabindex="-1"
+                      ><span class="label">Interview</span></a
+                    >
+                  </li>
+
+                  <li class="menuitem listitem js-menuitem" role="none">
+                    <a
+                      class="category-chip -default"
+                      href="/journal/archive/topic/life-in-film/"
+                      role="menuitem"
+                      tabindex="-1"
+                      ><span class="label">Life in Film</span></a
+                    >
+                  </li>
+
+                  <li class="menuitem listitem js-menuitem" role="none">
+                    <a
+                      class="category-chip -default"
+                      href="/journal/archive/topic/platform/"
+                      role="menuitem"
+                      tabindex="-1"
+                      ><span class="label">Platform</span></a
+                    >
+                  </li>
+
+                  <li class="menuitem listitem js-menuitem" role="none">
+                    <a
+                      class="category-chip -default"
+                      href="/journal/archive/topic/podcast/"
+                      role="menuitem"
+                      tabindex="-1"
+                      ><span class="label">Podcast</span></a
+                    >
+                  </li>
+
+                  <li class="menuitem listitem js-menuitem" role="none">
+                    <a
+                      class="category-chip -default"
+                      href="/journal/archive/topic/shelf-life/"
+                      role="menuitem"
+                      tabindex="-1"
+                      ><span class="label">Shelf Life</span></a
+                    >
+                  </li>
+
+                  <li class="menuitem listitem js-menuitem" role="none">
+                    <a
+                      class="category-chip -default"
+                      href="/journal/archive/topic/year-in-review/"
+                      role="menuitem"
+                      tabindex="-1"
+                      ><span class="label">Year in Review</span></a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div
+            id="journal-navigation-menu-drawer-call-sheet"
+            class="journal-navigation-menu-section -call-sheet"
+            role="menu"
+            aria-labelledby="journal-navigation-menu-drawer-call-sheet-trigger"
+            aria-hidden="true"
+            tabindex="-1"
+          >
+            <div class="menusection -has-preview">
+              <div class="constraint width-limit">
+                <div class="archivenav">
+                  <div class="navgroup">
+                    <h4 class="title journal-nav-title">2022</h4>
+                    <ul class="navlist journal-nav-list" role="presentation">
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="/email/call-sheet/2022-12/"
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex="-1"
+                          ><span class="label">December</span></a
+                        >
+                      </li>
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="/email/call-sheet/2022-11/"
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex="-1"
+                          ><span class="label">November</span></a
+                        >
+                      </li>
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="/email/call-sheet/2022-10/"
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex="-1"
+                          ><span class="label">October</span></a
+                        >
+                      </li>
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="/email/call-sheet/2022-09/"
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex="-1"
+                          ><span class="label">September</span></a
+                        >
+                      </li>
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="/email/call-sheet/2022-08/"
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex="-1"
+                          ><span class="label">August</span></a
+                        >
+                      </li>
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="/email/call-sheet/2022-07/"
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex="-1"
+                          ><span class="label">July</span></a
+                        >
+                      </li>
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="/email/call-sheet/2022-06/"
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex="-1"
+                          ><span class="label">June</span></a
+                        >
+                      </li>
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="/email/call-sheet/2022-05/"
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex="-1"
+                          ><span class="label">May</span></a
+                        >
+                      </li>
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="/email/call-sheet/2022-04/"
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex="-1"
+                          ><span class="label">April</span></a
+                        >
+                      </li>
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="/email/call-sheet/2022-03/"
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex="-1"
+                          ><span class="label">March</span></a
+                        >
+                      </li>
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="/email/call-sheet/2022-02/"
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex="-1"
+                          ><span class="label">February</span></a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="navgroup">
+                    <h4 class="title journal-nav-title">2021</h4>
+                    <ul class="navlist journal-nav-list" role="presentation">
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="/email/call-sheet/2021-12/"
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex="-1"
+                          ><span class="label">December</span></a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <figure class="preview">
+                  <div class="media">
+                    <div class="frame responsive-ratio">
+                      <img
+                        src="https://a.ltrbxd.com/resized/sm/upload/gs/7j/v3/yo/cs-2022-dec-0-660-0-0.jpg?k=c8bbb14d63"
+                        data-src="https://a.ltrbxd.com/resized/sm/upload/gs/7j/v3/yo/cs-2022-dec-0-660-0-0.jpg?k=c8bbb14d63"
+                        data-srcset="https://a.ltrbxd.com/resized/sm/upload/gs/7j/v3/yo/cs-2022-dec-0-660-0-0.jpg?k=c8bbb14d63 660w, https://a.ltrbxd.com/sm/upload/gs/7j/v3/yo/cs-2022-dec.jpg?k=52d80d8b5c 1320w"
+                        width="660"
+                        height="990"
+                        alt="Screenshot of December 2022 Call Sheet"
+                        class="ls-target"
+                        loading="lazy"
+                        data-sizes="auto"
+                      />
+                    </div>
+                  </div>
+                </figure>
+              </div>
+            </div>
+          </div>
+
+          <div
+            id="journal-navigation-menu-drawer-podcast"
+            class="journal-navigation-menu-section -podcast"
+            role="menu"
+            aria-labelledby="journal-navigation-menu-drawer-podcast-trigger"
+            aria-hidden="true"
+            tabindex="-1"
+          >
+            <div class="menusection">
+              <div class="constraint width-limit">
+                <div class="latestepisode js-menuitem">
+                  <h4 class="journal-nav-title">Latest Episode</h4>
+
+                  <article
+                    class="article-summary -podcast-episode js-menuitemfocusable"
+                    aria-label="The Letterboxd Show (Season 1, Episode 3) — Best in Show: Guilds, Globes, Puss in Boots"
+                    data-js-component="ArticleSummary"
+                    tabindex="-1"
+                    role="menuitem"
+                  >
+                    <figure class="media -has-link">
+                      <div
+                        class="responsive-ratio"
+                        style="padding-bottom: 100%"
+                      >
+                        <a
+                          href="https://anchor.fm/letterboxd/episodes/Best-in-Show-Guilds--Globes--Puss-in-Boots-and-the-1976-Best-Director-revisited-e1titsq"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex="-1"
+                        >
+                          <img
+                            src="https://a.ltrbxd.com/resized/sm/upload/k2/ty/rr/bf/lbxd-show-bis-blue-0-560-0-560-crop-fill.png?k=5c43d2cc02"
+                            data-src="https://a.ltrbxd.com/resized/sm/upload/k2/ty/rr/bf/lbxd-show-bis-blue-0-560-0-560-crop-fill.jpg?k=8c4876dc68"
+                            width="560"
+                            height="560"
+                            alt="Artwork for Season 1, Episode 3: Best in Show: Guilds, Globes, Puss in Boots"
+                            class="ls-target"
+                            loading="lazy"
+                            data-sizes="auto"
+                          />
+                        </a>
+                      </div>
+                    </figure>
+
+                    <div class="detail">
+                      <div class="meta -has-rubric -has-timestamp">
+                        <div class="rubric article-category">
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://apple.co/3TfzHVG"
+                            tabindex="-1"
+                            >The Letterboxd Show</a
+                          >
+                        </div>
+                        <time
+                          class="timestamp article-meta -timestamp localtime-d-mmm-yyyy"
+                          datetime="2023-01-16T11:00:00Z"
+                          >16 Jan 2023</time
+                        >
+                      </div>
+
+                      <div class="hgroup">
+                        <div class="inner">
+                          <div class="head" data-js-unorphan="">
+                            <h3 class="title article-title">
+                              <a
+                                href="https://anchor.fm/letterboxd/episodes/Best-in-Show-Guilds--Globes--Puss-in-Boots-and-the-1976-Best-Director-revisited-e1titsq"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                data-js-canonical-link-trigger=""
+                                tabindex="-1"
+                                >Best in Show: Guilds, Globes, Puss
+                                in&nbsp;Boots</a
+                              >
+                            </h3>
+                          </div>
+
+                          <div class="meta -has-no-timestamp">
+                            <div class="episode article-meta">
+                              Season 1, Episode 3
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="description rich-content">
+                        <p>
+                          Mia, Brian and Gemma discuss their fave noms and gongs
+                          from the latest guild shortlists. A quick look at the
+                          Golden Globes, the EE BAFTA Rising Star award public
+                          voting is open!&nbsp;And it’s animation time:
+                          <em>Turning Red</em> director Domee Shi has a message
+                          for the Letterboxd community, and we go deep on Akira
+                          Kurosawa, Ingmar Bergman and Sergio Leone with
+                          <em>Puss in Boots: The Last Wish</em> director Joel
+                          Crawford. Then, we re-evaluate the 1976 Best Director
+                          Oscar lineup.
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="aside">
+                  <div class="navgroup">
+                    <h4 class="title journal-nav-title">Archive</h4>
+
+                    <ul class="navlist journal-nav-list" role="presentation">
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="https://apple.co/3TfzHVG"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          role="menuitem"
+                          tabindex="-1"
+                          ><span class="label">Episodes</span></a
+                        >
+                      </li>
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="/about/podcast-transcripts/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          role="menuitem"
+                          tabindex="-1"
+                          ><span class="label">Transcripts</span></a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="navgroup">
+                    <h4 class="title journal-nav-title">Subscribe</h4>
+
+                    <ul class="navlist journal-nav-list" role="presentation">
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="https://apple.co/3TfzHVG"
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex="-1"
+                          ><span class="label">Apple Podcasts</span></a
+                        >
+                      </li>
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="https://open.spotify.com/show/7sA60f94UXwZDH1EJC4obI"
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex="-1"
+                          ><span class="label">Spotify</span></a
+                        >
+                      </li>
+                      <li class="listitem js-menuitem" role="none">
+                        <a
+                          href="https://anchor.fm/s/133d445c/podcast/rss"
+                          role="menuitem"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          tabindex="-1"
+                          ><span class="label">RSS</span></a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cyclorama"></div>
+          <div class="modestypanel" style="height: 58px"></div>
+        </div>
+        <div
+          class="journal-navigation-menu-dropshadow"
+          style="height: 58px"
+        ></div>
+        <div class="journal-navigation-menu-curtain"></div>
+      </header>
+
+      <section class="journal-page-section home-feature">
+        <article
+          class="article-summary -centered width-limit"
+          data-js-component="ArticleSummary"
+        >
+          <figure class="media -has-link">
+            <div class="responsive-ratio" style="padding-bottom: 56.25%">
+              <a
+                href="/journal/happy-that-way-blue-jean-georgia-oakley-H%C3%A9l%C3%A8ne-Siffre/"
+              >
+                <img
+                  src="https://a.ltrbxd.com/resized/sm/upload/ih/ug/0o/t7/Untitled-1-0-640-0-360-crop-fill.jpg?k=d8fbc51858"
+                  data-src="https://a.ltrbxd.com/resized/sm/upload/ih/ug/0o/t7/Untitled-1-0-640-0-360-crop-fill.jpg?k=d8fbc51858"
+                  data-srcset="https://a.ltrbxd.com/resized/sm/upload/ih/ug/0o/t7/Untitled-1-0-640-0-360-crop-fill.jpg?k=d8fbc51858 640w, https://a.ltrbxd.com/resized/sm/upload/ih/ug/0o/t7/Untitled-1-0-960-0-540-crop-fill.jpg?k=1ca38fb89d 960w, https://a.ltrbxd.com/resized/sm/upload/ih/ug/0o/t7/Untitled-1-0-1280-0-720-crop-fill.jpg?k=98d7b35209 1280w"
+                  width="640"
+                  height="360"
+                  alt=""
+                  class="lazyautosizes ls-is-cached lazyloaded"
+                  loading="lazy"
+                  data-sizes="auto"
+                  sizes="550px"
+                  srcset="
+                    https://a.ltrbxd.com/resized/sm/upload/ih/ug/0o/t7/Untitled-1-0-640-0-360-crop-fill.jpg?k=d8fbc51858   640w,
+                    https://a.ltrbxd.com/resized/sm/upload/ih/ug/0o/t7/Untitled-1-0-960-0-540-crop-fill.jpg?k=1ca38fb89d   960w,
+                    https://a.ltrbxd.com/resized/sm/upload/ih/ug/0o/t7/Untitled-1-0-1280-0-720-crop-fill.jpg?k=98d7b35209 1280w
+                  "
+                />
+              </a>
+            </div>
+          </figure>
+
+          <div class="detail">
+            <div class="meta -has-rubric -has-no-timestamp">
+              <div class="rubric article-category">
+                <a href="/journal/archive/topic/interview/">Interview</a>
+              </div>
+            </div>
+
+            <div class="head">
+              <a
+                href="/journal/happy-that-way-blue-jean-georgia-oakley-H%C3%A9l%C3%A8ne-Siffre/"
+              >
+                <h1 class="title article-title">Happy That Way.</h1>
+                <div class="teaser" data-js-unorphan="" data-js-ligatures="">
+                  <p>
+                    Ella Kemp chats with writer-director Georgia Oakley,
+                    producer Hélène Siﬀre and stars Rosy McEwan and Kerrie Hayes
+                    about ﬁnding the personal in the political through their
+                    true-to-life, Thatcher-era drama <em>Blue&nbsp;Jean.</em>
+                  </p>
+                </div>
+              </a>
+            </div>
+
+            <div class="contributors contributor-list">
+              <div class="contributor article-meta">
+                <span class="displayname"
+                  ><a href="/journal/archive/author/ella-kemp/"
+                    >Ella Kemp</a
+                  ></span
+                >
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="journal-page-section latest-articles">
+        <div class="article-summary-grid -medium">
+          <div class="constraint width-limit">
+            <article
+              class="article-summary -centered -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a href="/journal/Sharing-the-Load-Milisuthando-Bongela/">
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/d7/sc/8t/lm/Milisuthando%20Documentary%20Stills%20-%2003-0-640-0-360-crop-fill.jpg?k=e32267fad1"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/d7/sc/8t/lm/Milisuthando%20Documentary%20Stills%20-%2003-0-640-0-360-crop-fill.jpg?k=e32267fad1"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/d7/sc/8t/lm/Milisuthando%20Documentary%20Stills%20-%2003-0-640-0-360-crop-fill.jpg?k=e32267fad1 640w, https://a.ltrbxd.com/resized/sm/upload/d7/sc/8t/lm/Milisuthando%20Documentary%20Stills%20-%2003-0-960-0-540-crop-fill.jpg?k=992300343d 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="lazyautosizes ls-is-cached lazyloaded"
+                      loading="lazy"
+                      data-sizes="auto"
+                      sizes="310px"
+                      srcset="
+                        https://a.ltrbxd.com/resized/sm/upload/d7/sc/8t/lm/Milisuthando%20Documentary%20Stills%20-%2003-0-640-0-360-crop-fill.jpg?k=e32267fad1 640w,
+                        https://a.ltrbxd.com/resized/sm/upload/d7/sc/8t/lm/Milisuthando%20Documentary%20Stills%20-%2003-0-960-0-540-crop-fill.jpg?k=992300343d 960w
+                      "
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-rubric -has-timestamp">
+                  <div class="rubric article-category">
+                    <a href="/journal/archive/topic/interview/">Interview</a>
+                  </div>
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2023-02-11T01:26:05.863Z"
+                      class="localtime-d-mmm-yyyy"
+                      >11 Feb 2023</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a href="/journal/Sharing-the-Load-Milisuthando-Bongela/">
+                    <h3 class="title article-title">Sharing the Load.</h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        Milisuthando Bongela on inviting audiences into a life
+                        growing up under Apartheid and the beauty of poetry in
+                        her eponymous&nbsp;documentary.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/adesola-thomas/"
+                        >Adesola Thomas</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -centered -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a
+                    href="/journal/reversing-the-flow-sarvnik-kaur-documentary-against-the-tide/"
+                  >
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/9b/fb/ox/4p/Against%20the%20Tide%20-%20Still%201-0-640-0-360-crop-fill.jpg?k=1e1fe2941e"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/9b/fb/ox/4p/Against%20the%20Tide%20-%20Still%201-0-640-0-360-crop-fill.jpg?k=1e1fe2941e"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/9b/fb/ox/4p/Against%20the%20Tide%20-%20Still%201-0-640-0-360-crop-fill.jpg?k=1e1fe2941e 640w, https://a.ltrbxd.com/resized/sm/upload/9b/fb/ox/4p/Against%20the%20Tide%20-%20Still%201-0-960-0-540-crop-fill.jpg?k=1965a16c64 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="lazyautosizes ls-is-cached lazyloaded"
+                      loading="lazy"
+                      data-sizes="auto"
+                      sizes="310px"
+                      srcset="
+                        https://a.ltrbxd.com/resized/sm/upload/9b/fb/ox/4p/Against%20the%20Tide%20-%20Still%201-0-640-0-360-crop-fill.jpg?k=1e1fe2941e 640w,
+                        https://a.ltrbxd.com/resized/sm/upload/9b/fb/ox/4p/Against%20the%20Tide%20-%20Still%201-0-960-0-540-crop-fill.jpg?k=1965a16c64 960w
+                      "
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-rubric -has-timestamp">
+                  <div class="rubric article-category">
+                    <a href="/journal/archive/topic/interview/">Interview</a>
+                  </div>
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2023-02-08T05:31:07.722Z"
+                      class="localtime-d-mmm-yyyy"
+                      >8 Feb 2023</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a
+                    href="/journal/reversing-the-flow-sarvnik-kaur-documentary-against-the-tide/"
+                  >
+                    <h3 class="title article-title">Reversing the Flow.</h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        Indigenous Editor Leo Koziol catches up with Sundance
+                        prize-winning ﬁlmmaker Sarvnik Kaur for a deep chat
+                        about her activist choice to make slow cinema in
+                        today’s&nbsp;world.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/leo-koziol/"
+                        >Leo Koziol</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -centered -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a
+                    href="/journal/sleepovers-and-the-supernatural-shelf-life-february-2023/"
+                  >
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/9g/w1/y9/c0/header-0-640-0-360-crop-fill.jpg?k=32a6a1aa8f"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/9g/w1/y9/c0/header-0-640-0-360-crop-fill.jpg?k=32a6a1aa8f"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/9g/w1/y9/c0/header-0-640-0-360-crop-fill.jpg?k=32a6a1aa8f 640w, https://a.ltrbxd.com/resized/sm/upload/9g/w1/y9/c0/header-0-960-0-540-crop-fill.jpg?k=88b4f8fcda 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="lazyautosizes ls-is-cached lazyloaded"
+                      loading="lazy"
+                      data-sizes="auto"
+                      sizes="310px"
+                      srcset="
+                        https://a.ltrbxd.com/resized/sm/upload/9g/w1/y9/c0/header-0-640-0-360-crop-fill.jpg?k=32a6a1aa8f 640w,
+                        https://a.ltrbxd.com/resized/sm/upload/9g/w1/y9/c0/header-0-960-0-540-crop-fill.jpg?k=88b4f8fcda 960w
+                      "
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-rubric -has-timestamp">
+                  <div class="rubric article-category">
+                    <a href="/journal/archive/topic/shelf-life/">Shelf Life</a>
+                  </div>
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2023-02-07T00:20:48.860Z"
+                      class="localtime-d-mmm-yyyy"
+                      >7 Feb 2023</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a
+                    href="/journal/sleepovers-and-the-supernatural-shelf-life-february-2023/"
+                  >
+                    <h3 class="title article-title">
+                      Sleepovers and the Supernatural.
+                    </h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        Goop and gore is on the menu this month, as we bring out
+                        the power drill, order a pizza and strap in for the
+                        latest edition of <em>Shelf&nbsp;Life</em>.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/katie-rife/"
+                        >Katie Rife</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -centered -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a
+                    href="/journal/magnificent-obsession-a-love-letter-to-criterion/"
+                  >
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/1b/8v/4u/up/Emiyofe-0-640-0-360-crop-fill.jpg?k=1865ce9f3e"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/1b/8v/4u/up/Emiyofe-0-640-0-360-crop-fill.jpg?k=1865ce9f3e"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/1b/8v/4u/up/Emiyofe-0-640-0-360-crop-fill.jpg?k=1865ce9f3e 640w, https://a.ltrbxd.com/resized/sm/upload/1b/8v/4u/up/Emiyofe-0-960-0-540-crop-fill.jpg?k=de719776cb 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="lazyautosizes ls-is-cached lazyloaded"
+                      loading="lazy"
+                      data-sizes="auto"
+                      sizes="310px"
+                      srcset="
+                        https://a.ltrbxd.com/resized/sm/upload/1b/8v/4u/up/Emiyofe-0-640-0-360-crop-fill.jpg?k=1865ce9f3e 640w,
+                        https://a.ltrbxd.com/resized/sm/upload/1b/8v/4u/up/Emiyofe-0-960-0-540-crop-fill.jpg?k=de719776cb 960w
+                      "
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-rubric -has-timestamp">
+                  <div class="rubric article-category">
+                    <a href="/journal/archive/topic/community/">Community</a>
+                  </div>
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2023-02-03T23:24:13.100Z"
+                      class="localtime-d-mmm-yyyy"
+                      >4 Feb 2023</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a
+                    href="/journal/magnificent-obsession-a-love-letter-to-criterion/"
+                  >
+                    <h3 class="title article-title">
+                      Magnificent Obsession: A Love Letter to Criterion.
+                    </h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        After the transformative experience of watching every
+                        spine number in the Criterion Collection, Letterboxd
+                        member Adam Davie pens a letter of gratitude—and one
+                        small ﬁlm request—to the storied video
+                        distribution&nbsp;company.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/adam-davie/"
+                        >Adam Davie</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -centered -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a
+                    href="/journal/going-off-leash-infinity-pool-cronenberg-skarsgard/"
+                  >
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/ib/7k/lv/fh/Infinity%20Pool_courtesy%20of%20NEON%20and%20Topic-0-640-0-360-crop-fill.jpg?k=07e9e2da7b"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/ib/7k/lv/fh/Infinity%20Pool_courtesy%20of%20NEON%20and%20Topic-0-640-0-360-crop-fill.jpg?k=07e9e2da7b"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/ib/7k/lv/fh/Infinity%20Pool_courtesy%20of%20NEON%20and%20Topic-0-640-0-360-crop-fill.jpg?k=07e9e2da7b 640w, https://a.ltrbxd.com/resized/sm/upload/ib/7k/lv/fh/Infinity%20Pool_courtesy%20of%20NEON%20and%20Topic-0-960-0-540-crop-fill.jpg?k=18005ed34e 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="lazyautosizes ls-is-cached lazyloaded"
+                      loading="lazy"
+                      data-sizes="auto"
+                      sizes="310px"
+                      srcset="
+                        https://a.ltrbxd.com/resized/sm/upload/ib/7k/lv/fh/Infinity%20Pool_courtesy%20of%20NEON%20and%20Topic-0-640-0-360-crop-fill.jpg?k=07e9e2da7b 640w,
+                        https://a.ltrbxd.com/resized/sm/upload/ib/7k/lv/fh/Infinity%20Pool_courtesy%20of%20NEON%20and%20Topic-0-960-0-540-crop-fill.jpg?k=18005ed34e 960w
+                      "
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-rubric -has-timestamp">
+                  <div class="rubric article-category">
+                    <a href="/journal/archive/topic/interview/">Interview</a>
+                  </div>
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2023-02-03T22:42:21.685Z"
+                      class="localtime-d-mmm-yyyy"
+                      >4 Feb 2023</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a
+                    href="/journal/going-off-leash-infinity-pool-cronenberg-skarsgard/"
+                  >
+                    <h3 class="title article-title">Going Off-Leash.</h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        Katie Rife chats with
+                        <em>Inﬁnity Pool</em>&nbsp;director Brandon Cronenberg
+                        and star Alexander Skarsgård about contrasting the banal
+                        with the carnal, on-set surprises and literal
+                        double&nbsp;meanings.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/katie-rife/"
+                        >Katie Rife</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -centered -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a href="/journal/Invisible-Armor-Lukas-Dhont-Close/">
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/2t/lu/ci/6u/flowers-0-640-0-360-crop-fill.jpg?k=7c93341b8a"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/2t/lu/ci/6u/flowers-0-640-0-360-crop-fill.jpg?k=7c93341b8a"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/2t/lu/ci/6u/flowers-0-640-0-360-crop-fill.jpg?k=7c93341b8a 640w, https://a.ltrbxd.com/resized/sm/upload/2t/lu/ci/6u/flowers-0-960-0-540-crop-fill.jpg?k=2fb80bcf7e 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="lazyautosizes ls-is-cached lazyloaded"
+                      loading="lazy"
+                      data-sizes="auto"
+                      sizes="310px"
+                      srcset="
+                        https://a.ltrbxd.com/resized/sm/upload/2t/lu/ci/6u/flowers-0-640-0-360-crop-fill.jpg?k=7c93341b8a 640w,
+                        https://a.ltrbxd.com/resized/sm/upload/2t/lu/ci/6u/flowers-0-960-0-540-crop-fill.jpg?k=2fb80bcf7e 960w
+                      "
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-rubric -has-timestamp">
+                  <div class="rubric article-category">
+                    <a href="/journal/archive/topic/interview/">Interview</a>
+                  </div>
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2023-02-03T01:54:47.727Z"
+                      class="localtime-d-mmm-yyyy"
+                      >3 Feb 2023</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a href="/journal/Invisible-Armor-Lukas-Dhont-Close/">
+                    <h3 class="title article-title">Invisible Armor.</h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        Lukas Dhont on his Oscar-nominated heartbreaker
+                        <em>Close</em>, the delicate hurdles of on screen
+                        violence and how women have shaped his view
+                        of&nbsp;masculinity.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/ella-kemp/"
+                        >Ella Kemp</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="article-summary-grid-footer -medium">
+          <div class="constraint width-limit">
+            <div class="item -right">
+              <a class="morelink" href="/journal/archive/">
+                <span class="label">Older articles</span>
+                <svg
+                  class="chevron"
+                  width="6"
+                  height="10"
+                  viewBox="0 0 6 10"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M.5 9l4.571-4L.5 1"
+                    stroke="#000"
+                    fill="none"
+                    fill-rule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="journal-page-section intermission-section">
+        <div class="constraint width-limit">
+          <div
+            id="intermission-d50dfbdd-820d-4e22-86dc-39cce15e184d"
+            class="journal-intermission"
+          >
+            <div
+              id="pw-8ae3c7d6-4a61-41ac-b482-d01d26390ada"
+              class="pw-div -nomargin"
+              data-pw-desk="leaderboard_btf"
+            ></div>
+            <div class="upgrade-kicker -leaderboard js-hide-in-app">
+              <button
+                type="button"
+                class="modaltrigger"
+                data-bs-toggle="modal"
+                data-bs-target="#remove-ads-modal"
+              >
+                Remove Ads<svg
+                  aria-hidden="true"
+                  width="7"
+                  height="7"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m.5.5 6 6M6.5.5l-6 6"
+                    fill-rule="evenodd"
+                    stroke="#000"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="journal-page-section featured-quotation">
+        <div class="constraint width-limit">
+          <div class="quotation -has-media" data-js-component="QuoteBlock">
+            <figure class="media">
+              <div class="responsive-ratio" style="padding-bottom: 100%">
+                <img
+                  src="https://a.ltrbxd.com/resized/sm/upload/n5/e0/sw/8w/RogerDeakins_EOL_BTS-2-0-400-0-400-crop-fill.jpg?k=51ccd1b723"
+                  srcset="
+                    https://a.ltrbxd.com/resized/sm/upload/n5/e0/sw/8w/RogerDeakins_EOL_BTS-2-0-400-0-400-crop-fill.jpg?k=51ccd1b723 400w,
+                    https://a.ltrbxd.com/resized/sm/upload/n5/e0/sw/8w/RogerDeakins_EOL_BTS-2-0-200-0-200-crop-fill.jpg?k=5b1c80066d 200w
+                  "
+                  width="400"
+                  height="400"
+                  alt="It was the most terrifying moment when they called out my name. When I walked up on stage, I didn’t have a clue what I was gonna say… I was just nervous as hell. Then I saw so many people in the audience that I had worked with or I"
+                />
+              </div>
+            </figure>
+
+            <div class="body">
+              <div
+                class="excerpt article-quotation"
+                data-js-unorphan=""
+                data-js-ligatures=""
+              >
+                <p>
+                  It was the most terrifying moment when they called out my
+                  name. When I walked up on stage, I didn’t have a clue what I
+                  was gonna say… I was just nervous as hell. Then I saw so many
+                  people in the audience that I had worked with or I knew
+                  loosely, and they’re all smiling and clapping and seemed
+                  really pleased, and that really made me feel that I was
+                  amongst friends. You’re a part of a community of ﬁlmmakers.
+                  That’s what it’s about. That made me feel okay, then I could
+                  talk.
+                </p>
+                <cite class="source -short">—&NoBreak;Roger&nbsp;Deakins</cite>
+              </div>
+
+              <div class="reference">
+                <div class="article-category">
+                  <a href="/journal/archive/topic/podcast/">Podcast</a>
+                </div>
+                <h3 class="article-title">
+                  <a
+                    href="/journal/best-in-show-shortlists-and-shot-lists-roger-deakins/"
+                    >Best in Show: shortlists and shot lists</a
+                  >
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="journal-page-section article-feed">
+        <header class="journal-page-section-header">
+          <div class="constraint width-limit">
+            <div class="heading -category">
+              <h2 class="article-category">Spotlight</h2>
+              <p class="description">Favorites from the Letterboxd archive.</p>
+            </div>
+
+            <a class="morelink" href="/journal/archive/">
+              <span class="label">More</span>
+              <svg
+                class="chevron"
+                width="6"
+                height="10"
+                viewBox="0 0 6 10"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M.5 9l4.571-4L.5 1"
+                  stroke="#000"
+                  fill="none"
+                  fill-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </header>
+
+        <div class="article-summary-grid -features">
+          <div class="constraint width-limit">
+            <article
+              class="article-summary -centered -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a href="/journal/one-sheet-wonders-poster-art/">
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/i9/ab/l2/qx/posters-header-0-640-0-360-crop-fill.jpg?k=c66bf4184c"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/i9/ab/l2/qx/posters-header-0-640-0-360-crop-fill.jpg?k=c66bf4184c"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/i9/ab/l2/qx/posters-header-0-640-0-360-crop-fill.jpg?k=c66bf4184c 640w, https://a.ltrbxd.com/resized/sm/upload/i9/ab/l2/qx/posters-header-0-960-0-540-crop-fill.jpg?k=431bf9d5db 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="lazyautosizes ls-is-cached lazyloaded"
+                      loading="lazy"
+                      data-sizes="auto"
+                      sizes="430px"
+                      srcset="
+                        https://a.ltrbxd.com/resized/sm/upload/i9/ab/l2/qx/posters-header-0-640-0-360-crop-fill.jpg?k=c66bf4184c 640w,
+                        https://a.ltrbxd.com/resized/sm/upload/i9/ab/l2/qx/posters-header-0-960-0-540-crop-fill.jpg?k=431bf9d5db 960w
+                      "
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-rubric -has-timestamp">
+                  <div class="rubric article-category">
+                    <a href="/journal/archive/topic/big-picture/"
+                      >Big Picture</a
+                    >
+                  </div>
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2022-11-22T19:55:58.477Z"
+                      class="localtime-d-mmm-yyyy"
+                      >23 Nov 2022</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a href="/journal/one-sheet-wonders-poster-art/">
+                    <h3 class="title article-title">One-Sheet Wonders.</h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        Ella Kemp talks to designers, archivists and publicists
+                        (and her own parents!) about creating and preserving
+                        original ﬁlm posters in the age of&nbsp;streaming.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/ella-kemp/"
+                        >Ella Kemp</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -centered -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a
+                    href="/journal/mane-attraction-tracey-henton-insiders-guide-to-movie-hair/"
+                  >
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/h3/c3/gt/a6/header2-0-640-0-360-crop-fill.jpg?k=433d977f2a"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/h3/c3/gt/a6/header2-0-640-0-360-crop-fill.jpg?k=433d977f2a"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/h3/c3/gt/a6/header2-0-640-0-360-crop-fill.jpg?k=433d977f2a 640w, https://a.ltrbxd.com/resized/sm/upload/h3/c3/gt/a6/header2-0-960-0-540-crop-fill.jpg?k=433d977f2a 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="lazyautosizes ls-is-cached lazyloaded"
+                      loading="lazy"
+                      data-sizes="auto"
+                      sizes="430px"
+                      srcset="
+                        https://a.ltrbxd.com/resized/sm/upload/h3/c3/gt/a6/header2-0-640-0-360-crop-fill.jpg?k=433d977f2a 640w,
+                        https://a.ltrbxd.com/resized/sm/upload/h3/c3/gt/a6/header2-0-960-0-540-crop-fill.jpg?k=433d977f2a 960w
+                      "
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-rubric -has-timestamp">
+                  <div class="rubric article-category">
+                    <a href="/journal/archive/topic/big-picture/"
+                      >Big Picture</a
+                    >
+                  </div>
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2022-10-19T00:00:05.739Z"
+                      class="localtime-d-mmm-yyyy"
+                      >19 Oct 2022</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a
+                    href="/journal/mane-attraction-tracey-henton-insiders-guide-to-movie-hair/"
+                  >
+                    <h3 class="title article-title">Mane Attraction.</h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        Hair-and-makeup department head Tracey Henton is on a
+                        mission to demystify movie locks, with help from leading
+                        Hollywood hair designers, a star wigmaker and an
+                        Oscar-winning wig&nbsp;wearer.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/tracey-henton/"
+                        >Tracey Henton</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -centered -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a href="/journal/2022-year-in-review/">
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/vc/um/hq/af/2022-news-0-640-0-360-crop-fill.jpg?k=cf3383a74c"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/vc/um/hq/af/2022-news-0-640-0-360-crop-fill.jpg?k=cf3383a74c"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/vc/um/hq/af/2022-news-0-640-0-360-crop-fill.jpg?k=cf3383a74c 640w, https://a.ltrbxd.com/resized/sm/upload/vc/um/hq/af/2022-news-0-960-0-540-crop-fill.jpg?k=48a49a79ae 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="lazyautosizes ls-is-cached lazyloaded"
+                      loading="lazy"
+                      data-sizes="auto"
+                      sizes="430px"
+                      srcset="
+                        https://a.ltrbxd.com/resized/sm/upload/vc/um/hq/af/2022-news-0-640-0-360-crop-fill.jpg?k=cf3383a74c 640w,
+                        https://a.ltrbxd.com/resized/sm/upload/vc/um/hq/af/2022-news-0-960-0-540-crop-fill.jpg?k=48a49a79ae 960w
+                      "
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-rubric -has-timestamp">
+                  <div class="rubric article-category">
+                    <a href="/journal/archive/topic/year-in-review/"
+                      >Year in Review</a
+                    >
+                  </div>
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2023-01-06T05:26:13.084Z"
+                      class="localtime-d-mmm-yyyy"
+                      >6 Jan 2023</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a href="/journal/2022-year-in-review/">
+                    <h3 class="title article-title">2022.</h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        While nothing could budge
+                        <em>Everything Everywhere All at Once </em>from the top
+                        spot, your highest rated and most popular ﬁlms of 2022
+                        also featured many more enormously spectacular and
+                        wholeheartedly human&nbsp;delights.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/letterboxd-crew/"
+                        >Letterboxd Crew</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -centered -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a href="/journal/fable-man/">
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/zy/oj/ev/c0/fabelmans-0-640-0-360-crop-fill.jpg?k=08922a5bfd"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/zy/oj/ev/c0/fabelmans-0-640-0-360-crop-fill.jpg?k=08922a5bfd"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/zy/oj/ev/c0/fabelmans-0-640-0-360-crop-fill.jpg?k=08922a5bfd 640w, https://a.ltrbxd.com/resized/sm/upload/zy/oj/ev/c0/fabelmans-0-960-0-540-crop-fill.jpg?k=a22b7cf8af 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="lazyautosizes ls-is-cached lazyloaded"
+                      loading="lazy"
+                      data-sizes="auto"
+                      sizes="430px"
+                      srcset="
+                        https://a.ltrbxd.com/resized/sm/upload/zy/oj/ev/c0/fabelmans-0-640-0-360-crop-fill.jpg?k=08922a5bfd 640w,
+                        https://a.ltrbxd.com/resized/sm/upload/zy/oj/ev/c0/fabelmans-0-960-0-540-crop-fill.jpg?k=a22b7cf8af 960w
+                      "
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-rubric -has-timestamp">
+                  <div class="rubric article-category">
+                    <a href="/journal/archive/topic/interview/">Interview</a>
+                  </div>
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2022-11-13T00:45:48.587Z"
+                      class="localtime-d-mmm-yyyy"
+                      >13 Nov 2022</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a href="/journal/fable-man/">
+                    <h3 class="title article-title">Fable Man.</h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        Steven Spielberg’s frequent writing collaborator, the
+                        celebrated playwright Tony Kushner, shares with us the
+                        explosive circumstances under which
+                        <em>The Fabelmans</em> gradually came&nbsp;about.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/brian-formo/"
+                        >Brian Formo</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -centered -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a
+                    href="/journal/poets-rock-10-things-i-hate-about-you-kirsten-kiwi-smith/"
+                  >
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/j6/n1/k8/m9/0.%20JuliaPorch-0-640-0-360-crop-fill.jpg?k=cf42488f0e"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/j6/n1/k8/m9/0.%20JuliaPorch-0-640-0-360-crop-fill.jpg?k=cf42488f0e"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/j6/n1/k8/m9/0.%20JuliaPorch-0-640-0-360-crop-fill.jpg?k=cf42488f0e 640w, https://a.ltrbxd.com/resized/sm/upload/j6/n1/k8/m9/0.%20JuliaPorch-0-960-0-540-crop-fill.jpg?k=a76cd42cc4 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="lazyautosizes ls-is-cached lazyloaded"
+                      loading="lazy"
+                      data-sizes="auto"
+                      sizes="430px"
+                      srcset="
+                        https://a.ltrbxd.com/resized/sm/upload/j6/n1/k8/m9/0.%20JuliaPorch-0-640-0-360-crop-fill.jpg?k=cf42488f0e 640w,
+                        https://a.ltrbxd.com/resized/sm/upload/j6/n1/k8/m9/0.%20JuliaPorch-0-960-0-540-crop-fill.jpg?k=a76cd42cc4 960w
+                      "
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-rubric -has-timestamp">
+                  <div class="rubric article-category">
+                    <a href="/journal/archive/topic/deep-impact/"
+                      >Deep Impact</a
+                    >
+                  </div>
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2022-09-17T23:02:51.546Z"
+                      class="localtime-d-mmm-yyyy"
+                      >18 Sep 2022</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a
+                    href="/journal/poets-rock-10-things-i-hate-about-you-kirsten-kiwi-smith/"
+                  >
+                    <h3 class="title article-title">Poets Rock.</h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        As <em>10 Things I Hate About You</em> leaps up the
+                        Letterboxd rankings, scriptwriter Kirsten “Kiwi” Smith
+                        shares precious memories and personal photographs with
+                        super-fan Marcie&nbsp;Neubert.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/marcie-neubert/"
+                        >Marcie Neubert</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -centered -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a href="/journal/power-of-the-still-unit-photography/">
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/mj/l7/bk/l2/Header_Benedict-0-640-0-360-crop-fill.jpg?k=d7059b7b0b"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/mj/l7/bk/l2/Header_Benedict-0-640-0-360-crop-fill.jpg?k=d7059b7b0b"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/mj/l7/bk/l2/Header_Benedict-0-640-0-360-crop-fill.jpg?k=d7059b7b0b 640w, https://a.ltrbxd.com/resized/sm/upload/mj/l7/bk/l2/Header_Benedict-0-960-0-540-crop-fill.jpg?k=e22b9c4a75 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="lazyautosizes ls-is-cached lazyloaded"
+                      loading="lazy"
+                      data-sizes="auto"
+                      sizes="430px"
+                      srcset="
+                        https://a.ltrbxd.com/resized/sm/upload/mj/l7/bk/l2/Header_Benedict-0-640-0-360-crop-fill.jpg?k=d7059b7b0b 640w,
+                        https://a.ltrbxd.com/resized/sm/upload/mj/l7/bk/l2/Header_Benedict-0-960-0-540-crop-fill.jpg?k=e22b9c4a75 960w
+                      "
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-rubric -has-timestamp">
+                  <div class="rubric article-category">
+                    <a href="/journal/archive/topic/big-picture/"
+                      >Big Picture</a
+                    >
+                  </div>
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2022-03-20T02:16:50.587Z"
+                      class="localtime-d-mmm-yyyy"
+                      >20 Mar 2022</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a href="/journal/power-of-the-still-unit-photography/">
+                    <h3 class="title article-title">The Power of the Still.</h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        The most iconic and lasting ﬁlm images come from
+                        split-second decisions by unit stills photographers.
+                        Jane Campion and her photographer Kirsty Griﬃn, David
+                        Lowery and Eric Zachanowich, and Joachim Trier and
+                        Christian Belgaux open up about capturing the heart of
+                        a&nbsp;movie.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/gemma-gracewood/"
+                        >Gemma Gracewood</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="journal-page-section podcast-spotlight">
+        <header class="header">
+          <div class="constraint width-limit">
+            <div class="layout">
+              <div class="title">
+                <a
+                  href="https://apple.co/3TfzHVG"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <h2 class="_sr-only">The Letterboxd Show</h2>
+                  <img
+                    class="logo"
+                    src="https://s.ltrbxd.com/static/img/journal/podcast-spotlight-letterboxd-show-logo-2021.2434bfbc.svg"
+                    width="170"
+                    height="85"
+                    alt="The Letterboxd Show logo"
+                  />
+                </a>
+              </div>
+
+              <div class="info">
+                <div class="description">
+                  <p>
+                    Podcasts about movies from the makers of Letterboxd, the
+                    social network for film lovers.
+                  </p>
+                </div>
+
+                <div class="podcastplatforms icon-list-strip">
+                  <div class="listitem">
+                    <a
+                      class="trigger"
+                      href="https://apple.co/3TfzHVG"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <svg
+                        class="glyph"
+                        aria-hidden="true"
+                        width="23"
+                        height="23"
+                        viewBox="0 0 23 23"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M22.545 19.935a4.862 4.862 0 01-3.09 2.772c-.739.22-1.648.293-2.78.293H6.325c-1.132 0-2.041-.074-2.78-.293a4.862 4.862 0 01-3.09-2.772C.005 18.791 0 17.492 0 16.675V6.325c0-.818.005-2.116.455-3.26A4.861 4.861 0 013.545.293C4.284.073 5.193 0 6.325 0h10.35c1.132 0 2.041.074 2.78.293a4.863 4.863 0 013.09 2.772c.45 1.144.455 2.442.455 3.26v10.35c0 .817-.005 2.116-.455 3.26zm-9.377-6.715c-.345-.364-.951-.598-1.667-.598-.716 0-1.322.234-1.667.598-.18.19-.275.385-.305.662-.058.538-.026 1 .037 1.74.06.705.174 1.645.323 2.602.105.682.191 1.05.27 1.313.127.426.6.8 1.342.8.741 0 1.216-.374 1.342-.8.079-.264.165-.631.27-1.313.149-.957.263-1.897.323-2.602.063-.74.095-1.202.037-1.74a1.058 1.058 0 00-.305-.662zM9.621 9.978a1.882 1.882 0 103.764 0 1.882 1.882 0 00-3.764 0zm1.859-7.429c-4.403.013-8.01 3.584-8.065 7.986-.044 3.566 2.233 6.616 5.411 7.734a.108.108 0 00.143-.117 46.136 46.136 0 01-.117-.83.278.278 0 00-.163-.218 7.063 7.063 0 01-4.239-6.536c.037-3.83 3.165-6.953 6.995-6.984 3.916-.031 7.111 3.145 7.111 7.053a7.063 7.063 0 01-4.24 6.467.278.278 0 00-.162.22c-.037.273-.076.551-.117.828a.108.108 0 00.143.117c3.148-1.107 5.411-4.11 5.411-7.632 0-4.467-3.641-8.1-8.111-8.088zm-.147 3.71a4.388 4.388 0 014.557 4.38 4.372 4.372 0 01-1.385 3.195.335.335 0 00-.106.264c.017.3.01.593-.01.923a.107.107 0 00.167.095 5.417 5.417 0 002.369-4.476 5.424 5.424 0 00-5.633-5.414c-2.866.11-5.166 2.474-5.203 5.343a5.416 5.416 0 002.369 4.547.106.106 0 00.165-.094 7.754 7.754 0 01-.009-.924.335.335 0 00-.105-.263 4.372 4.372 0 01-1.384-3.313 4.395 4.395 0 014.208-4.262z"
+                          fill="#000"
+                          fill-rule="nonzero"
+                        ></path>
+                      </svg>
+                      <span class="label">Apple Podcasts</span>
+                    </a>
+                  </div>
+
+                  <div class="listitem">
+                    <a
+                      class="trigger"
+                      href="https://open.spotify.com/show/7sA60f94UXwZDH1EJC4obI"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <svg
+                        class="glyph"
+                        aria-hidden="true"
+                        width="23"
+                        height="23"
+                        viewBox="0 0 23 23"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18.303 10.195C14.596 7.993 8.48 7.79 4.943 8.865a1.075 1.075 0 11-.625-2.058C8.38 5.574 15.133 5.812 19.4 8.345a1.076 1.076 0 01-1.097 1.85m-.122 3.26a.897.897 0 01-1.233.296c-3.09-1.9-7.803-2.45-11.46-1.34a.898.898 0 01-1.118-.598.898.898 0 01.598-1.118c4.176-1.267 9.369-.653 12.918 1.528.422.26.554.812.295 1.233m-1.407 3.131a.716.716 0 01-.986.238c-2.7-1.65-6.1-2.023-10.102-1.108a.716.716 0 11-.32-1.398c4.381-1 8.139-.57 11.17 1.282a.717.717 0 01.238.986M11.5 0C5.149 0 0 5.149 0 11.5 0 17.852 5.149 23 11.5 23S23 17.852 23 11.5C23 5.149 17.851 0 11.5 0"
+                          fill="#000"
+                          fill-rule="evenodd"
+                        ></path>
+                      </svg>
+                      <span class="label">Spotify</span>
+                    </a>
+                  </div>
+
+                  <div class="listitem">
+                    <a
+                      class="trigger"
+                      href="https://anchor.fm/s/133d445c/podcast/rss"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <svg
+                        class="glyph"
+                        aria-hidden="true"
+                        width="23"
+                        height="23"
+                        viewBox="0 0 23 23"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M17.8 1A4.2 4.2 0 0122 5.2v12.6a4.2 4.2 0 01-4.2 4.2H5.2A4.2 4.2 0 011 17.8V5.2A4.2 4.2 0 015.2 1h12.6zM6.935 13.783a2.283 2.283 0 100 4.565 2.283 2.283 0 000-4.565zM4.652 9.217V11.5l.236.004a6.848 6.848 0 016.612 6.844h2.283l-.004-.265a9.13 9.13 0 00-9.127-8.866zm0-4.565v2.283l.349.005a11.413 11.413 0 0111.064 11.408h2.283l-.004-.31c-.164-7.42-6.232-13.386-13.692-13.386z"
+                          fill="#000"
+                          fill-rule="nonzero"
+                        ></path>
+                      </svg>
+                      <span class="label">Subscribe with&nbsp;RSS</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="article-summary-grid -podcast-episodes">
+          <div class="constraint width-limit">
+            <article
+              class="article-summary -podcast-episode"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 100%">
+                  <a
+                    href="https://anchor.fm/letterboxd/episodes/Best-in-Show-Guilds--Globes--Puss-in-Boots-and-the-1976-Best-Director-revisited-e1titsq"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/d1/y5/uf/c0/IMG_2734-0-560-0-560-crop.jpg?k=8d239844c5"
+                      width="560"
+                      height="560"
+                      alt="Episode artwork"
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="hgroup">
+                  <div class="inner">
+                    <div class="head" data-js-unorphan="">
+                      <h3 class="title article-title">
+                        <a
+                          href="https://anchor.fm/letterboxd/episodes/Best-in-Show-Guilds--Globes--Puss-in-Boots-and-the-1976-Best-Director-revisited-e1titsq"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >Best in Show: Guilds, Globes, Puss in&nbsp;Boots</a
+                        >
+                      </h3>
+                    </div>
+
+                    <div class="meta -has-timestamp">
+                      <div class="episode article-meta">
+                        Season 1, Episode 3
+                      </div>
+                      <time
+                        class="timestamp article-meta -timestamp localtime-d-mmm-yyyy"
+                        datetime="2023-01-16T11:00:00Z"
+                        >16 Jan 2023</time
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="description rich-content">
+                  <p>
+                    Mia, Brian and Gemma discuss their fave noms and gongs from
+                    the latest guild shortlists. A quick look at the Golden
+                    Globes, the EE BAFTA Rising Star award public voting is
+                    open!&nbsp;And it’s animation time:
+                    <em>Turning Red</em> director Domee Shi has a message for
+                    the Letterboxd community, and we go deep on Akira Kurosawa,
+                    Ingmar Bergman and Sergio Leone with
+                    <em>Puss in Boots: The Last Wish</em> director Joel
+                    Crawford. Then, we re-evaluate the 1976 Best Director Oscar
+                    lineup.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -podcast-episode"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 100%">
+                  <a
+                    href="https://anchor.fm/letterboxd/episodes/Best-in-Show-Year-in-Review-Special-with-The-Daniels--more-e1t9c5t"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/b3/n3/pe/10/lbxd-show-bis-blue-0-560-0-560-crop.jpg?k=233b1bade6"
+                      width="560"
+                      height="560"
+                      alt="Episode artwork"
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="hgroup">
+                  <div class="inner">
+                    <div class="head" data-js-unorphan="">
+                      <h3 class="title article-title">
+                        <a
+                          href="https://anchor.fm/letterboxd/episodes/Best-in-Show-Year-in-Review-Special-with-The-Daniels--more-e1t9c5t"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >Best in Show: Year in Review&nbsp;Special</a
+                        >
+                      </h3>
+                    </div>
+
+                    <div class="meta -has-timestamp">
+                      <div class="episode article-meta">
+                        Season 1, Episode 2
+                      </div>
+                      <time
+                        class="timestamp article-meta -timestamp localtime-d-mmm-yyyy"
+                        datetime="2023-01-09T11:00:00Z"
+                        >9 Jan 2023</time
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="description rich-content">
+                  <p>
+                    <span
+                      >The Daniels read one-star and five-star Letterboxd
+                      reviews! Jenny Slate, S.S. Rajamouli, Johnny Knoxville,
+                      Charlotte Wells and more Year in Review chart-toppers
+                      phone in with their thanks to the Letterboxd community!
+                      Hosts Mia, Brian and Gemma stare googly-eyed into the
+                      bagel to investigate the highest-rated films of the past
+                      year. This supersized episode also sees Jack’s Facts
+                      joining for a deep dive into the themes of the winning
+                      films, and Slim and Mitchell sneak into the after
+                      party.</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -podcast-episode"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 100%">
+                  <a
+                    href="https://anchor.fm/letterboxd/episodes/Weekend-Watchlist-Giant-Sized-2023-Preview-Spectacular-e1sqnup"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/bh/0y/vl/2b/lbxd-show-ww-16%C3%979%20%281%29-0-560-0-560-crop.png?k=f411ed7ced"
+                      width="560"
+                      height="560"
+                      alt="Episode artwork"
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="hgroup">
+                  <div class="inner">
+                    <div class="head" data-js-unorphan="">
+                      <h3 class="title article-title">
+                        <a
+                          href="https://anchor.fm/letterboxd/episodes/Weekend-Watchlist-Giant-Sized-2023-Preview-Spectacular-e1sqnup"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >Weekend Watchlist: Giant 2023&nbsp;Preview</a
+                        >
+                      </h3>
+                    </div>
+
+                    <div class="meta -has-timestamp">
+                      <div class="episode article-meta">
+                        Season 1, Episode 43
+                      </div>
+                      <time
+                        class="timestamp article-meta -timestamp localtime-d-mmm-yyyy"
+                        datetime="2022-12-28T11:00:00Z"
+                        >28 Dec 2022</time
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="description rich-content">
+                  <p>
+                    <a
+                      rel="ugc noopener noreferrer"
+                      href="https://letterboxd.com/mitchell/"
+                      target="_blank"
+                      >Mitchell</a
+                    ><span>,&nbsp;</span
+                    ><a
+                      rel="ugc noopener noreferrer"
+                      href="https://letterboxd.com/brat/"
+                      target="_blank"
+                      >Mia</a
+                    ><span>&nbsp;and&nbsp;</span
+                    ><a
+                      rel="ugc noopener noreferrer"
+                      href="https://letterboxd.com/slim"
+                      target="_blank"
+                      >slim</a
+                    ><span
+                      >&nbsp;discuss the most anticipated movies of 2023
+                      according to Letterboxd members. It’s an episode so
+                      massive we needed all three hosts! Mitchell also makes
+                      shocking revelations about having multiple watchlists.
+                      After a deep dive into what the hosts are looking forward
+                      to in 2023 releases, they also make some movie-watching
+                      predictions for the upcoming year. It’s a different format
+                      this week so no refunds, sry. Weekend Watchlist will
+                      return in February!</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="journal-page-section intermission-section">
+        <div class="constraint width-limit">
+          <div
+            id="intermission-1e8633a1-9674-4114-90b9-57665b967e02"
+            class="journal-intermission"
+          >
+            <div
+              id="pw-a4872910-c71f-439b-8727-0b7783b2ebdd"
+              class="pw-div -nomargin"
+              data-pw-desk="leaderboard_btf"
+            ></div>
+            <div class="upgrade-kicker -leaderboard js-hide-in-app">
+              <button
+                type="button"
+                class="modaltrigger"
+                data-bs-toggle="modal"
+                data-bs-target="#remove-ads-modal"
+              >
+                Remove Ads<svg
+                  aria-hidden="true"
+                  width="7"
+                  height="7"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m.5.5 6 6M6.5.5l-6 6"
+                    fill-rule="evenodd"
+                    stroke="#000"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="journal-page-section article-feed">
+        <header class="journal-page-section-header">
+          <div class="constraint width-limit">
+            <div class="heading -category">
+              <h2 class="article-category">Life in Film</h2>
+              <p class="description">
+                Our questionnaire uncovering filmmakers’ screen inspirations.
+              </p>
+            </div>
+
+            <a class="morelink" href="/journal/archive/topic/life-in-film/">
+              <span class="label">More</span>
+              <svg
+                class="chevron"
+                width="6"
+                height="10"
+                viewBox="0 0 6 10"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M.5 9l4.571-4L.5 1"
+                  stroke="#000"
+                  fill="none"
+                  fill-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </header>
+
+        <div class="article-summary-grid -medium">
+          <div class="constraint width-limit">
+            <article
+              class="article-summary -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a
+                    href="/journal/desperate-love-essie-davis-the-justice-of-bunny-king/"
+                  >
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/mu/7u/dg/9e/essie-0-640-0-360-crop-fill.jpg?k=584a2a91a6"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/mu/7u/dg/9e/essie-0-640-0-360-crop-fill.jpg?k=584a2a91a6"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/mu/7u/dg/9e/essie-0-640-0-360-crop-fill.jpg?k=584a2a91a6 640w, https://a.ltrbxd.com/resized/sm/upload/mu/7u/dg/9e/essie-0-960-0-540-crop-fill.jpg?k=584a2a91a6 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="ls-target"
+                      loading="lazy"
+                      data-sizes="auto"
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-no-rubric -has-timestamp">
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2022-10-12T05:09:42.470Z"
+                      class="localtime-d-mmm-yyyy"
+                      >12 Oct 2022</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a
+                    href="/journal/desperate-love-essie-davis-the-justice-of-bunny-king/"
+                  >
+                    <h3 class="title article-title">Desperate Love.</h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        <em>The Justice of Bunny King</em> star Essie Davis
+                        writes about the power of a wronged woman, the impact of
+                        Peter Weir and the importance of&nbsp;play.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/jack-moulton/"
+                        >Jack Moulton</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a href="/journal/keeping-mum-emily-watson-gods-creatures/">
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/7h/5x/zu/m9/gods%20creatures%20header-0-640-0-360-crop-fill.jpg?k=17c3b6dab0"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/7h/5x/zu/m9/gods%20creatures%20header-0-640-0-360-crop-fill.jpg?k=17c3b6dab0"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/7h/5x/zu/m9/gods%20creatures%20header-0-640-0-360-crop-fill.jpg?k=17c3b6dab0 640w, https://a.ltrbxd.com/resized/sm/upload/7h/5x/zu/m9/gods%20creatures%20header-0-960-0-540-crop-fill.jpg?k=a2339ff223 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="ls-target"
+                      loading="lazy"
+                      data-sizes="auto"
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-no-rubric -has-timestamp">
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2022-10-04T02:05:20.827Z"
+                      class="localtime-d-mmm-yyyy"
+                      >4 Oct 2022</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a href="/journal/keeping-mum-emily-watson-gods-creatures/">
+                    <h3 class="title article-title">Keeping Mum.</h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        <em>God’s Creatures</em> star Emily Watson on growing up
+                        without television, the ﬁlmmakers who are changing the
+                        map and what she watches with her&nbsp;children.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/jack-moulton/"
+                        >Jack Moulton</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a
+                    href="/journal/holiday-from-hell-christian-mads-tafdrup-speak-no-evil/"
+                  >
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/lb/ck/fd/1e/speak%20no%20evil%20header-0-640-0-360-crop-fill.jpg?k=602a769527"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/lb/ck/fd/1e/speak%20no%20evil%20header-0-640-0-360-crop-fill.jpg?k=602a769527"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/lb/ck/fd/1e/speak%20no%20evil%20header-0-640-0-360-crop-fill.jpg?k=602a769527 640w, https://a.ltrbxd.com/resized/sm/upload/lb/ck/fd/1e/speak%20no%20evil%20header-0-960-0-540-crop-fill.jpg?k=5748ec6fa5 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="ls-target"
+                      loading="lazy"
+                      data-sizes="auto"
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-no-rubric -has-timestamp">
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2022-09-20T02:14:43.214Z"
+                      class="localtime-d-mmm-yyyy"
+                      >20 Sep 2022</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a
+                    href="/journal/holiday-from-hell-christian-mads-tafdrup-speak-no-evil/"
+                  >
+                    <h3 class="title article-title">Holiday From Hell.</h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        The Danish brothers behind the slow-burn holiday horror
+                        <em>Speak No Evil</em> talk guilty pleasures,
+                        why&nbsp;<em>Face/Oﬀ</em> should have won
+                        Oscars&nbsp;and the vitality of contemporary
+                        Korean&nbsp;cinema.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/jack-moulton/"
+                        >Jack Moulton</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a href="/journal/rough-sketch-owen-kline-funny-pages/">
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/92/3n/b1/8x/funny-0-640-0-360-crop-fill.jpg?k=8590ce9bba"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/92/3n/b1/8x/funny-0-640-0-360-crop-fill.jpg?k=8590ce9bba"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/92/3n/b1/8x/funny-0-640-0-360-crop-fill.jpg?k=8590ce9bba 640w, https://a.ltrbxd.com/resized/sm/upload/92/3n/b1/8x/funny-0-960-0-540-crop-fill.jpg?k=8590ce9bba 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="ls-target"
+                      loading="lazy"
+                      data-sizes="auto"
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-no-rubric -has-timestamp">
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2022-09-02T02:21:49.371Z"
+                      class="localtime-d-mmm-yyyy"
+                      >2 Sep 2022</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a href="/journal/rough-sketch-owen-kline-funny-pages/">
+                    <h3 class="title article-title">Rough Sketch.</h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        <em>Funny Pages</em> ﬁlmmaker Owen Kline chats about
+                        working with the Safdie brothers, dirty old New York
+                        movies and his favorite comedies starring
+                        his&nbsp;parents.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/jack-moulton/"
+                        >Jack Moulton</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="journal-page-section article-feed">
+        <header class="journal-page-section-header">
+          <div class="constraint width-limit">
+            <div class="heading -category">
+              <h2 class="article-category">Festival Circuit</h2>
+              <p class="description">
+                News, interviews and wrap-ups from our festival crew.
+              </p>
+            </div>
+
+            <a class="morelink" href="/journal/archive/topic/festival-circuit/">
+              <span class="label">More</span>
+              <svg
+                class="chevron"
+                width="6"
+                height="10"
+                viewBox="0 0 6 10"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M.5 9l4.571-4L.5 1"
+                  stroke="#000"
+                  fill="none"
+                  fill-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </header>
+
+        <div class="article-summary-grid -medium">
+          <div class="constraint width-limit">
+            <article
+              class="article-summary -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a href="/journal/15-picks-from-sundance-2023/">
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/oc/dc/gz/je/Journal%20header%2033-0-640-0-360-crop-fill.jpg?k=36fdde7b8b"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/oc/dc/gz/je/Journal%20header%2033-0-640-0-360-crop-fill.jpg?k=36fdde7b8b"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/oc/dc/gz/je/Journal%20header%2033-0-640-0-360-crop-fill.jpg?k=36fdde7b8b 640w, https://a.ltrbxd.com/resized/sm/upload/oc/dc/gz/je/Journal%20header%2033-0-960-0-540-crop-fill.jpg?k=92b4c25a11 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="ls-target"
+                      loading="lazy"
+                      data-sizes="auto"
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-no-rubric -has-timestamp">
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2023-01-17T23:09:37.959Z"
+                      class="localtime-d-mmm-yyyy"
+                      >18 Jan 2023</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a href="/journal/15-picks-from-sundance-2023/">
+                    <h3 class="title article-title">
+                      15 Picks from Sundance 2023.
+                    </h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        From Jonathan Majors to Nicole Holofcener, these are the
+                        ﬁlms and ﬁlmmakers we’re most excited to see at this
+                        year’s hybrid Sundance Film&nbsp;Festival.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/letterboxd-crew/"
+                        >Letterboxd Crew</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a href="/journal/best-of-fall-fests-2022/">
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/t5/59/t7/db/fall-fests-2022-0-640-0-360-crop-fill.jpg?k=63ec9057e8"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/t5/59/t7/db/fall-fests-2022-0-640-0-360-crop-fill.jpg?k=63ec9057e8"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/t5/59/t7/db/fall-fests-2022-0-640-0-360-crop-fill.jpg?k=63ec9057e8 640w, https://a.ltrbxd.com/resized/sm/upload/t5/59/t7/db/fall-fests-2022-0-960-0-540-crop-fill.jpg?k=a1306295c2 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="ls-target"
+                      loading="lazy"
+                      data-sizes="auto"
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-no-rubric -has-timestamp">
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2022-11-10T00:54:58.092Z"
+                      class="localtime-d-mmm-yyyy"
+                      >10 Nov 2022</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a href="/journal/best-of-fall-fests-2022/">
+                    <h3 class="title article-title">
+                      Best of Fall Fests 2022.
+                    </h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        Donkeys, puppets, conductors, oh my! Our globe-trotting
+                        festival squad brings you the highlights of the
+                        jam-packed fall&nbsp;season.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/letterboxd-crew/"
+                        >Letterboxd Crew</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a href="/journal/fantastic-faq-2022-fantastic-fest-austin/">
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/cy/v5/pu/cw/Blank%201920%20x%201080%20%2817%29-0-640-0-360-crop-fill.png?k=7489983f55"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/cy/v5/pu/cw/Blank%201920%20x%201080%20%2817%29-0-640-0-360-crop-fill.png?k=7489983f55"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/cy/v5/pu/cw/Blank%201920%20x%201080%20%2817%29-0-640-0-360-crop-fill.png?k=7489983f55 640w, https://a.ltrbxd.com/resized/sm/upload/cy/v5/pu/cw/Blank%201920%20x%201080%20%2817%29-0-960-0-540-crop-fill.png?k=8b4792c6d3 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="ls-target"
+                      loading="lazy"
+                      data-sizes="auto"
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-no-rubric -has-timestamp">
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2022-09-21T17:17:40.196Z"
+                      class="localtime-d-mmm-yyyy"
+                      >22 Sep 2022</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a href="/journal/fantastic-faq-2022-fantastic-fest-austin/">
+                    <h3 class="title article-title">Fantastic FAQ 2022.</h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        What can you expect from the most unexpected ﬁlm
+                        festival event of the year? As our crew prepares to
+                        party with Park Chan-wook, we attempt to predict some
+                        highlights of Austin’s annual Fantastic&nbsp;Fest.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/letterboxd-crew/"
+                        >Letterboxd Crew</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="article-summary -inline-teaser"
+              data-js-component="ArticleSummary"
+            >
+              <figure class="media -has-link">
+                <div class="responsive-ratio" style="padding-bottom: 56.25%">
+                  <a
+                    href="/journal/toronto-calling-tiff-2022-programmers-rian-johnson/"
+                  >
+                    <img
+                      src="https://a.ltrbxd.com/resized/sm/upload/rc/pu/iv/2p/GO_EdNorton-0-640-0-360-crop-fill.jpg?k=6f45d414dc"
+                      data-src="https://a.ltrbxd.com/resized/sm/upload/rc/pu/iv/2p/GO_EdNorton-0-640-0-360-crop-fill.jpg?k=6f45d414dc"
+                      data-srcset="https://a.ltrbxd.com/resized/sm/upload/rc/pu/iv/2p/GO_EdNorton-0-640-0-360-crop-fill.jpg?k=6f45d414dc 640w, https://a.ltrbxd.com/resized/sm/upload/rc/pu/iv/2p/GO_EdNorton-0-960-0-540-crop-fill.jpg?k=6b0c15e460 960w"
+                      width="640"
+                      height="360"
+                      alt=""
+                      class="ls-target"
+                      loading="lazy"
+                      data-sizes="auto"
+                    />
+                  </a>
+                </div>
+              </figure>
+
+              <div class="detail">
+                <div class="meta -has-no-rubric -has-timestamp">
+                  <div class="timestamp article-meta -timestamp">
+                    <time
+                      datetime="2022-09-09T03:39:27.850Z"
+                      class="localtime-d-mmm-yyyy"
+                      >9 Sep 2022</time
+                    >
+                  </div>
+                </div>
+
+                <div class="head">
+                  <a
+                    href="/journal/toronto-calling-tiff-2022-programmers-rian-johnson/"
+                  >
+                    <h3 class="title article-title">Toronto Calling.</h3>
+                    <div
+                      class="teaser"
+                      data-js-unorphan=""
+                      data-js-ligatures=""
+                    >
+                      <p>
+                        As TIFF 2022 opens, our editor-in-chief Gemma Gracewood
+                        gets the lowdown from Cameron Bailey and Robyn Citizen
+                        on this year’s gems and surprises—and
+                        <em>Glass Onion</em> ﬁlmmaker Rian Johnson phones in for
+                        a chat about his hero, Weird&nbsp;Al.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="contributors contributor-list">
+                  <div class="contributor article-meta">
+                    <span class="displayname"
+                      ><a href="/journal/archive/author/gemma-gracewood/"
+                        >Gemma Gracewood</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="journal-page-section columns -single-col -xs">
+        <div class="constraint width-limit">
+          <section class="journal-page-section article-feed">
+            <header class="journal-page-section-header">
+              <div class="constraint width-limit">
+                <div class="heading -category">
+                  <h2 class="article-category">
+                    <a href="/journal/archive/topic/big-picture/"
+                      >Big Picture</a
+                    >
+                  </h2>
+                  <p class="description">
+                    Feature stories and personal essays about the world of film.
+                  </p>
+                </div>
+              </div>
+            </header>
+
+            <div class="article-teaser-list -default">
+              <div class="constraint width-limit">
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a href="/journal/one-sheet-wonders-poster-art/">
+                        <h3 class="title article-title">One-Sheet Wonders.</h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            A look at the creation and preservation of ﬁlm
+                            posters in the streaming&nbsp;age.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a
+                        href="/journal/mane-attraction-tracey-henton-insiders-guide-to-movie-hair/"
+                      >
+                        <h3 class="title article-title">Mane Attraction.</h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            Tracey Henton takes us inside the good, bad and
+                            fugly of movie&nbsp;hair.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a
+                        href="/journal/showing-the-business-how-hollywood-sees-porn/"
+                      >
+                        <h3 class="title article-title">
+                          Showing the Business.
+                        </h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            Charles Bramesco looks at how Hollywood handles the
+                            business of adult&nbsp;ﬁlmmaking.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="journal-page-section article-feed">
+            <header class="journal-page-section-header">
+              <div class="constraint width-limit">
+                <div class="heading -category">
+                  <h2 class="article-category">
+                    <a href="/journal/archive/topic/cinemascope/"
+                      >Cinemascope</a
+                    >
+                  </h2>
+                  <p class="description">
+                    Film news, previews, themes and trends.
+                  </p>
+                </div>
+              </div>
+            </header>
+
+            <div class="article-teaser-list -default">
+              <div class="constraint width-limit">
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a
+                        href="/journal/slay-bells-ring-five-2022-christmas-horrors/"
+                      >
+                        <h3 class="title article-title">Slay Bells Ring.</h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            Horrorville editor Brett Petersel highlights ﬁve of
+                            this season’s holiday&nbsp;horrors.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a
+                        href="/journal/best-in-show-let-the-gongs-begin-awards-oscars-shortlist/"
+                      >
+                        <h3 class="title article-title">
+                          Best in Show: let the gongs begin.
+                        </h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            Mia Vicino introduces our new weekly awards-season
+                            column and&nbsp;podcast.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a
+                        href="/journal/high-art-T%C3%81R-todd-field-cate-blanchett/"
+                      >
+                        <h3 class="title article-title">High Árt.</h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            Talking with Todd Field, Cate Blanchett and the
+                            artists behind&nbsp;<em>TÁR</em>.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="journal-page-section article-feed">
+            <header class="journal-page-section-header">
+              <div class="constraint width-limit">
+                <div class="heading -category">
+                  <h2 class="article-category">
+                    <a href="/journal/archive/topic/community/">Community</a>
+                  </h2>
+                  <p class="description">
+                    Member interviews, data dives, official top 100s and other
+                    cool stats.
+                  </p>
+                </div>
+              </div>
+            </header>
+
+            <div class="article-teaser-list -default">
+              <div class="constraint width-limit">
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a
+                        href="/journal/magnificent-obsession-a-love-letter-to-criterion/"
+                      >
+                        <h3 class="title article-title">
+                          Magnificent Obsession: A Love Letter to Criterion.
+                        </h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            Adam Davie on what he learned from watching every
+                            Criterion&nbsp;spine.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a href="/journal/a-star-is-torn-low-rated-most-loved/">
+                        <h3 class="title article-title">A Star is Torn.</h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            Kyle Flynn unpacks the iconic “one star with a
+                            heart” Letterboxd&nbsp;rating.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a href="/journal/fave-firsts-of-2022/">
+                        <h3 class="title article-title">Fave Firsts.</h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            The Letterboxd crew rounds up our favorite ﬁrst-time
+                            watches of&nbsp;2022.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="journal-page-section article-feed">
+            <header class="journal-page-section-header">
+              <div class="constraint width-limit">
+                <div class="heading -category">
+                  <h2 class="article-category">
+                    <a href="/journal/archive/topic/deep-impact/"
+                      >Deep Impact</a
+                    >
+                  </h2>
+                  <p class="description">
+                    Another look at films with lasting or growing cultural
+                    influence.
+                  </p>
+                </div>
+              </div>
+            </header>
+
+            <div class="article-teaser-list -default">
+              <div class="constraint width-limit">
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a
+                        href="/journal/magic-in-the-air-muppet-christmas-carol-at-30/"
+                      >
+                        <h3 class="title article-title">Magic in the Air.</h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            The creators of
+                            <em>The Muppet Christmas Carol</em> on the thrill
+                            and grief of their festive&nbsp;creation.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a
+                        href="/journal/space-surfers-treasure-planet-at-twenty/"
+                      >
+                        <h3 class="title article-title">Space Surfers.</h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            <em>Treasure Planet</em> fan Kambole Campbell
+                            space-surfs back to revisit a
+                            childhood&nbsp;favorite.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a
+                        href="/journal/poets-rock-10-things-i-hate-about-you-kirsten-kiwi-smith/"
+                      >
+                        <h3 class="title article-title">Poets Rock.</h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            Kirsten “Kiwi” Smith shares memories and photos with
+                            our
+                            <em>10 Things I Hate About You</em>&nbsp;superfan.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="journal-page-section article-feed">
+            <header class="journal-page-section-header">
+              <div class="constraint width-limit">
+                <div class="heading -category">
+                  <h2 class="article-category">
+                    <a href="/journal/archive/topic/platform/">Platform</a>
+                  </h2>
+                  <p class="description">
+                    The inside word on Letterboxd features and upgrades.
+                  </p>
+                </div>
+              </div>
+            </header>
+
+            <div class="article-teaser-list -default">
+              <div class="constraint width-limit">
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a href="/journal/good-reads-journal-turns-one/">
+                        <h3 class="title article-title">Good Reads.</h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            Our editor in chief’s highlights from
+                            <em>Journal</em>’s ﬁrst&nbsp;year.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a href="/journal/posterity-custom-posters/">
+                        <h3 class="title article-title">Posterity.</h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            All the details on our new custom-poster feature for
+                            Patron&nbsp;members.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a href="/journal/film-feelings-nanogenres/">
+                        <h3 class="title article-title">Film Feelings.</h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            With Nanocrowd’s help, we’ve added a new thematic
+                            discovery&nbsp;feature.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <section class="journal-page-section article-feed">
+            <header class="journal-page-section-header">
+              <div class="constraint width-limit">
+                <div class="heading -category">
+                  <h2 class="article-category">
+                    <a href="/journal/archive/topic/year-in-review/"
+                      >Year in Review</a
+                    >
+                  </h2>
+                  <p class="description">
+                    Our annual (and mid-year) look back at the films that
+                    resonated the most.
+                  </p>
+                </div>
+              </div>
+            </header>
+
+            <div class="article-teaser-list -default">
+              <div class="constraint width-limit">
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a href="/journal/2022-year-in-review/">
+                        <h3 class="title article-title">2022.</h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            A look back at the best ﬁlms of 2022 as voted by the
+                            Letterboxd&nbsp;community.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a
+                        href="/journal/2022-midyear-report-top-25-highest-rated/"
+                      >
+                        <h3 class="title article-title">
+                          2022 Midyear Report.
+                        </h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            The 25 highest-rated ﬁlms on Letterboxd at the 2022
+                            halfway&nbsp;point.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+
+                <article
+                  class="article-summary -inline-teaser -listitem"
+                  data-js-component="ArticleSummary"
+                >
+                  <div class="detail">
+                    <div class="head">
+                      <a href="/journal/2021-year-in-review/">
+                        <h3 class="title article-title">2021.</h3>
+                        <div
+                          class="teaser"
+                          data-js-unorphan=""
+                          data-js-ligatures=""
+                        >
+                          <p>
+                            It’s here! The ﬁlms you loved the most during 2021,
+                            and so much&nbsp;more.
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <footer class="journal-footer">
+        <div class="constraint width-limit">
+          <div class="mini-site-map -single">
+            <div class="navgroup">
+              <h4 class="title journal-nav-title footer-heading">Topics</h4>
+              <ul class="navlist journal-nav-list">
+                <li class="listitem">
+                  <a href="/journal/archive/topic/big-picture/">Big Picture</a>
+                </li>
+
+                <li class="listitem">
+                  <a href="/journal/archive/topic/cinemascope/">Cinemascope</a>
+                </li>
+
+                <li class="listitem">
+                  <a href="/journal/archive/topic/community/">Community</a>
+                </li>
+
+                <li class="listitem">
+                  <a href="/journal/archive/topic/deep-impact/">Deep Impact</a>
+                </li>
+
+                <li class="listitem">
+                  <a href="/journal/archive/topic/festival-circuit/"
+                    >Festival Circuit</a
+                  >
+                </li>
+
+                <li class="listitem">
+                  <a href="/journal/archive/topic/interview/">Interview</a>
+                </li>
+
+                <li class="listitem">
+                  <a href="/journal/archive/topic/life-in-film/"
+                    >Life in Film</a
+                  >
+                </li>
+
+                <li class="listitem">
+                  <a href="/journal/archive/topic/platform/">Platform</a>
+                </li>
+
+                <li class="listitem">
+                  <a href="/journal/archive/topic/podcast/">Podcast</a>
+                </li>
+
+                <li class="listitem">
+                  <a href="/journal/archive/topic/shelf-life/">Shelf Life</a>
+                </li>
+
+                <li class="listitem">
+                  <a href="/journal/archive/topic/year-in-review/"
+                    >Year in Review</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <form
+              class="searchgroup js-search-form js-hide-in-app"
+              action="/search/articles/"
+              method="get"
+              autocorrect="off"
+            >
+              <label for="journal-search-q" class="_sr-only"
+                >Search Letterboxd Journal:</label
+              >
+              <input
+                type="search"
+                name="q"
+                id="journal-search-q"
+                placeholder="Search…"
+                data-lpignore="true"
+                inputmode="search"
+                value=""
+              />
+
+              <button type="submit">
+                <span class="label _sr-only">Submit</span>
+                <svg
+                  class="glyph"
+                  aria-hidden="true"
+                  width="17"
+                  height="17"
+                  viewBox="0 0 17 17"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.084 7.041A6.042 6.042 0 111 7.043a6.042 6.042 0 0112.084-.002h0zm-1.769 4.272L16.001 16"
+                    stroke="#000"
+                    stroke-width="2"
+                    fill="none"
+                    fill-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </form>
+          </div>
+
+          <div class="mini-colophon">
+            <h4 class="title journal-nav-title footer-heading">Masthead</h4>
+
+            <div class="body rich-content">
+              <p>
+                <em>Journal</em> is Letterboxd’s online magazine. Our mission is
+                to&nbsp;get more films, big and small, onto your watchlists,
+                spotlight the best writing from our community, and bring you
+                news from our crew behind the scenes. Along the way, we dig
+                deeper into the movies we’re obsessed with, meet the people who
+                make them, and explore the culture that surrounds them. We
+                welcome <a href="mailto:journal@letterboxd.com">pitches</a>.
+              </p>
+            </div>
+
+            <ul class="navlist journal-nav-list js-hide-in-app">
+              <li class="listitem">
+                <a href="https://apple.co/3TfzHVG">Podcast</a>
+              </li>
+              <li class="listitem">
+                <a
+                  href="https://twitter.com/letterboxd"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Twitter</a
+                >
+              </li>
+              <li class="listitem">
+                <a
+                  href="https://www.facebook.com/letterboxd"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Facebook</a
+                >
+              </li>
+              <li class="listitem">
+                <a
+                  href="https://www.instagram.com/letterboxd"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Instagram</a
+                >
+              </li>
+              <li class="listitem">
+                <a
+                  href="https://www.youtube.com/letterboxdhq"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >YouTube</a
+                >
+              </li>
+              <li class="listitem">
+                <a
+                  href="/journal/rss/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >RSS</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <footer
+      id="page-footer"
+      class="page-footer js-page-footer js-hide-in-app -bottomrail"
+    >
+      <div class="content-wrap">
+        <nav class="footer-nav js-footer-nav">
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/journal/">News</a></li>
+            <li class="js-hide-in-app"><a href="/pro/">Pro</a></li>
+            <li><a href="/apps/">Apps</a></li>
+            <li>
+              <a
+                href="https://apple.co/3TfzHVG"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Podcast</a
+              >
+            </li>
+            <li><a href="/year-in-review/">Year in Review</a></li>
+            <li><a href="/gift-guide/">Gift Guide</a></li>
+            <li><a href="/welcome/">Help</a></li>
+            <li><a href="/legal/terms-of-use/">Terms</a></li>
+            <li><a href="/api-beta/">API</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="socials">
+          <nav class="social-service-list -inline">
+            <div class="listitem -icononly">
+              <a
+                class="trigger tooltip"
+                href="https://twitter.com/letterboxd"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-original-title="Letterboxd on Twitter"
+              >
+                <svg
+                  class="glyph"
+                  aria-hidden="true"
+                  role="presentation"
+                  width="20"
+                  height="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.96 4.51V4c.8-.56 1.49-1.28 2.04-2.1-.74.33-1.53.54-2.36.65.85-.5 1.5-1.3 1.8-2.24-.78.46-1.66.8-2.6.98a4.13 4.13 0 0 0-7.1 2.76c0 .31.04.62.1.92A11.72 11.72 0 0 1 1.38.74a3.99 3.99 0 0 0 1.28 5.4A4.2 4.2 0 0 1 .8 5.62v.06c0 1.95 1.42 3.59 3.29 3.96a4.06 4.06 0 0 1-1.85.07 4.1 4.1 0 0 0 3.83 2.8A8.32 8.32 0 0 1 0 14.2C1.8 15.33 3.97 16 6.28 16A11.5 11.5 0 0 0 17.96 4.51Z"
+                  ></path>
+                </svg>
+                <span class="label">Twitter</span>
+              </a>
+            </div>
+
+            <div class="listitem -icononly">
+              <a
+                class="trigger tooltip"
+                href="https://www.facebook.com/letterboxd"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-original-title="Letterboxd on Facebook"
+              >
+                <svg
+                  class="glyph"
+                  aria-hidden="true"
+                  role="presentation"
+                  width="19"
+                  height="19"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.5 0a9.5 9.5 0 0 0-1.48 18.89V12H5.6V9.25h2.42V7.41c0-2.38 1.41-3.7 3.58-3.7 1.04 0 2.13.19 2.13.19v2.33h-1.2c-1.18 0-1.54.74-1.54 1.49v1.53h2.63L13.2 12h-2.21v6.89A9.5 9.5 0 0 0 9.5 0Z"
+                  ></path>
+                </svg>
+                <span class="label">Facebook</span>
+              </a>
+            </div>
+
+            <div class="listitem -icononly">
+              <a
+                class="trigger tooltip"
+                href="https://www.instagram.com/letterboxd"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-original-title="Letterboxd on Instagram"
+              >
+                <svg
+                  class="glyph"
+                  aria-hidden="true"
+                  role="presentation"
+                  width="20"
+                  height="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14.12.06c1.07.05 1.8.22 2.43.46.66.26 1.21.6 1.77 1.16.56.55.9 1.11 1.15 1.77.25.63.42 1.36.47 2.43.04.94.06 1.32.06 3.3v1.37c0 1.54 0 2.19-.03 2.77v.22l-.03.58a7.34 7.34 0 0 1-.47 2.43 4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.16c-.64.24-1.36.41-2.43.46l-.61.03h-.23c-.5.02-1.06.03-2.21.03H9.2c-2 0-2.37-.02-3.32-.06a7.34 7.34 0 0 1-2.43-.46 4.9 4.9 0 0 1-1.77-1.16 4.9 4.9 0 0 1-1.16-1.77 7.34 7.34 0 0 1-.46-2.43l-.03-.61v-.2A60.9 60.9 0 0 1 0 11.5V8.75C0 7.7.01 7.17.03 6.7v-.2l.03-.61C.1 4.8.28 4.08.52 3.45a4.9 4.9 0 0 1 1.16-1.77A4.9 4.9 0 0 1 3.45.52 7.34 7.34 0 0 1 5.88.06l.61-.03h.2C7.12 0 7.6 0 8.5 0h2.74c1.62 0 2 .02 2.88.06ZM11.02 2H8.97c-1.7 0-2.05.02-2.92.06a5.4 5.4 0 0 0-1.82.33c-.45.18-.78.39-1.12.73-.34.34-.55.67-.73 1.12-.13.35-.3.86-.33 1.82C2.02 6.93 2 7.29 2 8.98v2.04c0 1.7.02 2.05.06 2.92.04.95.2 1.47.33 1.81.18.46.39.78.73 1.13.34.34.67.55 1.12.73.35.13.86.29 1.82.33.83.04 1.2.05 2.7.06h2.47c1.51 0 1.87-.02 2.71-.06a5.4 5.4 0 0 0 1.81-.33c.46-.18.78-.4 1.12-.73.35-.35.56-.67.73-1.13.14-.34.3-.86.34-1.8a49 49 0 0 0 .06-2.72V8.77a49 49 0 0 0-.06-2.71 5.4 5.4 0 0 0-.34-1.82 3.02 3.02 0 0 0-.73-1.12 3.02 3.02 0 0 0-1.12-.73 5.4 5.4 0 0 0-1.81-.33c-.88-.04-1.23-.06-2.93-.06ZM10 4.86a5.14 5.14 0 1 1 0 10.28 5.14 5.14 0 0 1 0-10.28ZM10 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"
+                  ></path>
+                </svg>
+                <span class="label">Instagram</span>
+              </a>
+            </div>
+
+            <div class="listitem -icononly">
+              <a
+                class="trigger tooltip"
+                href="https://www.youtube.com/letterboxdhq"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-original-title="Letterboxd on YouTube"
+              >
+                <svg
+                  class="glyph"
+                  aria-hidden="true"
+                  role="presentation"
+                  width="23"
+                  height="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.74 0c.61 0 2.33.02 4.11.08l.54.02c1.7.06 3.35.18 4.1.38a2.87 2.87 0 0 1 2.03 2.02c.45 1.67.48 5.04.48 5.46v.08c0 .42-.03 3.8-.48 5.46a2.87 2.87 0 0 1-2.03 2.02c-.75.2-2.4.32-4.1.38l-.54.02c-1.78.07-3.5.08-4.11.08H11.26c-.62 0-2.33-.01-4.11-.08l-.54-.02c-1.7-.06-3.36-.18-4.1-.38A2.87 2.87 0 0 1 .48 13.5C.04 11.9 0 8.68 0 8.1v-.2c0-.58.04-3.79.48-5.4A2.87 2.87 0 0 1 2.5.48c.74-.2 2.4-.32 4.1-.38l.54-.02C8.93.02 10.65 0 11.26 0ZM9 4.57v6.86L15 8 9 4.57Z"
+                  ></path>
+                </svg>
+                <span class="label">YouTube</span>
+              </a>
+            </div>
+
+            <div class="listitem -icononly">
+              <a
+                class="trigger tooltip"
+                href="https://www.tiktok.com/@letterboxd"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-original-title="Letterboxd on TikTok"
+              >
+                <svg
+                  class="glyph"
+                  aria-hidden="true"
+                  role="presentation"
+                  width="17"
+                  height="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.48 4.32a4.62 4.62 0 0 1-3.92-2.66A4.04 4.04 0 0 1 12.23 0H9.07v11.85c0 1.93-1.19 3.07-2.65 3.07a2.71 2.71 0 0 1-2.04-.9 2.57 2.57 0 0 1-.6-2.1 2.55 2.55 0 0 1 1.26-1.81 2.7 2.7 0 0 1 2.24-.21V6.77a5.92 5.92 0 0 0-4.08.86 5.7 5.7 0 0 0-2.15 2.55 5.53 5.53 0 0 0 1.26 6.16 5.86 5.86 0 0 0 6.33 1.23 5.78 5.78 0 0 0 2.6-2.08c.64-.94.98-2.03.98-3.15V5.96a7.74 7.74 0 0 0 4.25 1.25V4.32Z"
+                  ></path>
+                </svg>
+                <span class="label">TikTok</span>
+              </a>
+            </div>
+          </nav>
+        </div>
+
+        <p class="copyright">
+          © Letterboxd Limited. Made by
+          <a href="/crew/" class="mute">fans</a> in Aotearoa New Zealand.
+          <span class="nobr"
+            ><a href="https://letterboxd.com/about/film-data/" class="mute"
+              >Film data</a
+            >
+            from <a href="https://www.themoviedb.org" class="mute">TMDb</a>.
+
+            <a
+              href="#"
+              class="mute mobile-site-switch"
+              data-use-mobile-site="yes"
+              >Mobile&nbsp;site</a
+            >.
+          </span>
+          <span class="recap" style="display: none"
+            ><br />This site is protected by reCAPTCHA and the Google
+            <a
+              href="https://policies.google.com/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mute"
+              >privacy policy</a
+            >
+            and
+            <a
+              href="https://policies.google.com/terms"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mute"
+              >terms of service</a
+            >&nbsp;apply.</span
+          >
+        </p>
+      </div>
+    </footer>
+
+    <div
+      id="remove-ads-modal"
+      class="modal-neue fade"
+      tabindex="-1"
+      aria-labelledby="remove-ads-modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog -sm modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="remove-ads-modal-title">
+              Upgrade to remove&nbsp;ads
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-bs-dismiss="modal-neue"
+              aria-label="Close"
+            >
+              <svg
+                class="glyph"
+                width="16"
+                height="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  stroke-linecap="round"
+                  stroke="#000"
+                  stroke-width="2"
+                >
+                  <path d="m1 1 14 14M1 15 15 1"></path>
+                </g>
+              </svg>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="body-text -hero">
+              <p>
+                Letterboxd is an independent service created by a small team,
+                and we rely mostly on the support of our members to maintain our
+                site and apps. Please consider upgrading to a
+                <a href="/pro/">Pro account</a>—for less than a couple bucks a
+                month, you’ll get cool additional features like all-time and
+                annual stats pages (<a href="https://letterboxd.com/jack/stats/"
+                  >example</a
+                >), the ability to select (and filter by) your favorite
+                streaming services, and no ads!
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="/pro/" class="button -action button-action"
+              >Learn more about Pro</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form
+      id="poster-picker-modal"
+      class="modal-neue fade poster-picker-modal"
+      method="post"
+      action=""
+      novalidate="novalidate"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="poster-picker-modal-title"
+      aria-hidden="true"
+      data-bs-backdrop="static"
+    >
+      <div
+        class="modal-dialog -lg modal-dialog-centered modal-dialog-scrollable"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="poster-picker-modal-title">
+              Select your preferred poster
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-bs-dismiss="modal-neue"
+              aria-label="Close"
+            >
+              <svg
+                class="glyph"
+                width="16"
+                height="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  stroke-linecap="round"
+                  stroke="#000"
+                  stroke-width="2"
+                >
+                  <path d="m1 1 14 14M1 15 15 1"></path>
+                </g>
+              </svg>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div
+              id="poster-picker-127c0c30-3fe2-4db1-baf6-6534248abe31"
+              data-poster-picker-options='{"id": "127c0c30-3fe2-4db1-baf6-6534248abe31"}'
+              data-js-target="poster-picker"
+              class="poster-picker"
+            ></div>
+          </div>
+          <div class="modal-footer">
+            <div class="poster-picker-note">
+              <div class="body-text -small">
+                <p>
+                  Posters are sourced from
+                  <a href="https://www.themoviedb.org" target="_blank">TMDb</a>
+                  and
+                  <a href="https://posteritati.com" target="_blank"
+                    >Posteritati</a
+                  >, and appear for you and visitors to your profile and
+                  content, depending on settings.
+                  <a
+                    href="https://letterboxd.com/journal/posterity-custom-posters/"
+                    target="_blank"
+                    >Learn more.</a
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="poster-picker-controls"
+              data-poster-picker-controls-for="127c0c30-3fe2-4db1-baf6-6534248abe31"
+            >
+              <div class="modal-action-group -center">
+                <button
+                  class="button -destructive"
+                  type="button"
+                  data-js-trigger="reset"
+                  disabled=""
+                >
+                  <span class="label">Reset poster</span>
+                </button>
+                <button
+                  class="button -action"
+                  type="submit"
+                  data-js-trigger="submit"
+                  disabled=""
+                >
+                  <span class="label"
+                    >Save<span class="mob-hide"> changes</span></span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <script>
+      $(function () {
+        if (!disableAds && person.showAds && window.word_check()) {
+          $.ajax({
+            dataType: "script",
+            cache: true,
+            url: "//cdn.intergient.com/ramp_core.js",
+          });
+        }
+      });
+    </script>
+
+    <div id="cboxOverlay" style="display: none"></div>
+    <div id="colorbox" class="" style="display: none">
+      <div id="cboxWrapper">
+        <div>
+          <div id="cboxTopLeft" style="float: left"></div>
+          <div id="cboxTopCenter" style="float: left"></div>
+          <div id="cboxTopRight" style="float: left"></div>
+        </div>
+        <div style="clear: left">
+          <div id="cboxMiddleLeft" style="float: left"></div>
+          <div id="cboxContent" style="float: left">
+            <div id="cboxTitle" style="float: left"></div>
+            <div id="cboxCurrent" style="float: left"></div>
+            <div id="cboxNext" style="float: left"></div>
+            <div id="cboxPrevious" style="float: left"></div>
+            <div id="cboxSlideshow" style="float: left"></div>
+            <div id="cboxClose" style="float: left"></div>
+          </div>
+          <div id="cboxMiddleRight" style="float: left"></div>
+        </div>
+        <div style="clear: left">
+          <div id="cboxBottomLeft" style="float: left"></div>
+          <div id="cboxBottomCenter" style="float: left"></div>
+          <div id="cboxBottomRight" style="float: left"></div>
+        </div>
+      </div>
+      <div
+        style="
+          position: absolute;
+          width: 9999px;
+          visibility: hidden;
+          display: none;
+        "
+      ></div>
+    </div>
+    <iframe
+      scrolling="no"
+      frameborder="0"
+      allowtransparency="true"
+      src="https://platform.twitter.com/widgets/widget_iframe.2b2d73daf636805223fb11d48f3e94f7.html?origin=https%3A%2F%2Fletterboxd.com"
+      title="Twitter settings iframe"
+      style="display: none"
+    ></iframe>
+  </body>
+</html>

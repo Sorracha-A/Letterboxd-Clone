@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Letterboxd - Sign In</title>
+    <style>
+      body {
+        background: #14181c;
+        font-family: "Proxima Nova", sans-serif;
+        color: #ffffff;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      form {
+        background: #435565;
+        padding: 60px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #000000;
+        width: 400px;
+      }
+      label {
+        font-size: 14px;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+      }
+      input[type="submit"] {
+        background: #00b300;
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 5px;
+        border: none;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="/signin" method="post">
+        <h1 style="color: #9ab">Sign In to Letterboxd</h1>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <br /><br />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <br /><br />
+        <input type="submit" value="Sign In" />
+      </form>
+    </div>
+  </body>
+</html>
