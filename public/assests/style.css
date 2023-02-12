@@ -486,8 +486,6 @@ aside p.icon-text {
   margin-bottom: 0;
 }
 
-
-
 .content-wrap {
   margin: 0 auto;
   width: 950px;
@@ -41737,6 +41735,8 @@ td.datepickerSpecial.datepickerSelected a {
     background-image: url(../img/errors/logo-combined-2x.8368601a.png) !important;
     background-size: 240px 32px;
   }
+
+
 }
 @-moz-document url-prefix() {
   .profile-summary a.button-small {
@@ -41748,5 +41748,3 @@ td.datepickerSpecial.datepickerSelected a {
     padding: 0;
   }
 }
-
-
