@@ -31,4 +31,19 @@ app.get("/", async (req, res) => {
   }
 });
 
+app.get("/film/:title", async (req, res) => {
+  try {
+    const movieTitle = req.params.title.replace(/-/g, ' ');
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/search/movie?api_key=5042d23af1cc65852a1dea00714c63fd&query=${movieTitle}`
+    );
+    const movieData = response.data;
+    console.log(movieData);
+    res.render("film/film", { movieData });
+  } catch (err) {
+    console.error(err);
+    res.render("homepage/film");
+  }
+});
+
 app.listen(3500)

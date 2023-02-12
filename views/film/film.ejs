@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= movieData.results[0].title %></title>
+  </head>
+  <body>
+    <h1><%= movieData.results[0].title %></h1>
+    <p>Release Date: <%= movieData.results[0].release_date %></p>
+    <p>Overview: <%= movieData.results[0].overview %></p>
+    <img src="https://image.tmdb.org/t/p/w500<%= movieData.results[0].poster_path %>" alt="<%= movieData.results[0].title %> Poster">
+  </body>
+</html>

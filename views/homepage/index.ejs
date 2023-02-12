@@ -1553,32 +1553,34 @@
                 object-fit: cover;
                 border-radius: 3px;
               }
-              .pop_poster .overlay{
-                border:1px solid #00e054;
-                border-radius:3px;
-                bottom:-3px;
-                display:block;
-                left:-3px;
-                overflow:hidden;
-                position:absolute;
-                right:-3px;
-                text-indent:110%;
-                top:-3px;
-                transition:border .1s linear;
-                white-space:nowrap;
+              .pop_poster .overlay {
+                border: 1px solid #00e054;
+                border-radius: 3px;
+                bottom: -3px;
+                display: block;
+                left: -3px;
+                overflow: hidden;
+                position: absolute;
+                right: -3px;
+                text-indent: 110%;
+                top: -3px;
+                transition: border 0.1s linear;
+                white-space: nowrap;
               }
-              .pop_poster:hover .overlay{
-                border:3px solid #00e054;
-                bottom:0;
-                display:block;
-                left:0;
-                right:0;
-                top:0;
+              .pop_poster:hover .overlay {
+                border: 3px solid #00e054;
+                bottom: 0;
+                display: block;
+                left: 0;
+                right: 0;
+                top: 0;
               }
-              </style>
-              
+            </style>
+
             <% movieData.results.forEach(function(movie) { %>
-            <a href="/movies/<%= movie.id %>">
+            <a
+              href="/film/<%= movie.title.replace(/[^\w\s-]/g, '').replace(/ /g, '-').toLowerCase() %>"
+            >
               <div class="pop_poster">
                 <img
                   src="https://image.tmdb.org/t/p/w500<%= movie.poster_path %>"
@@ -1587,7 +1589,7 @@
                 <span class="overlay"></span>
               </div>
             </a>
-            <% }); %> 
+            <% }); %>
 
             <!-- <li
               class="react-component poster film-poster film-poster-474474 linked-film-poster"
