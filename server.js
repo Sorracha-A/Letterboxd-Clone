@@ -20,25 +20,26 @@ app.use("/sign-in", signinRouter);
 app.get("/", async (req, res) => {
   try {
     const response = await axios.get(
-      "https://api.themoviedb.org/3/movie/popular?api_key=5042d23af1cc65852a1dea00714c63fd"
+      "https://api.themoviedb.org/3/movie/popular?api_key=<your_api_key>"
     );
     const movieData = response.data;
-    
 
     const nowPlayingResponse = await axios.get(
-      "https://api.themoviedb.org/3/movie/now_playing?api_key=5042d23af1cc65852a1dea00714c63fd&language=en-US"
+      "https://api.themoviedb.org/3/movie/now_playing?api_key=<your_api_key>&language=en-US"
     );
     const nowPlayingData = nowPlayingResponse.data;
 
     const upcomingResponse = await axios.get(
-      "https://api.themoviedb.org/3/movie/upcoming?api_key=5042d23af1cc65852a1dea00714c63fd&language=en-US"
+      "https://api.themoviedb.org/3/movie/upcoming?api_key=<your_api_key>&language=en-US"
     );
     const upcomingData = upcomingResponse.data;
 
     console.log(nowPlayingData);
     console.log(upcomingData);
     res.render("homepage/index", {
-      movieData, nowPlayingData,upcomingData
+      movieData,
+      nowPlayingData,
+      upcomingData,
     });
   } catch (err) {
     console.error(err);
@@ -54,21 +55,25 @@ app.get("/film/:title-:year", async (req, res) => {
     const movieYear = parts[2];
 
     const searchResponse = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=5042d23af1cc65852a1dea00714c63fd&query=${movieTitle}&year=${movieYear}`
+      `https://api.themoviedb.org/3/search/movie?api_key=<your_api_key>&query=${movieTitle}&year=${movieYear}`
     );
 
-    const movieData = searchResponse.data.results.find((result) => result.release_date.startsWith(movieYear));
+    const movieData = searchResponse.data.results.find((result) =>
+      result.release_date.startsWith(movieYear)
+    );
     if (!movieData) {
       console.log("No movie found");
     } else {
       const movieId = movieData.id;
       const movieCredits = await axios.get(
-        `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=5042d23af1cc65852a1dea00714c63fd`
+        `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=<your_api_key>`
       );
       const directors = movieCredits.data.crew.filter(
         (member) => member.job === "Director"
       );
-      const directorNames = directors.map((director) => director.name).join(", ");
+      const directorNames = directors
+        .map((director) => director.name)
+        .join(", ");
 
       res.render("film/film", { movieData, directorNames });
     }
@@ -77,12 +82,6 @@ app.get("/film/:title-:year", async (req, res) => {
     console.log("No movie found");
   }
 });
-
-
-
-
-
-
 
 // app.get("/film/:title/:year", async (req, res) => {
 //   try {
@@ -112,9 +111,6 @@ app.get("/film/:title-:year", async (req, res) => {
 //     console.log("No movie found");
 //   }
 // });
-
-
-
 
 app.get("/search", async (req, res) => {
   try {
