@@ -1,3 +1,16 @@
+<% const convertToASCII = (str) => {
+  let converted = str;
+  const specialChars = {
+    "Á": "a", "á": "a",
+    "É": "e", "é": "e",
+    "Ñ": "n", "ñ": "n"
+  };
+  for (const specialChar in specialChars) {
+    const regex = new RegExp(specialChar, "g");
+    converted = converted.replace(regex, specialChars[specialChar]);
+  }
+  return converted;
+}; %>
 <!DOCTYPE html>
 
 <!--[if lt IE 7]> <html lang="en" class="ie6 lte9 lte8 lte7 lte6 no-js"> <![endif]-->
@@ -1029,7 +1042,7 @@
               class="field -borderless"
               data-lpignore="true"
               inputmode="search"
-              value="mulholland drive"
+              value=""
             />
             <input type="submit" value="Search" class="action" />
           </fieldset>
@@ -1042,46 +1055,63 @@
         <div class="cols-3">
           <section class="section col-17 col-main">
             <h2 class="section-heading">
-              Found 29 matches for “mulholland drive”
+              Found <%= movieData.total_results %> matches for <%=
+              movieData.title %>
             </h2>
 
             <ul class="results">
-							<% movieData.results.forEach(function(movie) { 
-								if (movie.poster_path) { %>
-									<li>
-										<div class="react-component poster film-poster film-poster-<%= movie.id %> linked-film-poster">
-											<div>
-												<img
-													src="https://image.tmdb.org/t/p/w500<%= movie.poster_path %>"
-													width="70"
-													height="105"
-													alt="<%= movie.title %>"
-													class="image"
-												/>
-												<a href="/film/<%= movie.title.replace(/ /g, "-") %>" class="frame">
-													<span class="frame-title"><%= movie.title %> (<%= movie.release_date.slice(0, 4) %>)</span>
-													<span class="overlay"></span>
-												</a>
-											</div>
-										</div>
-										<div class="film-detail-content">
-											<h2 class="headline-2 prettify">
-												<span class="film-title-wrapper">
-													<a href="/film/<%= movie.title.replace(/ /g, "-") %>">
-														<%= movie.title %> 
-														<small class="metadata">
-															<a href="/films/year/<%= movie.release_date.slice(0, 4) %>/">
-																<%= movie.release_date.slice(0, 4) %>
-															</a>
-														</small>
-													</a>
-												</span>
-											</h2>
-										</div>
-									</li>
-								<% } %>
-							<% }); %>
-				
+              <% movieData.results.forEach(function(movie) { if
+              (movie.poster_path) { %>
+              <li>
+                <div
+                  class="react-component poster film-poster film-poster-<%= movie.id %> linked-film-poster"
+                >
+                  <div>
+                    <img
+                      src="https://image.tmdb.org/t/p/w500<%= movie.poster_path %>"
+                      width="70"
+                      height="105"
+                      alt="<%= movie.title %>"
+                      class="image"
+                    />
+                    <a
+                      href="/film/<%= convertToASCII(movie.title)
+    .replace(/[^\w\s-]/g, '')
+    .replace(/ /g, '-')
+    .toLowerCase() %>-<%= movie.release_date.slice(0, 4) %>"
+                      class="frame"
+                    >
+                      <span class="frame-title">
+                        <%= movie.title %> (<%= movie.release_date.slice(0, 4)
+                        %>)
+                      </span>
+                      <span class="overlay"></span>
+                    </a>
+                  </div>
+                </div>
+                <div class="film-detail-content">
+                  <h2 class="headline-2 prettify">
+                    <span class="film-title-wrapper">
+                      <a
+                        href="/film/<%= convertToASCII(movie.title)
+    .replace(/[^\w\s-]/g, '')
+    .replace(/ /g, '-')
+    .toLowerCase() %>-<%= movie.release_date.slice(0, 4) %>"
+                      >
+                        <%= movie.title %>
+                        <small class="metadata">
+                          <a
+                            href="/films/year/<%= movie.release_date.slice(0, 4) %>/"
+                          >
+                            <%= movie.release_date.slice(0, 4) %>
+                          </a>
+                        </small>
+                      </a>
+                    </span>
+                  </h2>
+                </div>
+              </li>
+              <% } %> <% }); %>
 
               <!-- <li>
                 <article class="card-summary -graph js-card-summary">
@@ -1211,7 +1241,7 @@
                         data-component-class="globals.comps.FilmPosterComponent"
                         data-film-id="38374"
                         data-film-name="Possession"
-                        data-poster-url="/film/possession/image-150/"
+                        data-poster-url="/film/possessfion/image-150/"
                         data-film-release-year="1981"
                         data-new-list-with-film-action="/list/new/with/possession/"
                         data-remove-from-watchlist-action="/film/possession/remove-from-watchlist/"

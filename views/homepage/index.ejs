@@ -1,3 +1,16 @@
+<% const convertToASCII = (str) => {
+  let converted = str;
+  const specialChars = {
+    "Á": "a", "á": "a",
+    "É": "e", "é": "e",
+    "Ñ": "n", "ñ": "n"
+  };
+  for (const specialChar in specialChars) {
+    const regex = new RegExp(specialChar, "g");
+    converted = converted.replace(regex, specialChars[specialChar]);
+  }
+  return converted;
+}; %>
 <!DOCTYPE html>
 
 <!--[if lt IE 7]> <html lang="en" class="ie6 lte9 lte8 lte7 lte6 no-js"> <![endif]-->
@@ -5,6 +18,7 @@
 <!--[if IE 8]>    <html lang="en" class="ie8 lte9 lte8 no-js"> <![endif]-->
 <!--[if IE 9]>    <html lang="en" class="ie9 lte9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
+
 <html id="html" lang="en" class="no-mobile no-js">
   <!--<![endif]-->
   <head>
@@ -283,10 +297,10 @@
       media="screen, projection"
     />
     <link
-    href="/public/assests/style.css"
-    rel="stylesheet"
-    media="screen, projection"
-  />
+      href="/public/assests/style.css"
+      rel="stylesheet"
+      media="screen, projection"
+    />
 
     <!-- <script src="https://s.ltrbxd.com/static/js/main.min.091b5a18.js"></script> -->
     <style></style>
@@ -1053,11 +1067,17 @@
           <form action="/search" method="GET">
             <fieldset>
               <label for="search-q" class="hidden">Search:</label>
-              <input type="text" name="q" id="search-q" class="field -borderless" data-lpignore="true" inputmode="search">
-              <input type="submit" value="Search" class="action">
+              <input
+                type="text"
+                name="q"
+                id="search-q"
+                class="field -borderless"
+                data-lpignore="true"
+                inputmode="search"
+              />
+              <input type="submit" value="Search" class="action" />
             </fieldset>
           </form>
-          
         </form>
       </section>
     </header>
@@ -1096,38 +1116,51 @@
 
         <section id="featured" class="section -films">
           <ul class="poster-list -p150 -horizontal featured-list">
-            <% let randomNumbers = []; %>
-            <% for (let i = 0; i < 6; i++) {
-              let randomNum = Math.floor(Math.random() * nowPlayingData.results.length);
-              while (randomNumbers.includes(randomNum)) {
-                randomNum = Math.floor(Math.random() * nowPlayingData.results.length);
-              }
-              randomNumbers.push(randomNum); %>
-              <li class="react-component poster film-poster film-poster-465649 linked-film-poster">
-                <div>
-                  <img src="https://image.tmdb.org/t/p/w300<%= nowPlayingData.results[randomNum].poster_path %>"
-                       width="150"
-                       height="225"
-                       alt="<%= nowPlayingData.results[randomNum].title %>"
-                       class="image" />
-                       <ul class="poster-meta">
-                        <li class="poster-views">
-                          <span class="icon icon-views">Views: </span><strong><%= Math.floor(Math.random() * 100000) %></strong>
-                        </li>
-                        <li class="poster-likes">
-                          <span class="icon icon-like">Likes: </span><strong><%= Math.floor(Math.random() * 50000) %></strong>
-                        </li>
-                      </ul>
-                      
-                      
-                  <a href="/film/<%= nowPlayingData.results[randomNum].title.split(" ").join("-") %>"
-                     class="frame"
-                     data-original-title="<%= nowPlayingData.results[randomNum].title %> (<%= nowPlayingData.results[randomNum].release_date.substring(0, 4) %>)">
-                    <span class="frame-title"><%= nowPlayingData.results[randomNum].title %> (<%= nowPlayingData.results[randomNum].release_date.substring(0, 4) %>)</span>
-                    <span class="overlay"></span>
-                  </a>
-                </div>
-              </li>
+            <% let randomNumbers = []; %> <% for (let i = 0; i < 6; i++) { let
+            randomNum = Math.floor(Math.random() *
+            nowPlayingData.results.length); while
+            (randomNumbers.includes(randomNum)) { randomNum =
+            Math.floor(Math.random() * nowPlayingData.results.length); }
+            randomNumbers.push(randomNum); %>
+            <li
+              class="react-component poster film-poster film-poster-465649 linked-film-poster"
+            >
+              <div>
+                <img
+                  src="https://image.tmdb.org/t/p/w300<%= nowPlayingData.results[randomNum].poster_path %>"
+                  width="150"
+                  height="225"
+                  alt="<%= nowPlayingData.results[randomNum].title %>"
+                  class="image"
+                />
+                <ul class="poster-meta">
+                  <li class="poster-views">
+                    <span class="icon icon-views">Views: </span
+                    ><strong><%= Math.floor(Math.random() * 100000) %></strong>
+                  </li>
+                  <li class="poster-likes">
+                    <span class="icon icon-like">Likes: </span
+                    ><strong><%= Math.floor(Math.random() * 50000) %></strong>
+                  </li>
+                </ul>
+
+                <a
+                  href="/film/<%= convertToASCII(nowPlayingData.results[randomNum].title)
+                  .replace(/[^\w\s-]/g, '')
+                  .replace(/ /g, '-')
+                  .toLowerCase() %>-<%= nowPlayingData.results[randomNum].release_date.slice(0, 4) %>"
+                  class="frame"
+                  data-original-title="<%= nowPlayingData.results[randomNum].title %> (<%= nowPlayingData.results[randomNum].release_date.substring(0, 4) %>)"
+                >
+                  <span class="frame-title"
+                    ><%= nowPlayingData.results[randomNum].title %> (<%=
+                    nowPlayingData.results[randomNum].release_date.substring(0,
+                    4) %>)</span
+                  >
+                  <span class="overlay"></span>
+                </a>
+              </div>
+            </li>
             <% } %>
           </ul>
         </section>
@@ -1233,13 +1266,14 @@
           </h2>
 
           <ul class="poster-list -p230 -grid-liquid -outdent -ppr10">
-            <style>
-
-            </style>
+            <style></style>
 
             <% movieData.results.forEach(function(movie) { %>
             <a
-              href="/film/<%= movie.title.replace(/[^\w\s-]/g, '').replace(/ /g, '-').toLowerCase() %>"
+              href="/film/<%= convertToASCII(movie.title)
+            .replace(/[^\w\s-]/g, '')
+            .replace(/ /g, '-')
+            .toLowerCase() %>-<%= movie.release_date.slice(0, 4) %>"
             >
               <div class="pop_poster">
                 <img
@@ -1261,8 +1295,7 @@
         </section>
 
         <section id="live-feed" class="section">
-          <h2 class="section-heading">Upcoming
-          </h2>
+          <h2 class="section-heading">Upcoming</h2>
           <p class="status">
             <span id="live-count">1,229,675,664</span> films watched
           </p>
@@ -1271,33 +1304,37 @@
             <ul class="poster-list -p70 -horizontal">
               <% for (let i = 0; i < 12; i++) { %>
 
-                <li class="live-poster">
-                  <div
-                    class="react-component poster film-poster film-poster-51467 linked-film-poster"
-                  >
-                    <div>
-                      <img
-                        src="https://image.tmdb.org/t/p/w300<%= upcomingData.results[i].poster_path %>"
-                        width="70"
-                        height="105"
-                        alt="<%= upcomingData.results[i].title %>"
-                        class="image"
-                      />
-                      <a
-                        href="/film/<%= upcomingData.results[i].title.split(" ").join("-") %>"
-                        class="frame"
-                        data-original-title="<%= upcomingData.results[i].title %> (<%= upcomingData.results[i].release_date.substring(0, 4) %>)"
-                      >
-                        <span class="frame-title"><%= upcomingData.results[i].title %> (<%= upcomingData.results[i].release_date.substring(0, 4) %>)</span>
-                        <span class="overlay"></span>
-                      </a>
-                    </div>
+              <li class="live-poster">
+                <div
+                  class="react-component poster film-poster film-poster-51467 linked-film-poster"
+                >
+                  <div>
+                    <img
+                      src="https://image.tmdb.org/t/p/w300<%= upcomingData.results[i].poster_path %>"
+                      width="70"
+                      height="105"
+                      alt="<%= upcomingData.results[i].title %>"
+                      class="image"
+                    />
+
+                    <a
+                      href="/film/<%= convertToASCII(upcomingData.results[i].title)
+    .replace(/[^\w\s-]/g, '')
+    .replace(/ /g, '-')
+    .toLowerCase() %>-<%= upcomingData.results[i].release_date.slice(0, 4) %>"
+                      class="frame"
+                      data-original-title="<%= upcomingData.results[i].title %> (<%= upcomingData.results[i].release_date.substring(0, 4) %>)"
+                    >
+                      <span class="frame-title">
+                        <%= upcomingData.results[i].title %> (<%=
+                        upcomingData.results[i].release_date.substring(0, 4) %>)
+                      </span>
+                      <span class="overlay"></span>
+                    </a>
                   </div>
-                </li>
+                </div>
+              </li>
               <% } %>
-
-
-
             </ul>
           </div>
         </section>
@@ -1326,569 +1363,571 @@
               <ul
                 class="poster-list -p70 film-list clear film-details-list no-title"
               >
-              <li class="film-detail">
-                <div
-                  class="react-component poster film-poster film-poster-780321 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="780321"
-                  data-film-name="You People"
-                  data-poster-url="/film/you-people-2023/image-150/"
-                  data-film-release-year="2023"
-                  data-new-list-with-film-action="/list/new/with/you-people-2023/"
-                  data-remove-from-watchlist-action="/film/you-people-2023/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/you-people-2023/add-to-watchlist/"
-                  data-rate-action="/film/you-people-2023/rate/"
-                  data-mark-as-watched-action="/film/you-people-2023/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/you-people-2023/mark-as-not-watched/"
-                  data-film-link="/film/you-people-2023/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/film-poster/7/8/0/3/2/1/780321-you-people-0-70-0-105-crop.jpg?v=294e240eb6"
-                      width="70"
-                      height="105"
-                      alt="You People"
-                      srcset="
-                        https://a.ltrbxd.com/resized/film-poster/7/8/0/3/2/1/780321-you-people-0-140-0-210-crop.jpg?v=294e240eb6 2x
-                      "
-                      class="image"
-                    /><a href="/film/you-people/" class="frame"
-                      ><span class="frame-title">You People (2023)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-                <div class="film-detail-content">
-                  <h2 class="headline-2 prettify">
-                    <a href="/mistat/film/you-people-2023/">You People</a>
-                    <small class="metadata"
-                      ><a href="/films/year/2023/">2023</a></small
-                    >
-                  </h2>
-                  <div class="attribution-block -large">
-                    <a
-                      class="avatar -a24"
-                      href="/mistat/"
-                      data-original-title=""
-                    >
-                      <img
-                        src="https://a.ltrbxd.com/resized/avatar/upload/1/6/1/9/8/9/7/shard/avtr-0-48-0-48-crop.jpg?v=514df6a134"
-                        alt="tyler"
-                        width="24"
-                        height="24"
-                      />
-                    </a>
-                    <p class="attribution">
-                      <strong class="name"
-                        ><a href="/mistat/">tyler</a></strong
-                      >
-                      <span class="rating -green rated-5"> ★★½ </span>
-                      <span class="content-metadata"></span>
-                    </p>
-                  </div>
+                <li class="film-detail">
                   <div
-                    class="body-text -prose collapsible-text"
-                    data-full-text-url="/s/full-text/viewing:345189559/"
+                    class="react-component poster film-poster film-poster-780321 linked-film-poster"
+                    data-component-class="globals.comps.FilmPosterComponent"
+                    data-film-id="780321"
+                    data-film-name="You People"
+                    data-poster-url="/film/you-people-2023/image-150/"
+                    data-film-release-year="2023"
+                    data-new-list-with-film-action="/list/new/with/you-people-2023/"
+                    data-remove-from-watchlist-action="/film/you-people-2023/remove-from-watchlist/"
+                    data-add-to-watchlist-action="/film/you-people-2023/add-to-watchlist/"
+                    data-rate-action="/film/you-people-2023/rate/"
+                    data-mark-as-watched-action="/film/you-people-2023/mark-as-watched/"
+                    data-mark-as-not-watched-action="/film/you-people-2023/mark-as-not-watched/"
+                    data-film-link="/film/you-people-2023/"
                   >
-                    <p>“a netflix original” yeah we can tell</p>
-                  </div>
-                  <p
-                    class="like-link-target react-component -monotone"
-                    data-component-class="globals.comps.LikeLinkComponent"
-                    data-likeable-uid="viewing:345189559"
-                    data-likeable-name="review"
-                    data-likeable="true"
-                    data-likes-page="/mistat/film/you-people-2023/likes/"
-                    data-format="svg"
-                    data-owner="MistaT"
-                  >
-                    <span class="like-link"
-                      ><a
-                        href="/mistat/film/you-people-2023/likes/"
-                        class="svg-action -like cannot-like"
-                        >2,352 likes</a
-                      ></span
-                    >
-                  </p>
-                </div>
-              </li>
-
-              <li class="film-detail">
-                <div
-                  class="react-component poster film-poster film-poster-46157 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="46157"
-                  data-film-name="Castle in the Sky"
-                  data-poster-url="/film/castle-in-the-sky/image-150/"
-                  data-film-release-year="1986"
-                  data-new-list-with-film-action="/list/new/with/castle-in-the-sky/"
-                  data-remove-from-watchlist-action="/film/castle-in-the-sky/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/castle-in-the-sky/add-to-watchlist/"
-                  data-rate-action="/film/castle-in-the-sky/rate/"
-                  data-mark-as-watched-action="/film/castle-in-the-sky/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/castle-in-the-sky/mark-as-not-watched/"
-                  data-film-link="/film/castle-in-the-sky/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/film-poster/4/6/1/5/7/46157-castle-in-the-sky-0-70-0-105-crop.jpg?v=b1924d4dcd"
-                      width="70"
-                      height="105"
-                      alt="Castle in the Sky"
-                      srcset="
-                        https://a.ltrbxd.com/resized/film-poster/4/6/1/5/7/46157-castle-in-the-sky-0-140-0-210-crop.jpg?v=b1924d4dcd 2x
-                      "
-                      class="image"
-                    /><a href="/film/castle-in-the-sky/" class="frame"
-                      ><span class="frame-title"
-                        >Castle in the Sky (1986)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-                <div class="film-detail-content">
-                  <h2 class="headline-2 prettify">
-                    <a href="/schaffrillas/film/castle-in-the-sky/"
-                      >Castle in the Sky</a
-                    >
-                    <small class="metadata"
-                      ><a href="/films/year/1986/">1986</a></small
-                    >
-                  </h2>
-                  <div class="attribution-block -large">
-                    <a
-                      class="avatar -a24"
-                      href="/schaffrillas/"
-                      data-original-title=""
-                    >
+                    <div>
                       <img
-                        src="https://a.ltrbxd.com/resized/avatar/upload/1/2/0/3/7/7/7/shard/avtr-0-48-0-48-crop.jpg?v=ff62b2f12e"
-                        alt="James (Schaffrillas)"
-                        width="24"
-                        height="24"
-                      />
-                    </a>
-                    <p class="attribution">
-                      <strong class="name"
-                        ><a href="/schaffrillas/"
-                          >James (Schaffrillas)</a
-                        ></strong
+                        src="https://a.ltrbxd.com/resized/film-poster/7/8/0/3/2/1/780321-you-people-0-70-0-105-crop.jpg?v=294e240eb6"
+                        width="70"
+                        height="105"
+                        alt="You People"
+                        srcset="
+                          https://a.ltrbxd.com/resized/film-poster/7/8/0/3/2/1/780321-you-people-0-140-0-210-crop.jpg?v=294e240eb6 2x
+                        "
+                        class="image"
+                      /><a href="/film/you-people-2023" class="frame"
+                        ><span class="frame-title">You People (2023)</span
+                        ><span class="overlay"></span
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="film-detail-content">
+                    <h2 class="headline-2 prettify">
+                      <a href="/mistat/film/you-people-2023/">You People</a>
+                      <small class="metadata"
+                        ><a href="/films/year/2023/">2023</a></small
                       >
-                      <span class="rating -green rated-7"> ★★★½ </span>
-                      <span class="content-metadata"></span>
-                    </p>
-                  </div>
-                  <div
-                    class="body-text -prose collapsible-text"
-                    data-full-text-url="/s/full-text/viewing:345379049/"
-                  >
-                    <p>
-                      After watching 20 Disney direct-to-DVD sequels in a row
-                      it's nice to watch a real movie instead
-                    </p>
-                  </div>
-                  <p
-                    class="like-link-target react-component -monotone"
-                    data-component-class="globals.comps.LikeLinkComponent"
-                    data-likeable-uid="viewing:345379049"
-                    data-likeable-name="review"
-                    data-likeable="true"
-                    data-likes-page="/schaffrillas/film/castle-in-the-sky/likes/"
-                    data-format="svg"
-                    data-owner="Schaffrillas"
-                  >
-                    <span class="like-link"
-                      ><a
-                        href="/schaffrillas/film/castle-in-the-sky/likes/"
-                        class="svg-action -like cannot-like"
-                        >1,685 likes</a
-                      ></span
-                    >
-                  </p>
-                </div>
-              </li>
-
-              <li class="film-detail">
-                <div
-                  class="react-component poster film-poster film-poster-465649 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="465649"
-                  data-film-name="M3GAN"
-                  data-poster-url="/film/m3gan/image-150/"
-                  data-film-release-year="2022"
-                  data-new-list-with-film-action="/list/new/with/m3gan/"
-                  data-remove-from-watchlist-action="/film/m3gan/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/m3gan/add-to-watchlist/"
-                  data-rate-action="/film/m3gan/rate/"
-                  data-mark-as-watched-action="/film/m3gan/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/m3gan/mark-as-not-watched/"
-                  data-film-link="/film/m3gan/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/film-poster/4/6/5/6/4/9/465649-m3gan-0-70-0-105-crop.jpg?v=7b22fdec79"
-                      width="70"
-                      height="105"
-                      alt="M3GAN"
-                      srcset="
-                        https://a.ltrbxd.com/resized/film-poster/4/6/5/6/4/9/465649-m3gan-0-140-0-210-crop.jpg?v=7b22fdec79 2x
-                      "
-                      class="image"
-                    /><a href="/film/m3gan/" class="frame"
-                      ><span class="frame-title">M3GAN (2022)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-                <div class="film-detail-content">
-                  <h2 class="headline-2 prettify">
-                    <a href="/hollieamanda/film/m3gan/">M3GAN</a>
-                    <small class="metadata"
-                      ><a href="/films/year/2022/">2022</a></small
-                    >
-                  </h2>
-                  <div class="attribution-block -large">
-                    <a
-                      class="avatar -a24"
-                      href="/hollieamanda/"
-                      data-original-title=""
-                    >
-                      <img
-                        src="https://a.ltrbxd.com/resized/avatar/upload/1/8/3/2/2/6/shard/avtr-0-48-0-48-crop.jpg?v=6791db69be"
-                        alt="hollie amanda"
-                        width="24"
-                        height="24"
-                      />
-                    </a>
-                    <p class="attribution">
-                      <strong class="name"
-                        ><a href="/hollieamanda/">hollie amanda</a></strong
+                    </h2>
+                    <div class="attribution-block -large">
+                      <a
+                        class="avatar -a24"
+                        href="/mistat/"
+                        data-original-title=""
                       >
-                      <span class="rating -green rated-5"> ★★½ </span>
-                      <span class="content-metadata"
+                        <img
+                          src="https://a.ltrbxd.com/resized/avatar/upload/1/6/1/9/8/9/7/shard/avtr-0-48-0-48-crop.jpg?v=514df6a134"
+                          alt="tyler"
+                          width="24"
+                          height="24"
+                        />
+                      </a>
+                      <p class="attribution">
+                        <strong class="name"
+                          ><a href="/mistat/">tyler</a></strong
+                        >
+                        <span class="rating -green rated-5"> ★★½ </span>
+                        <span class="content-metadata"></span>
+                      </p>
+                    </div>
+                    <div
+                      class="body-text -prose collapsible-text"
+                      data-full-text-url="/s/full-text/viewing:345189559/"
+                    >
+                      <p>“a netflix original” yeah we can tell</p>
+                    </div>
+                    <p
+                      class="like-link-target react-component -monotone"
+                      data-component-class="globals.comps.LikeLinkComponent"
+                      data-likeable-uid="viewing:345189559"
+                      data-likeable-name="review"
+                      data-likeable="true"
+                      data-likes-page="/mistat/film/you-people-2023/likes/"
+                      data-format="svg"
+                      data-owner="MistaT"
+                    >
+                      <span class="like-link"
                         ><a
-                          href="/hollieamanda/film/m3gan/"
-                          class="has-icon icon-comment icon-16 comment-count"
-                          ><span class="icon"></span>13</a
+                          href="/mistat/film/you-people-2023/likes/"
+                          class="svg-action -like cannot-like"
+                          >2,352 likes</a
                         ></span
                       >
                     </p>
                   </div>
-                  <div
-                    class="body-text -prose collapsible-text"
-                    data-full-text-url="/s/full-text/viewing:334666955/"
-                  >
-                    <p>GA5L1GHT<br />GAT3K33P<br />G1RLB0T</p>
-                  </div>
-                  <p
-                    class="like-link-target react-component -monotone"
-                    data-component-class="globals.comps.LikeLinkComponent"
-                    data-likeable-uid="viewing:334666955"
-                    data-likeable-name="review"
-                    data-likeable="true"
-                    data-likes-page="/hollieamanda/film/m3gan/likes/"
-                    data-format="svg"
-                    data-owner="hollieamanda"
-                  >
-                    <span class="like-link"
-                      ><a
-                        href="/hollieamanda/film/m3gan/likes/"
-                        class="svg-action -like cannot-like"
-                        >6,295 likes</a
-                      ></span
-                    >
-                  </p>
-                </div>
-              </li>
+                </li>
 
-              <li class="film-detail">
-                <div
-                  class="react-component poster film-poster film-poster-242285 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="242285"
-                  data-film-name="Puss in Boots: The Last Wish"
-                  data-poster-url="/film/puss-in-boots-the-last-wish/image-150/"
-                  data-film-release-year="2022"
-                  data-new-list-with-film-action="/list/new/with/puss-in-boots-the-last-wish/"
-                  data-remove-from-watchlist-action="/film/puss-in-boots-the-last-wish/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/puss-in-boots-the-last-wish/add-to-watchlist/"
-                  data-rate-action="/film/puss-in-boots-the-last-wish/rate/"
-                  data-mark-as-watched-action="/film/puss-in-boots-the-last-wish/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/puss-in-boots-the-last-wish/mark-as-not-watched/"
-                  data-film-link="/film/puss-in-boots-the-last-wish/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/film-poster/2/4/2/2/8/5/242285-puss-in-boots-the-last-wish-0-70-0-105-crop.jpg?v=9e9109c5cd"
-                      width="70"
-                      height="105"
-                      alt="Puss in Boots: The Last Wish"
-                      srcset="
-                        https://a.ltrbxd.com/resized/film-poster/2/4/2/2/8/5/242285-puss-in-boots-the-last-wish-0-140-0-210-crop.jpg?v=9e9109c5cd 2x
-                      "
-                      class="image"
-                    /><a
-                      href="/film/puss-in-boots-the-last-wish/"
-                      class="frame"
-                      ><span class="frame-title"
-                        >Puss in Boots: The Last Wish (2022)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-                <div class="film-detail-content">
-                  <h2 class="headline-2 prettify">
-                    <a href="/raybean/film/puss-in-boots-the-last-wish/"
-                      >Puss in Boots: The Last Wish</a
-                    >
-                    <small class="metadata"
-                      ><a href="/films/year/2022/">2022</a></small
-                    >
-                  </h2>
-                  <div class="attribution-block -large">
-                    <a
-                      class="avatar -a24"
-                      href="/raybean/"
-                      data-original-title=""
-                    >
+                <li class="film-detail">
+                  <div
+                    class="react-component poster film-poster film-poster-46157 linked-film-poster"
+                    data-component-class="globals.comps.FilmPosterComponent"
+                    data-film-id="46157"
+                    data-film-name="Castle in the Sky"
+                    data-poster-url="/film/castle-in-the-sky/image-150/"
+                    data-film-release-year="1986"
+                    data-new-list-with-film-action="/list/new/with/castle-in-the-sky/"
+                    data-remove-from-watchlist-action="/film/castle-in-the-sky/remove-from-watchlist/"
+                    data-add-to-watchlist-action="/film/castle-in-the-sky/add-to-watchlist/"
+                    data-rate-action="/film/castle-in-the-sky/rate/"
+                    data-mark-as-watched-action="/film/castle-in-the-sky/mark-as-watched/"
+                    data-mark-as-not-watched-action="/film/castle-in-the-sky/mark-as-not-watched/"
+                    data-film-link="/film/castle-in-the-sky/"
+                  >
+                    <div>
                       <img
-                        src="https://a.ltrbxd.com/resized/avatar/upload/6/9/6/4/5/9/6/shard/avtr-0-48-0-48-crop.jpg?v=9a645f8e44"
-                        alt="NicoPico"
-                        width="24"
-                        height="24"
-                      />
-                    </a>
-                    <p class="attribution">
-                      <strong class="name"
-                        ><a href="/raybean/">NicoPico</a></strong
+                        src="https://a.ltrbxd.com/resized/film-poster/4/6/1/5/7/46157-castle-in-the-sky-0-70-0-105-crop.jpg?v=b1924d4dcd"
+                        width="70"
+                        height="105"
+                        alt="Castle in the Sky"
+                        srcset="
+                          https://a.ltrbxd.com/resized/film-poster/4/6/1/5/7/46157-castle-in-the-sky-0-140-0-210-crop.jpg?v=b1924d4dcd 2x
+                        "
+                        class="image"
+                      /><a href="/film/castle-in-the-sky-1986" class="frame"
+                        ><span class="frame-title"
+                          >Castle in the Sky (1986)</span
+                        ><span class="overlay"></span
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="film-detail-content">
+                    <h2 class="headline-2 prettify">
+                      <a href="/schaffrillas/film/castle-in-the-sky/"
+                        >Castle in the Sky</a
                       >
-                      <span class="rating -green rated-9"> ★★★★½ </span>
-                      <span class="content-metadata"
+                      <small class="metadata"
+                        ><a href="/films/year/1986/">1986</a></small
+                      >
+                    </h2>
+                    <div class="attribution-block -large">
+                      <a
+                        class="avatar -a24"
+                        href="/schaffrillas/"
+                        data-original-title=""
+                      >
+                        <img
+                          src="https://a.ltrbxd.com/resized/avatar/upload/1/2/0/3/7/7/7/shard/avtr-0-48-0-48-crop.jpg?v=ff62b2f12e"
+                          alt="James (Schaffrillas)"
+                          width="24"
+                          height="24"
+                        />
+                      </a>
+                      <p class="attribution">
+                        <strong class="name"
+                          ><a href="/schaffrillas/"
+                            >James (Schaffrillas)</a
+                          ></strong
+                        >
+                        <span class="rating -green rated-7"> ★★★½ </span>
+                        <span class="content-metadata"></span>
+                      </p>
+                    </div>
+                    <div
+                      class="body-text -prose collapsible-text"
+                      data-full-text-url="/s/full-text/viewing:345379049/"
+                    >
+                      <p>
+                        After watching 20 Disney direct-to-DVD sequels in a row
+                        it's nice to watch a real movie instead
+                      </p>
+                    </div>
+                    <p
+                      class="like-link-target react-component -monotone"
+                      data-component-class="globals.comps.LikeLinkComponent"
+                      data-likeable-uid="viewing:345379049"
+                      data-likeable-name="review"
+                      data-likeable="true"
+                      data-likes-page="/schaffrillas/film/castle-in-the-sky/likes/"
+                      data-format="svg"
+                      data-owner="Schaffrillas"
+                    >
+                      <span class="like-link"
                         ><a
-                          href="/raybean/film/puss-in-boots-the-last-wish/"
-                          class="has-icon icon-comment icon-16 comment-count"
-                          ><span class="icon"></span>58</a
+                          href="/schaffrillas/film/castle-in-the-sky/likes/"
+                          class="svg-action -like cannot-like"
+                          >1,685 likes</a
                         ></span
                       >
                     </p>
                   </div>
-                  <div
-                    class="body-text -prose collapsible-text"
-                    data-full-text-url="/s/full-text/viewing:326025725/"
-                  >
-                    <p>Puss in Boots: Into the Pussy-Verse</p>
-                  </div>
-                  <p
-                    class="like-link-target react-component -monotone"
-                    data-component-class="globals.comps.LikeLinkComponent"
-                    data-likeable-uid="viewing:326025725"
-                    data-likeable-name="review"
-                    data-likeable="true"
-                    data-likes-page="/raybean/film/puss-in-boots-the-last-wish/likes/"
-                    data-format="svg"
-                    data-owner="RayBean"
-                  >
-                    <span class="like-link"
-                      ><a
-                        href="/raybean/film/puss-in-boots-the-last-wish/likes/"
-                        class="svg-action -like cannot-like"
-                        >14,982 likes</a
-                      ></span
-                    >
-                  </p>
-                </div>
-              </li>
+                </li>
 
-              <li class="film-detail">
-                <div
-                  class="react-component poster film-poster film-poster-521323 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="521323"
-                  data-film-name="The Menu"
-                  data-poster-url="/film/the-menu-2022/image-150/"
-                  data-film-release-year="2022"
-                  data-new-list-with-film-action="/list/new/with/the-menu-2022/"
-                  data-remove-from-watchlist-action="/film/the-menu-2022/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/the-menu-2022/add-to-watchlist/"
-                  data-rate-action="/film/the-menu-2022/rate/"
-                  data-mark-as-watched-action="/film/the-menu-2022/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/the-menu-2022/mark-as-not-watched/"
-                  data-film-link="/film/the-menu-2022/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/alternative-poster/5/2/1/3/2/3/p/fSRpqX3fBkFTRx6KrRLvX5XZzpQ-0-70-0-105-crop.jpg?v=146b6f17dd"
-                      width="70"
-                      height="105"
-                      alt="The Menu"
-                      srcset="
-                        https://a.ltrbxd.com/resized/alternative-poster/5/2/1/3/2/3/p/fSRpqX3fBkFTRx6KrRLvX5XZzpQ-0-140-0-210-crop.jpg?v=146b6f17dd 2x
-                      "
-                      class="image"
-                    /><a href="/film/the-menu/" class="frame"
-                      ><span class="frame-title">The Menu (2022)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-                <div class="film-detail-content">
-                  <h2 class="headline-2 prettify">
-                    <a href="/midsommarz/film/the-menu/">The Menu</a>
-                    <small class="metadata"
-                      ><a href="/films/year/2022/">2022</a></small
-                    >
-                  </h2>
-                  <div class="attribution-block -large">
-                    <a
-                      class="avatar -a24"
-                      href="/midsommarz/"
-                      data-original-title=""
-                    >
+                <li class="film-detail">
+                  <div
+                    class="react-component poster film-poster film-poster-465649 linked-film-poster"
+                    data-component-class="globals.comps.FilmPosterComponent"
+                    data-film-id="465649"
+                    data-film-name="M3GAN"
+                    data-poster-url="/film/m3gan/image-150/"
+                    data-film-release-year="2022"
+                    data-new-list-with-film-action="/list/new/with/m3gan/"
+                    data-remove-from-watchlist-action="/film/m3gan/remove-from-watchlist/"
+                    data-add-to-watchlist-action="/film/m3gan/add-to-watchlist/"
+                    data-rate-action="/film/m3gan/rate/"
+                    data-mark-as-watched-action="/film/m3gan/mark-as-watched/"
+                    data-mark-as-not-watched-action="/film/m3gan/mark-as-not-watched/"
+                    data-film-link="/film/m3gan/"
+                  >
+                    <div>
                       <img
-                        src="https://a.ltrbxd.com/resized/avatar/twitter/9/4/8/8/6/2/shard/http___pbs.twimg.com_profile_images_1592634241652871172_1BpPocV2-0-48-0-48-crop.jpg?v=6b43d7caf4"
-                        alt="Brian"
-                        width="24"
-                        height="24"
-                      />
-                    </a>
-                    <p class="attribution">
-                      <strong class="name"
-                        ><a href="/midsommarz/">Brian</a></strong
+                        src="https://a.ltrbxd.com/resized/film-poster/4/6/5/6/4/9/465649-m3gan-0-70-0-105-crop.jpg?v=7b22fdec79"
+                        width="70"
+                        height="105"
+                        alt="M3GAN"
+                        srcset="
+                          https://a.ltrbxd.com/resized/film-poster/4/6/5/6/4/9/465649-m3gan-0-140-0-210-crop.jpg?v=7b22fdec79 2x
+                        "
+                        class="image"
+                      /><a href="/film/m3gan-2022" class="frame"
+                        ><span class="frame-title">M3GAN (2022)</span
+                        ><span class="overlay"></span
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="film-detail-content">
+                    <h2 class="headline-2 prettify">
+                      <a href="/hollieamanda/film/m3gan/">M3GAN</a>
+                      <small class="metadata"
+                        ><a href="/films/year/2022/">2022</a></small
                       >
-                      <span class="rating -green rated-8"> ★★★★ </span>
-                      <span class="content-metadata"
+                    </h2>
+                    <div class="attribution-block -large">
+                      <a
+                        class="avatar -a24"
+                        href="/hollieamanda/"
+                        data-original-title=""
+                      >
+                        <img
+                          src="https://a.ltrbxd.com/resized/avatar/upload/1/8/3/2/2/6/shard/avtr-0-48-0-48-crop.jpg?v=6791db69be"
+                          alt="hollie amanda"
+                          width="24"
+                          height="24"
+                        />
+                      </a>
+                      <p class="attribution">
+                        <strong class="name"
+                          ><a href="/hollieamanda/">hollie amanda</a></strong
+                        >
+                        <span class="rating -green rated-5"> ★★½ </span>
+                        <span class="content-metadata"
+                          ><a
+                            href="/hollieamanda/film/m3gan/"
+                            class="has-icon icon-comment icon-16 comment-count"
+                            ><span class="icon"></span>13</a
+                          ></span
+                        >
+                      </p>
+                    </div>
+                    <div
+                      class="body-text -prose collapsible-text"
+                      data-full-text-url="/s/full-text/viewing:334666955/"
+                    >
+                      <p>GA5L1GHT<br />GAT3K33P<br />G1RLB0T</p>
+                    </div>
+                    <p
+                      class="like-link-target react-component -monotone"
+                      data-component-class="globals.comps.LikeLinkComponent"
+                      data-likeable-uid="viewing:334666955"
+                      data-likeable-name="review"
+                      data-likeable="true"
+                      data-likes-page="/hollieamanda/film/m3gan/likes/"
+                      data-format="svg"
+                      data-owner="hollieamanda"
+                    >
+                      <span class="like-link"
                         ><a
-                          href="/midsommarz/film/the-menu/"
-                          class="has-icon icon-comment icon-16 comment-count"
-                          ><span class="icon"></span>144</a
+                          href="/hollieamanda/film/m3gan/likes/"
+                          class="svg-action -like cannot-like"
+                          >6,295 likes</a
                         ></span
                       >
                     </p>
                   </div>
-                  <div
-                    class="body-text -prose collapsible-text"
-                    data-full-text-url="/s/full-text/viewing:314611977/"
-                  >
-                    <p>Ralph Fiennes served and Anya Taylor-Joy ate</p>
-                  </div>
-                  <p
-                    class="like-link-target react-component -monotone"
-                    data-component-class="globals.comps.LikeLinkComponent"
-                    data-likeable-uid="viewing:314611977"
-                    data-likeable-name="review"
-                    data-likeable="true"
-                    data-likes-page="/midsommarz/film/the-menu-2022/likes/"
-                    data-format="svg"
-                    data-owner="midsommarz"
-                  >
-                    <span class="like-link"
-                      ><a
-                        href="/midsommarz/film/the-menu-2022/likes/"
-                        class="svg-action -like cannot-like"
-                        >32,943 likes</a
-                      ></span
-                    >
-                  </p>
-                </div>
-              </li>
+                </li>
 
-              <li class="film-detail">
-                <div
-                  class="react-component poster film-poster film-poster-314883 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="314883"
-                  data-film-name="Space Jam: A New Legacy"
-                  data-poster-url="/film/space-jam-a-new-legacy/image-150/"
-                  data-film-release-year="2021"
-                  data-new-list-with-film-action="/list/new/with/space-jam-a-new-legacy/"
-                  data-remove-from-watchlist-action="/film/space-jam-a-new-legacy/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/space-jam-a-new-legacy/add-to-watchlist/"
-                  data-rate-action="/film/space-jam-a-new-legacy/rate/"
-                  data-mark-as-watched-action="/film/space-jam-a-new-legacy/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/space-jam-a-new-legacy/mark-as-not-watched/"
-                  data-film-link="/film/space-jam-a-new-legacy/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/film-poster/3/1/4/8/8/3/314883-space-jam-a-new-legacy-0-70-0-105-crop.jpg?v=c640006c01"
-                      width="70"
-                      height="105"
-                      alt="Space Jam: A New Legacy"
-                      srcset="
-                        https://a.ltrbxd.com/resized/film-poster/3/1/4/8/8/3/314883-space-jam-a-new-legacy-0-140-0-210-crop.jpg?v=c640006c01 2x
-                      "
-                      class="image"
-                    /><a href="/film/space-jam-a-new-legacy/" class="frame"
-                      ><span class="frame-title"
-                        >Space Jam: A New Legacy (2021)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-                <div class="film-detail-content">
-                  <h2 class="headline-2 prettify">
-                    <a href="/patrickhwillems/film/space-jam-a-new-legacy/"
-                      >Space Jam: A New Legacy</a
-                    >
-                    <small class="metadata"
-                      ><a href="/films/year/2021/">2021</a></small
-                    >
-                  </h2>
-                  <div class="attribution-block -large">
-                    <a
-                      class="avatar -a24"
-                      href="/patrickhwillems/"
-                      data-original-title=""
-                    >
+                <li class="film-detail">
+                  <div
+                    class="react-component poster film-poster film-poster-242285 linked-film-poster"
+                    data-component-class="globals.comps.FilmPosterComponent"
+                    data-film-id="242285"
+                    data-film-name="Puss in Boots: The Last Wish"
+                    data-poster-url="/film/puss-in-boots-the-last-wish/image-150/"
+                    data-film-release-year="2022"
+                    data-new-list-with-film-action="/list/new/with/puss-in-boots-the-last-wish/"
+                    data-remove-from-watchlist-action="/film/puss-in-boots-the-last-wish/remove-from-watchlist/"
+                    data-add-to-watchlist-action="/film/puss-in-boots-the-last-wish/add-to-watchlist/"
+                    data-rate-action="/film/puss-in-boots-the-last-wish/rate/"
+                    data-mark-as-watched-action="/film/puss-in-boots-the-last-wish/mark-as-watched/"
+                    data-mark-as-not-watched-action="/film/puss-in-boots-the-last-wish/mark-as-not-watched/"
+                    data-film-link="/film/puss-in-boots-the-last-wish/"
+                  >
+                    <div>
                       <img
-                        src="https://a.ltrbxd.com/resized/avatar/upload/2/6/7/4/1/9/shard/avtr-0-48-0-48-crop.jpg?v=a856408a78"
-                        alt="Patrick Willems"
-                        width="24"
-                        height="24"
-                      />
-                    </a>
-                    <p class="attribution">
-                      <strong class="name"
-                        ><a href="/patrickhwillems/"
-                          >Patrick Willems</a
-                        ></strong
+                        src="https://a.ltrbxd.com/resized/film-poster/2/4/2/2/8/5/242285-puss-in-boots-the-last-wish-0-70-0-105-crop.jpg?v=9e9109c5cd"
+                        width="70"
+                        height="105"
+                        alt="Puss in Boots: The Last Wish"
+                        srcset="
+                          https://a.ltrbxd.com/resized/film-poster/2/4/2/2/8/5/242285-puss-in-boots-the-last-wish-0-140-0-210-crop.jpg?v=9e9109c5cd 2x
+                        "
+                        class="image"
+                      /><a
+                        href="/film/puss-in-boots-the-last-wish-2022"
+                        class="frame"
+                        ><span class="frame-title"
+                          >Puss in Boots: The Last Wish (2022)</span
+                        ><span class="overlay"></span
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="film-detail-content">
+                    <h2 class="headline-2 prettify">
+                      <a href="/raybean/film/puss-in-boots-the-last-wish/"
+                        >Puss in Boots: The Last Wish</a
                       >
-                      <span class="rating -green rated-2"> ★ </span>
-                      <span class="content-metadata"
+                      <small class="metadata"
+                        ><a href="/films/year/2022/">2022</a></small
+                      >
+                    </h2>
+                    <div class="attribution-block -large">
+                      <a
+                        class="avatar -a24"
+                        href="/raybean/"
+                        data-original-title=""
+                      >
+                        <img
+                          src="https://a.ltrbxd.com/resized/avatar/upload/6/9/6/4/5/9/6/shard/avtr-0-48-0-48-crop.jpg?v=9a645f8e44"
+                          alt="NicoPico"
+                          width="24"
+                          height="24"
+                        />
+                      </a>
+                      <p class="attribution">
+                        <strong class="name"
+                          ><a href="/raybean/">NicoPico</a></strong
+                        >
+                        <span class="rating -green rated-9"> ★★★★½ </span>
+                        <span class="content-metadata"
+                          ><a
+                            href="/raybean/film/puss-in-boots-the-last-wish/"
+                            class="has-icon icon-comment icon-16 comment-count"
+                            ><span class="icon"></span>58</a
+                          ></span
+                        >
+                      </p>
+                    </div>
+                    <div
+                      class="body-text -prose collapsible-text"
+                      data-full-text-url="/s/full-text/viewing:326025725/"
+                    >
+                      <p>Puss in Boots: Into the Pussy-Verse</p>
+                    </div>
+                    <p
+                      class="like-link-target react-component -monotone"
+                      data-component-class="globals.comps.LikeLinkComponent"
+                      data-likeable-uid="viewing:326025725"
+                      data-likeable-name="review"
+                      data-likeable="true"
+                      data-likes-page="/raybean/film/puss-in-boots-the-last-wish/likes/"
+                      data-format="svg"
+                      data-owner="RayBean"
+                    >
+                      <span class="like-link"
                         ><a
-                          href="/patrickhwillems/film/space-jam-a-new-legacy/"
-                          class="has-icon icon-comment icon-16 comment-count"
-                          ><span class="icon"></span>11</a
+                          href="/raybean/film/puss-in-boots-the-last-wish/likes/"
+                          class="svg-action -like cannot-like"
+                          >14,982 likes</a
                         ></span
                       >
                     </p>
                   </div>
+                </li>
+
+                <li class="film-detail">
                   <div
-                    class="body-text -prose collapsible-text"
-                    data-full-text-url="/s/full-text/viewing:347494990/"
+                    class="react-component poster film-poster film-poster-521323 linked-film-poster"
+                    data-component-class="globals.comps.FilmPosterComponent"
+                    data-film-id="521323"
+                    data-film-name="The Menu"
+                    data-poster-url="/film/the-menu-2022/image-150/"
+                    data-film-release-year="2022"
+                    data-new-list-with-film-action="/list/new/with/the-menu-2022/"
+                    data-remove-from-watchlist-action="/film/the-menu-2022/remove-from-watchlist/"
+                    data-add-to-watchlist-action="/film/the-menu-2022/add-to-watchlist/"
+                    data-rate-action="/film/the-menu-2022/rate/"
+                    data-mark-as-watched-action="/film/the-menu-2022/mark-as-watched/"
+                    data-mark-as-not-watched-action="/film/the-menu-2022/mark-as-not-watched/"
+                    data-film-link="/film/the-menu-2022/"
                   >
-                    <p>Deeply depressing</p>
+                    <div>
+                      <img
+                        src="https://a.ltrbxd.com/resized/alternative-poster/5/2/1/3/2/3/p/fSRpqX3fBkFTRx6KrRLvX5XZzpQ-0-70-0-105-crop.jpg?v=146b6f17dd"
+                        width="70"
+                        height="105"
+                        alt="The Menu"
+                        srcset="
+                          https://a.ltrbxd.com/resized/alternative-poster/5/2/1/3/2/3/p/fSRpqX3fBkFTRx6KrRLvX5XZzpQ-0-140-0-210-crop.jpg?v=146b6f17dd 2x
+                        "
+                        class="image"
+                      /><a href="/film/the-menu-2022" class="frame"
+                        ><span class="frame-title">The Menu (2022)</span
+                        ><span class="overlay"></span
+                      ></a>
+                    </div>
                   </div>
-                  <p
-                    class="like-link-target react-component -monotone"
-                    data-component-class="globals.comps.LikeLinkComponent"
-                    data-likeable-uid="viewing:347494990"
-                    data-likeable-name="review"
-                    data-likeable="true"
-                    data-likes-page="/patrickhwillems/film/space-jam-a-new-legacy/likes/"
-                    data-format="svg"
-                    data-owner="patrickhwillems"
-                  >
-                    <span class="like-link"
-                      ><a
-                        href="/patrickhwillems/film/space-jam-a-new-legacy/likes/"
-                        class="svg-action -like cannot-like"
-                        >712 likes</a
-                      ></span
+                  <div class="film-detail-content">
+                    <h2 class="headline-2 prettify">
+                      <a href="/midsommarz/film/the-menu/">The Menu</a>
+                      <small class="metadata"
+                        ><a href="/films/year/2022/">2022</a></small
+                      >
+                    </h2>
+                    <div class="attribution-block -large">
+                      <a
+                        class="avatar -a24"
+                        href="/midsommarz/"
+                        data-original-title=""
+                      >
+                        <img
+                          src="https://a.ltrbxd.com/resized/avatar/twitter/9/4/8/8/6/2/shard/http___pbs.twimg.com_profile_images_1592634241652871172_1BpPocV2-0-48-0-48-crop.jpg?v=6b43d7caf4"
+                          alt="Brian"
+                          width="24"
+                          height="24"
+                        />
+                      </a>
+                      <p class="attribution">
+                        <strong class="name"
+                          ><a href="/midsommarz/">Brian</a></strong
+                        >
+                        <span class="rating -green rated-8"> ★★★★ </span>
+                        <span class="content-metadata"
+                          ><a
+                            href="/midsommarz/film/the-menu/"
+                            class="has-icon icon-comment icon-16 comment-count"
+                            ><span class="icon"></span>144</a
+                          ></span
+                        >
+                      </p>
+                    </div>
+                    <div
+                      class="body-text -prose collapsible-text"
+                      data-full-text-url="/s/full-text/viewing:314611977/"
                     >
-                  </p>
-                </div>
-              </li>
+                      <p>Ralph Fiennes served and Anya Taylor-Joy ate</p>
+                    </div>
+                    <p
+                      class="like-link-target react-component -monotone"
+                      data-component-class="globals.comps.LikeLinkComponent"
+                      data-likeable-uid="viewing:314611977"
+                      data-likeable-name="review"
+                      data-likeable="true"
+                      data-likes-page="/midsommarz/film/the-menu-2022/likes/"
+                      data-format="svg"
+                      data-owner="midsommarz"
+                    >
+                      <span class="like-link"
+                        ><a
+                          href="/midsommarz/film/the-menu-2022/likes/"
+                          class="svg-action -like cannot-like"
+                          >32,943 likes</a
+                        ></span
+                      >
+                    </p>
+                  </div>
+                </li>
+
+                <li class="film-detail">
+                  <div
+                    class="react-component poster film-poster film-poster-314883 linked-film-poster"
+                    data-component-class="globals.comps.FilmPosterComponent"
+                    data-film-id="314883"
+                    data-film-name="Space Jam: A New Legacy"
+                    data-poster-url="/film/space-jam-a-new-legacy/image-150/"
+                    data-film-release-year="2021"
+                    data-new-list-with-film-action="/list/new/with/space-jam-a-new-legacy/"
+                    data-remove-from-watchlist-action="/film/space-jam-a-new-legacy/remove-from-watchlist/"
+                    data-add-to-watchlist-action="/film/space-jam-a-new-legacy/add-to-watchlist/"
+                    data-rate-action="/film/space-jam-a-new-legacy/rate/"
+                    data-mark-as-watched-action="/film/space-jam-a-new-legacy/mark-as-watched/"
+                    data-mark-as-not-watched-action="/film/space-jam-a-new-legacy/mark-as-not-watched/"
+                    data-film-link="/film/space-jam-a-new-legacy/"
+                  >
+                    <div>
+                      <img
+                        src="https://a.ltrbxd.com/resized/film-poster/3/1/4/8/8/3/314883-space-jam-a-new-legacy-0-70-0-105-crop.jpg?v=c640006c01"
+                        width="70"
+                        height="105"
+                        alt="Space Jam: A New Legacy"
+                        srcset="
+                          https://a.ltrbxd.com/resized/film-poster/3/1/4/8/8/3/314883-space-jam-a-new-legacy-0-140-0-210-crop.jpg?v=c640006c01 2x
+                        "
+                        class="image"
+                      /><a
+                        href="/film/space-jam-a-new-legacy-2021"
+                        class="frame"
+                        ><span class="frame-title"
+                          >Space Jam: A New Legacy (2021)</span
+                        ><span class="overlay"></span
+                      ></a>
+                    </div>
+                  </div>
+                  <div class="film-detail-content">
+                    <h2 class="headline-2 prettify">
+                      <a href="/patrickhwillems/film/space-jam-a-new-legacy/"
+                        >Space Jam: A New Legacy</a
+                      >
+                      <small class="metadata"
+                        ><a href="/films/year/2021/">2021</a></small
+                      >
+                    </h2>
+                    <div class="attribution-block -large">
+                      <a
+                        class="avatar -a24"
+                        href="/patrickhwillems/"
+                        data-original-title=""
+                      >
+                        <img
+                          src="https://a.ltrbxd.com/resized/avatar/upload/2/6/7/4/1/9/shard/avtr-0-48-0-48-crop.jpg?v=a856408a78"
+                          alt="Patrick Willems"
+                          width="24"
+                          height="24"
+                        />
+                      </a>
+                      <p class="attribution">
+                        <strong class="name"
+                          ><a href="/patrickhwillems/"
+                            >Patrick Willems</a
+                          ></strong
+                        >
+                        <span class="rating -green rated-2"> ★ </span>
+                        <span class="content-metadata"
+                          ><a
+                            href="/patrickhwillems/film/space-jam-a-new-legacy/"
+                            class="has-icon icon-comment icon-16 comment-count"
+                            ><span class="icon"></span>11</a
+                          ></span
+                        >
+                      </p>
+                    </div>
+                    <div
+                      class="body-text -prose collapsible-text"
+                      data-full-text-url="/s/full-text/viewing:347494990/"
+                    >
+                      <p>Deeply depressing</p>
+                    </div>
+                    <p
+                      class="like-link-target react-component -monotone"
+                      data-component-class="globals.comps.LikeLinkComponent"
+                      data-likeable-uid="viewing:347494990"
+                      data-likeable-name="review"
+                      data-likeable="true"
+                      data-likes-page="/patrickhwillems/film/space-jam-a-new-legacy/likes/"
+                      data-format="svg"
+                      data-owner="patrickhwillems"
+                    >
+                      <span class="like-link"
+                        ><a
+                          href="/patrickhwillems/film/space-jam-a-new-legacy/likes/"
+                          class="svg-action -like cannot-like"
+                          >712 likes</a
+                        ></span
+                      >
+                    </p>
+                  </div>
+                </li>
               </ul>
             </section>
           </div>
@@ -4211,359 +4250,5 @@
       defer=""
       src="https://s.ltrbxd.com/static/js/partner-publishers.min.cfa338a1.js"
     ></script>
-
-    <div id="cboxOverlay" style="display: none"></div>
-    <div id="colorbox" class="" style="display: none">
-      <div id="cboxWrapper">
-        <div>
-          <div id="cboxTopLeft" style="float: left"></div>
-          <div id="cboxTopCenter" style="float: left"></div>
-          <div id="cboxTopRight" style="float: left"></div>
-        </div>
-        <div style="clear: left">
-          <div id="cboxMiddleLeft" style="float: left"></div>
-          <div id="cboxContent" style="float: left">
-            <div id="cboxTitle" style="float: left"></div>
-            <div id="cboxCurrent" style="float: left"></div>
-            <div id="cboxNext" style="float: left"></div>
-            <div id="cboxPrevious" style="float: left"></div>
-            <div id="cboxSlideshow" style="float: left"></div>
-            <div id="cboxClose" style="float: left"></div>
-          </div>
-          <div id="cboxMiddleRight" style="float: left"></div>
-        </div>
-        <div style="clear: left">
-          <div id="cboxBottomLeft" style="float: left"></div>
-          <div id="cboxBottomCenter" style="float: left"></div>
-          <div id="cboxBottomRight" style="float: left"></div>
-        </div>
-      </div>
-      <div
-        style="
-          position: absolute;
-          width: 9999px;
-          visibility: hidden;
-          display: none;
-        "
-      ></div>
-    </div>
-    <div
-      id="adBanner"
-      class="adLeaderboard adBanner leaderboard_ad"
-      style="
-        background-color: transparent;
-        height: 10px;
-        width: 10px;
-        position: fixed;
-        bottom: -100px;
-        left: -100px;
-      "
-    >
-      &nbsp;
-    </div>
-    <iframe
-      id="pw_user_data"
-      src="https://cdn.intergient.com/pageos/1.9.12/iframe/iframe.html"
-      style="
-        display: none;
-        height: 0px;
-        width: 0px;
-        position: fixed;
-        bottom: -99999px;
-      "
-    ></iframe>
-    <div
-      id="tyche_trendi_video_container"
-      style="
-        height: 169px;
-        width: 300px;
-        visibility: hidden;
-        opacity: 0;
-        position: fixed;
-        right: 0px;
-        bottom: 0px;
-      "
-    >
-      <div
-        id="tyche_trendi_video"
-        style="
-          width: 100%;
-          height: 100%;
-          position: relative;
-          transition: opacity 0.2s ease-out 0s;
-          background-color: transparent;
-        "
-        data-script-id="1676263205464"
-      >
-        <div
-          class="loading-spinner"
-          style="
-            position: absolute;
-            display: none;
-            width: 24px !important;
-            height: 24px !important;
-            top: 84.5px;
-            left: 150px;
-          "
-        >
-          <div
-            class="spinner"
-            aria-role="progressbar"
-            style="position: relative; z-index: 2000000000; left: 0px; top: 0px"
-          >
-            <div
-              style="
-                position: absolute;
-                top: -2px;
-                opacity: 0.25;
-                animation: 1s linear 0s infinite normal none running
-                  opacity-60-25-0-9;
-              "
-            >
-              <div
-                style="
-                  position: absolute;
-                  width: 5px;
-                  height: 5px;
-                  background: rgb(255, 255, 255);
-                  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px;
-                  transform-origin: left center;
-                  transform: rotate(0deg) translate(8px, 0px);
-                  border-radius: 2px;
-                "
-              ></div>
-            </div>
-            <div
-              style="
-                position: absolute;
-                top: -2px;
-                opacity: 0.25;
-                animation: 1s linear 0s infinite normal none running
-                  opacity-60-25-1-9;
-              "
-            >
-              <div
-                style="
-                  position: absolute;
-                  width: 5px;
-                  height: 5px;
-                  background: rgb(255, 255, 255);
-                  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px;
-                  transform-origin: left center;
-                  transform: rotate(40deg) translate(8px, 0px);
-                  border-radius: 2px;
-                "
-              ></div>
-            </div>
-            <div
-              style="
-                position: absolute;
-                top: -2px;
-                opacity: 0.25;
-                animation: 1s linear 0s infinite normal none running
-                  opacity-60-25-2-9;
-              "
-            >
-              <div
-                style="
-                  position: absolute;
-                  width: 5px;
-                  height: 5px;
-                  background: rgb(255, 255, 255);
-                  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px;
-                  transform-origin: left center;
-                  transform: rotate(80deg) translate(8px, 0px);
-                  border-radius: 2px;
-                "
-              ></div>
-            </div>
-            <div
-              style="
-                position: absolute;
-                top: -2px;
-                opacity: 0.25;
-                animation: 1s linear 0s infinite normal none running
-                  opacity-60-25-3-9;
-              "
-            >
-              <div
-                style="
-                  position: absolute;
-                  width: 5px;
-                  height: 5px;
-                  background: rgb(255, 255, 255);
-                  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px;
-                  transform-origin: left center;
-                  transform: rotate(120deg) translate(8px, 0px);
-                  border-radius: 2px;
-                "
-              ></div>
-            </div>
-            <div
-              style="
-                position: absolute;
-                top: -2px;
-                opacity: 0.25;
-                animation: 1s linear 0s infinite normal none running
-                  opacity-60-25-4-9;
-              "
-            >
-              <div
-                style="
-                  position: absolute;
-                  width: 5px;
-                  height: 5px;
-                  background: rgb(255, 255, 255);
-                  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px;
-                  transform-origin: left center;
-                  transform: rotate(160deg) translate(8px, 0px);
-                  border-radius: 2px;
-                "
-              ></div>
-            </div>
-            <div
-              style="
-                position: absolute;
-                top: -2px;
-                opacity: 0.25;
-                animation: 1s linear 0s infinite normal none running
-                  opacity-60-25-5-9;
-              "
-            >
-              <div
-                style="
-                  position: absolute;
-                  width: 5px;
-                  height: 5px;
-                  background: rgb(255, 255, 255);
-                  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px;
-                  transform-origin: left center;
-                  transform: rotate(200deg) translate(8px, 0px);
-                  border-radius: 2px;
-                "
-              ></div>
-            </div>
-            <div
-              style="
-                position: absolute;
-                top: -2px;
-                opacity: 0.25;
-                animation: 1s linear 0s infinite normal none running
-                  opacity-60-25-6-9;
-              "
-            >
-              <div
-                style="
-                  position: absolute;
-                  width: 5px;
-                  height: 5px;
-                  background: rgb(255, 255, 255);
-                  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px;
-                  transform-origin: left center;
-                  transform: rotate(240deg) translate(8px, 0px);
-                  border-radius: 2px;
-                "
-              ></div>
-            </div>
-            <div
-              style="
-                position: absolute;
-                top: -2px;
-                opacity: 0.25;
-                animation: 1s linear 0s infinite normal none running
-                  opacity-60-25-7-9;
-              "
-            >
-              <div
-                style="
-                  position: absolute;
-                  width: 5px;
-                  height: 5px;
-                  background: rgb(255, 255, 255);
-                  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px;
-                  transform-origin: left center;
-                  transform: rotate(280deg) translate(8px, 0px);
-                  border-radius: 2px;
-                "
-              ></div>
-            </div>
-            <div
-              style="
-                position: absolute;
-                top: -2px;
-                opacity: 0.25;
-                animation: 1s linear 0s infinite normal none running
-                  opacity-60-25-8-9;
-              "
-            >
-              <div
-                style="
-                  position: absolute;
-                  width: 5px;
-                  height: 5px;
-                  background: rgb(255, 255, 255);
-                  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px;
-                  transform-origin: left center;
-                  transform: rotate(320deg) translate(8px, 0px);
-                  border-radius: 2px;
-                "
-              ></div>
-            </div>
-          </div>
-        </div>
-        <div
-          id="tyche_trendi_video_display_ad_container"
-          style="display: none; position: absolute; top: 0px; left: 0px"
-        ></div>
-        <p
-          style="
-            color: red;
-            padding: 10px;
-            background: black;
-            position: absolute;
-            top: 64.5px;
-            left: 59.5px;
-          "
-        >
-          Cannot load player config
-        </p>
-      </div>
-      <script
-        src="https://cdn.playwire.com/bolt/js/zeus/embed.js"
-        type="text/javascript"
-        charset="utf-8"
-        data-id="tyche_trendi_video"
-        data-width="100%"
-        data-height="100%"
-        data-config="https://config.playwire.com/1024338/playlists/v2/5109/zeus.json"
-        data-onready="window.ramp.handleBoltEvents.trendiVideo"
-        data-adunit-type="trendi_video"
-        data-ad-podding="on"
-        id="tyche_trendi_video_script"
-        data-script-id="1676263205464"
-      ></script>
-      <iframe
-        src="https://8817c5e02718a21e635dbdb7830159f0.safeframe.googlesyndication.com/safeframe/1-0-40/html/container.html"
-        style="visibility: hidden; display: none"
-      ></iframe>
-    </div>
-    <div id="pw-oop-site_skin" class="pw-tag pw-oop-tag">
-      <div
-        id="google_ads_iframe_/154013155,12709546/1024338/72804/publisher:1024338-website:72804-site_skin_0__container__"
-        style="border: 0pt none"
-      ></div>
-    </div>
-    <div id="pw-oop-bottom_rail" class="pw-tag">
-      <div
-        id="google_ads_iframe_/154013155,12709546/1024338/72804/1024338-72804-bottom_rail/1024338-72804-bottom_rail-HP_0__container__"
-        style="border: 0pt none; width: 320px; height: 0px"
-      ></div>
-    </div>
-    <iframe
-      src="https://www.google.com/recaptcha/api2/aframe"
-      width="0"
-      height="0"
-      style="display: none"
-    ></iframe>
   </body>
 </html>
