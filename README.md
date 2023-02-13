@@ -24,4 +24,9 @@ Letterboxd-Clone is a web application built using the MERN (MongoDB, Express, Re
 
 
 # Preview
-![screencapture-127-0-0-1-5500-2023-02-04-20_41_53](https://user-images.githubusercontent.com/90688030/216770905-6e386fbd-010b-40ed-a8a1-47a45a333101.png)
+![homepage](https://user-images.githubusercontent.com/90688030/218355902-d2357f24-a578-4c0c-b03d-7aaf14845c86.png)
+
+
+# Movie Page
+![screencapture-127-0-0-1-3500-film-Everything-Everywhere-All-at-Once-2023-02-13-09_11_32](https://user-images.githubusercontent.com/90688030/218355257-9861cf97-ac26-4fa1-9c78-4f64c651e520.png)
+
