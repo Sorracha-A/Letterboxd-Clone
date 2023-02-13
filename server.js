@@ -116,7 +116,7 @@ app.get("/search", async (req, res) => {
   try {
     const searchQuery = req.query.q;
     const response = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=5042d23af1cc65852a1dea00714c63fd&query=${searchQuery}`
+      `https://api.themoviedb.org/3/search/movie?api_key=<your_api_key>&query=${searchQuery}`
     );
     const movieData = response.data;
     console.log(movieData);
