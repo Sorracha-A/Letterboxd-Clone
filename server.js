@@ -20,17 +20,17 @@ app.use("/sign-in", signinRouter);
 app.get("/", async (req, res) => {
   try {
     const response = await axios.get(
-      "https://api.themoviedb.org/3/movie/popular?api_key=5042d23af1cc65852a1dea00714c63fd"
+      "https://api.themoviedb.org/3/movie/popular?api_key=<your_api_key>"
     );
     const movieData = response.data;
 
     const nowPlayingResponse = await axios.get(
-      "https://api.themoviedb.org/3/movie/now_playing?api_key=5042d23af1cc65852a1dea00714c63fd&language=en-US"
+      "https://api.themoviedb.org/3/movie/now_playing?api_key=<your_api_key>&language=en-US"
     );
     const nowPlayingData = nowPlayingResponse.data;
 
     const upcomingResponse = await axios.get(
-      "https://api.themoviedb.org/3/movie/upcoming?api_key=5042d23af1cc65852a1dea00714c63fd&language=en-US"
+      "https://api.themoviedb.org/3/movie/upcoming?api_key=<your_api_key>&language=en-US"
     );
     const upcomingData = upcomingResponse.data;
 
@@ -48,15 +48,15 @@ app.get("/film/:title", async (req, res) => {
   try {
     const movieTitle = req.params.title.replace(/-/g, " ");
     const searchResponse = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=5042d23af1cc65852a1dea00714c63fd&query=${movieTitle}`
+      `https://api.themoviedb.org/3/search/movie?api_key=<your_api_key>&query=${movieTitle}`
     );
     const movieId = searchResponse.data.results[0].id;
     const movieResponse = await axios.get(
-      `https://api.themoviedb.org/3/movie/${movieId}?api_key=5042d23af1cc65852a1dea00714c63fd`
+      `https://api.themoviedb.org/3/movie/${movieId}?api_key=<your_api_key>`
     );
     const movieData = movieResponse.data;
     const movieCredits = await axios.get(
-      `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=5042d23af1cc65852a1dea00714c63fd`
+      `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=<your_api_key>`
     );
     const directors = movieCredits.data.crew.filter(
       (member) => member.job === "Director"
