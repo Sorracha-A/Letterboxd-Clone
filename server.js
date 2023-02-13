@@ -70,4 +70,23 @@ app.get("/film/:title", async (req, res) => {
   }
 });
 
+app.get("/search", async (req, res) => {
+  try {
+    const searchQuery = req.query.q;
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/search/movie?api_key=5042d23af1cc65852a1dea00714c63fd&query=${searchQuery}`
+    );
+    const movieData = response.data;
+    console.log(movieData);
+    res.render("search/results", { movieData });
+  } catch (err) {
+    console.error(err);
+    res.render("homepage/index");
+  }
+});
+
+app.use((req, res, next) => {
+  res.status(404).render("error/404");
+});
+
 app.listen(3500);
