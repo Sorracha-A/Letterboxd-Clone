@@ -1,3 +1,16 @@
+<% const convertToASCII = (str) => {
+  let converted = str;
+  const specialChars = {
+    "Á": "a", "á": "a",
+    "É": "e", "é": "e",
+    "Ñ": "n", "ñ": "n"
+  };
+  for (const specialChar in specialChars) {
+    const regex = new RegExp(specialChar, "g");
+    converted = converted.replace(regex, specialChars[specialChar]);
+  }
+  return converted;
+}; %>
 <!DOCTYPE html>
 
 <!--[if lt IE 7]> <html lang="en" class="ie6 lte9 lte8 lte7 lte6 no-js"> <![endif]-->
@@ -1161,717 +1174,40 @@
                 class="poster-list film-list -p230 film-slider carousel"
                 style="width: 4790px; left: 0px"
               >
+              <% for (var i = 0; i < 8; i++) { %>
                 <li class="listitem">
                   <div
-                    class="react-component poster film-poster film-poster-558056 linked-film-poster"
-                    data-component-class="globals.comps.FilmPosterComponent"
-                    data-film-id="558056"
-                    data-film-name="Knock at the Cabin"
-                    data-poster-url="/film/knock-at-the-cabin/image-150/"
-                    data-film-release-year="2023"
-                    data-new-list-with-film-action="/list/new/with/knock-at-the-cabin/"
-                    data-remove-from-watchlist-action="/film/knock-at-the-cabin/remove-from-watchlist/"
-                    data-add-to-watchlist-action="/film/knock-at-the-cabin/add-to-watchlist/"
-                    data-rate-action="/film/knock-at-the-cabin/rate/"
-                    data-mark-as-watched-action="/film/knock-at-the-cabin/mark-as-watched/"
-                    data-mark-as-not-watched-action="/film/knock-at-the-cabin/mark-as-not-watched/"
-                    data-film-link="/film/knock-at-the-cabin/"
+                    class="react-component poster film-poster film-poster-<%= movieData.results[i].id %> linked-film-poster"
                   >
                     <div>
                       <img
-                        src="https://a.ltrbxd.com/resized/film-poster/5/5/8/0/5/6/558056-knock-at-the-cabin-0-230-0-345-crop.jpg?v=a60bcc3c00"
+                        src="https://image.tmdb.org/t/p/w500<%= movieData.results[i].poster_path %>"
                         width="230"
                         height="345"
-                        alt="Knock at the Cabin"
-                        srcset="
-                          https://a.ltrbxd.com/resized/film-poster/5/5/8/0/5/6/558056-knock-at-the-cabin-0-460-0-690-crop.jpg?v=a60bcc3c00 2x
-                        "
+                        alt="<%= movieData.results[i].title %>"
                         class="image"
-                      /><a
-                        href="/film/knock-at-the-cabin/"
+                      />
+                      <a
+                      href="/film/<%= convertToASCII(movieData.results[i].title)
+                      .replace(/[^\w\s-]/g, '')
+                      .replace(/ /g, '-')
+                      .toLowerCase() %>-<%= movieData.results[i].release_date.slice(0, 4) %>"
+          
                         class="frame"
-                        data-original-title="Knock at the Cabin (2023)"
-                        ><span class="frame-title"
-                          >Knock at the Cabin (2023)</span
-                        ><span class="overlay"></span
-                      ></a>
+                        data-original-title="<%= movieData.results[i].title %> (<%= movieData.results[i].release_date %>)"
+                      >
+                        <span class="frame-title">
+                          <%= movieData.results[i].title %> (<%= movieData.results[i].release_date %>)
+                        </span>
+                        <span class="overlay"></span>
+                      </a>
                     </div>
                   </div>
-                  <ul class="film-stats">
-                    <li class="stat filmstat-watches">
-                      <a
-                        href="/film/knock-at-the-cabin/members/"
-                        class="has-icon icon-watched icon-16 tooltip"
-                        data-original-title="Watched by 75,841&nbsp;members"
-                        ><span class="icon"></span>76K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-lists">
-                      <a
-                        href="/film/knock-at-the-cabin/lists/by/popular/"
-                        class="has-icon icon-list icon-16 tooltip"
-                        data-original-title="Appears in 26,369&nbsp;lists"
-                        ><span class="icon"></span>26K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-likes">
-                      <a
-                        href="/film/knock-at-the-cabin/likes/"
-                        class="has-icon icon-like icon-liked icon-16 tooltip"
-                        data-original-title="Liked by 18,432&nbsp;members"
-                        ><span class="icon"></span>18K</a
-                      >
-                    </li>
-                  </ul>
+                  <!-- Add the film statistics here -->
                 </li>
+              <% } %>
 
-                <li class="listitem">
-                  <div
-                    class="react-component poster film-poster film-poster-542773 linked-film-poster"
-                    data-component-class="globals.comps.FilmPosterComponent"
-                    data-film-id="542773"
-                    data-film-name="Babylon"
-                    data-poster-url="/film/babylon-2022/image-150/"
-                    data-film-release-year="2022"
-                    data-new-list-with-film-action="/list/new/with/babylon-2022/"
-                    data-remove-from-watchlist-action="/film/babylon-2022/remove-from-watchlist/"
-                    data-add-to-watchlist-action="/film/babylon-2022/add-to-watchlist/"
-                    data-rate-action="/film/babylon-2022/rate/"
-                    data-mark-as-watched-action="/film/babylon-2022/mark-as-watched/"
-                    data-mark-as-not-watched-action="/film/babylon-2022/mark-as-not-watched/"
-                    data-film-link="/film/babylon-2022/"
-                  >
-                    <div>
-                      <img
-                        src="https://a.ltrbxd.com/resized/film-poster/5/4/2/7/7/3/542773-babylon-0-230-0-345-crop.jpg?v=75f0bfce72"
-                        width="230"
-                        height="345"
-                        alt="Babylon"
-                        srcset="
-                          https://a.ltrbxd.com/resized/film-poster/5/4/2/7/7/3/542773-babylon-0-460-0-690-crop.jpg?v=75f0bfce72 2x
-                        "
-                        class="image"
-                      /><a
-                        href="/film/babylon-2022/"
-                        class="frame"
-                        data-original-title="Babylon (2022)"
-                        ><span class="frame-title">Babylon (2022)</span
-                        ><span class="overlay"></span
-                      ></a>
-                    </div>
-                  </div>
-                  <ul class="film-stats">
-                    <li class="stat filmstat-watches">
-                      <a
-                        href="/film/babylon-2022/members/"
-                        class="has-icon icon-watched icon-16 tooltip"
-                        data-original-title="Watched by 255,893&nbsp;members"
-                        ><span class="icon"></span>256K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-lists">
-                      <a
-                        href="/film/babylon-2022/lists/by/popular/"
-                        class="has-icon icon-list icon-16 tooltip"
-                        data-original-title="Appears in 86,663&nbsp;lists"
-                        ><span class="icon"></span>87K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-likes">
-                      <a
-                        href="/film/babylon-2022/likes/"
-                        class="has-icon icon-like icon-liked icon-16 tooltip"
-                        data-original-title="Liked by 97,205&nbsp;members"
-                        ><span class="icon"></span>97K</a
-                      >
-                    </li>
-                  </ul>
-                </li>
 
-                <li class="listitem">
-                  <div
-                    class="react-component poster film-poster film-poster-242285 linked-film-poster"
-                    data-component-class="globals.comps.FilmPosterComponent"
-                    data-film-id="242285"
-                    data-film-name="Puss in Boots: The Last Wish"
-                    data-poster-url="/film/puss-in-boots-the-last-wish/image-150/"
-                    data-film-release-year="2022"
-                    data-new-list-with-film-action="/list/new/with/puss-in-boots-the-last-wish/"
-                    data-remove-from-watchlist-action="/film/puss-in-boots-the-last-wish/remove-from-watchlist/"
-                    data-add-to-watchlist-action="/film/puss-in-boots-the-last-wish/add-to-watchlist/"
-                    data-rate-action="/film/puss-in-boots-the-last-wish/rate/"
-                    data-mark-as-watched-action="/film/puss-in-boots-the-last-wish/mark-as-watched/"
-                    data-mark-as-not-watched-action="/film/puss-in-boots-the-last-wish/mark-as-not-watched/"
-                    data-film-link="/film/puss-in-boots-the-last-wish/"
-                  >
-                    <div>
-                      <img
-                        src="https://a.ltrbxd.com/resized/film-poster/2/4/2/2/8/5/242285-puss-in-boots-the-last-wish-0-230-0-345-crop.jpg?v=9e9109c5cd"
-                        width="230"
-                        height="345"
-                        alt="Puss in Boots: The Last Wish"
-                        srcset="
-                          https://a.ltrbxd.com/resized/film-poster/2/4/2/2/8/5/242285-puss-in-boots-the-last-wish-0-460-0-690-crop.jpg?v=9e9109c5cd 2x
-                        "
-                        class="image"
-                      /><a
-                        href="/film/puss-in-boots-the-last-wish/"
-                        class="frame"
-                        data-original-title="Puss in Boots: The Last Wish (2022)"
-                        ><span class="frame-title"
-                          >Puss in Boots: The Last Wish (2022)</span
-                        ><span class="overlay"></span
-                      ></a>
-                    </div>
-                  </div>
-                  <ul class="film-stats">
-                    <li class="stat filmstat-watches">
-                      <a
-                        href="/film/puss-in-boots-the-last-wish/members/"
-                        class="has-icon icon-watched icon-16 tooltip"
-                        data-original-title="Watched by 402,593&nbsp;members"
-                        ><span class="icon"></span>403K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-lists">
-                      <a
-                        href="/film/puss-in-boots-the-last-wish/lists/by/popular/"
-                        class="has-icon icon-list icon-16 tooltip"
-                        data-original-title="Appears in 77,540&nbsp;lists"
-                        ><span class="icon"></span>78K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-likes">
-                      <a
-                        href="/film/puss-in-boots-the-last-wish/likes/"
-                        class="has-icon icon-like icon-liked icon-16 tooltip"
-                        data-original-title="Liked by 189,587&nbsp;members"
-                        ><span class="icon"></span>190K</a
-                      >
-                    </li>
-
-                    <li class="stat filmstat-top250">
-                      <a
-                        href="/dave/list/official-top-250-narrative-feature-films/page/2/"
-                        class="has-icon icon-top250 icon-16 tooltip"
-                        data-original-title="№ 102 in the Letterboxd Top 250"
-                        ><span class="icon"></span>102</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-
-                <li class="listitem">
-                  <div
-                    class="react-component poster film-poster film-poster-435460 linked-film-poster"
-                    data-component-class="globals.comps.FilmPosterComponent"
-                    data-film-id="435460"
-                    data-film-name="Black Panther: Wakanda Forever"
-                    data-poster-url="/film/black-panther-wakanda-forever/image-150/"
-                    data-film-release-year="2022"
-                    data-new-list-with-film-action="/list/new/with/black-panther-wakanda-forever/"
-                    data-remove-from-watchlist-action="/film/black-panther-wakanda-forever/remove-from-watchlist/"
-                    data-add-to-watchlist-action="/film/black-panther-wakanda-forever/add-to-watchlist/"
-                    data-rate-action="/film/black-panther-wakanda-forever/rate/"
-                    data-mark-as-watched-action="/film/black-panther-wakanda-forever/mark-as-watched/"
-                    data-mark-as-not-watched-action="/film/black-panther-wakanda-forever/mark-as-not-watched/"
-                    data-film-link="/film/black-panther-wakanda-forever/"
-                  >
-                    <div>
-                      <img
-                        src="https://a.ltrbxd.com/resized/film-poster/4/3/5/4/6/0/435460-black-panther-wakanda-forever-0-230-0-345-crop.jpg?v=27db1e3d45"
-                        width="230"
-                        height="345"
-                        alt="Black Panther: Wakanda Forever"
-                        srcset="
-                          https://a.ltrbxd.com/resized/film-poster/4/3/5/4/6/0/435460-black-panther-wakanda-forever-0-460-0-690-crop.jpg?v=27db1e3d45 2x
-                        "
-                        class="image"
-                      /><a
-                        href="/film/black-panther-wakanda-forever/"
-                        class="frame"
-                        data-original-title="Black Panther: Wakanda Forever (2022)"
-                        ><span class="frame-title"
-                          >Black Panther: Wakanda Forever (2022)</span
-                        ><span class="overlay"></span
-                      ></a>
-                    </div>
-                  </div>
-                  <ul class="film-stats">
-                    <li class="stat filmstat-watches">
-                      <a
-                        href="/film/black-panther-wakanda-forever/members/"
-                        class="has-icon icon-watched icon-16 tooltip"
-                        data-original-title="Watched by 504,273&nbsp;members"
-                        ><span class="icon"></span>504K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-lists">
-                      <a
-                        href="/film/black-panther-wakanda-forever/lists/by/popular/"
-                        class="has-icon icon-list icon-16 tooltip"
-                        data-original-title="Appears in 136,731&nbsp;lists"
-                        ><span class="icon"></span>137K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-likes">
-                      <a
-                        href="/film/black-panther-wakanda-forever/likes/"
-                        class="has-icon icon-like icon-liked icon-16 tooltip"
-                        data-original-title="Liked by 158,992&nbsp;members"
-                        ><span class="icon"></span>159K</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-
-                <li class="listitem">
-                  <div
-                    class="react-component poster film-poster film-poster-521323 linked-film-poster"
-                    data-component-class="globals.comps.FilmPosterComponent"
-                    data-film-id="521323"
-                    data-film-name="The Menu"
-                    data-poster-url="/film/the-menu-2022/image-150/"
-                    data-film-release-year="2022"
-                    data-new-list-with-film-action="/list/new/with/the-menu-2022/"
-                    data-remove-from-watchlist-action="/film/the-menu-2022/remove-from-watchlist/"
-                    data-add-to-watchlist-action="/film/the-menu-2022/add-to-watchlist/"
-                    data-rate-action="/film/the-menu-2022/rate/"
-                    data-mark-as-watched-action="/film/the-menu-2022/mark-as-watched/"
-                    data-mark-as-not-watched-action="/film/the-menu-2022/mark-as-not-watched/"
-                    data-film-link="/film/the-menu-2022/"
-                  >
-                    <div>
-                      <img
-                        src="https://a.ltrbxd.com/resized/film-poster/5/2/1/3/2/3/521323-the-menu-0-230-0-345-crop.jpg?v=d00a0d03a8"
-                        width="230"
-                        height="345"
-                        alt="The Menu"
-                        srcset="
-                          https://a.ltrbxd.com/resized/film-poster/5/2/1/3/2/3/521323-the-menu-0-460-0-690-crop.jpg?v=d00a0d03a8 2x
-                        "
-                        class="image"
-                      /><a
-                        href="/film/the-menu-2022/"
-                        class="frame"
-                        data-original-title="The Menu (2022)"
-                        ><span class="frame-title">The Menu (2022)</span
-                        ><span class="overlay"></span
-                      ></a>
-                    </div>
-                  </div>
-                  <ul class="film-stats">
-                    <li class="stat filmstat-watches">
-                      <a
-                        href="/film/the-menu-2022/members/"
-                        class="has-icon icon-watched icon-16 tooltip"
-                        data-original-title="Watched by 889,901&nbsp;members"
-                        ><span class="icon"></span>890K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-lists">
-                      <a
-                        href="/film/the-menu-2022/lists/by/popular/"
-                        class="has-icon icon-list icon-16 tooltip"
-                        data-original-title="Appears in 131,017&nbsp;lists"
-                        ><span class="icon"></span>131K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-likes">
-                      <a
-                        href="/film/the-menu-2022/likes/"
-                        class="has-icon icon-like icon-liked icon-16 tooltip"
-                        data-original-title="Liked by 278,682&nbsp;members"
-                        ><span class="icon"></span>279K</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-
-                <li class="listitem">
-                  <div
-                    class="react-component poster film-poster film-poster-598882 linked-film-poster"
-                    data-component-class="globals.comps.FilmPosterComponent"
-                    data-film-id="598882"
-                    data-film-name="The Banshees of Inisherin"
-                    data-poster-url="/film/the-banshees-of-inisherin/image-150/"
-                    data-film-release-year="2022"
-                    data-new-list-with-film-action="/list/new/with/the-banshees-of-inisherin/"
-                    data-remove-from-watchlist-action="/film/the-banshees-of-inisherin/remove-from-watchlist/"
-                    data-add-to-watchlist-action="/film/the-banshees-of-inisherin/add-to-watchlist/"
-                    data-rate-action="/film/the-banshees-of-inisherin/rate/"
-                    data-mark-as-watched-action="/film/the-banshees-of-inisherin/mark-as-watched/"
-                    data-mark-as-not-watched-action="/film/the-banshees-of-inisherin/mark-as-not-watched/"
-                    data-film-link="/film/the-banshees-of-inisherin/"
-                  >
-                    <div>
-                      <img
-                        src="https://a.ltrbxd.com/resized/film-poster/5/9/8/8/8/2/598882-the-banshees-of-inisherin-0-230-0-345-crop.jpg?v=933f9af6e7"
-                        width="230"
-                        height="345"
-                        alt="The Banshees of Inisherin"
-                        srcset="
-                          https://a.ltrbxd.com/resized/film-poster/5/9/8/8/8/2/598882-the-banshees-of-inisherin-0-460-0-690-crop.jpg?v=933f9af6e7 2x
-                        "
-                        class="image"
-                      /><a
-                        href="/film/the-banshees-of-inisherin/"
-                        class="frame"
-                        data-original-title="The Banshees of Inisherin (2022)"
-                        ><span class="frame-title"
-                          >The Banshees of Inisherin (2022)</span
-                        ><span class="overlay"></span
-                      ></a>
-                    </div>
-                  </div>
-                  <ul class="film-stats">
-                    <li class="stat filmstat-watches">
-                      <a
-                        href="/film/the-banshees-of-inisherin/members/"
-                        class="has-icon icon-watched icon-16 tooltip"
-                        data-original-title="Watched by 465,054&nbsp;members"
-                        ><span class="icon"></span>465K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-lists">
-                      <a
-                        href="/film/the-banshees-of-inisherin/lists/by/popular/"
-                        class="has-icon icon-list icon-16 tooltip"
-                        data-original-title="Appears in 131,690&nbsp;lists"
-                        ><span class="icon"></span>132K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-likes">
-                      <a
-                        href="/film/the-banshees-of-inisherin/likes/"
-                        class="has-icon icon-like icon-liked icon-16 tooltip"
-                        data-original-title="Liked by 176,465&nbsp;members"
-                        ><span class="icon"></span>176K</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-
-                <li class="listitem">
-                  <div
-                    class="react-component poster film-poster film-poster-474474 linked-film-poster"
-                    data-component-class="globals.comps.FilmPosterComponent"
-                    data-film-id="474474"
-                    data-film-name="Everything Everywhere All at Once"
-                    data-poster-url="/film/everything-everywhere-all-at-once/image-150/"
-                    data-film-release-year="2022"
-                    data-new-list-with-film-action="/list/new/with/everything-everywhere-all-at-once/"
-                    data-remove-from-watchlist-action="/film/everything-everywhere-all-at-once/remove-from-watchlist/"
-                    data-add-to-watchlist-action="/film/everything-everywhere-all-at-once/add-to-watchlist/"
-                    data-rate-action="/film/everything-everywhere-all-at-once/rate/"
-                    data-mark-as-watched-action="/film/everything-everywhere-all-at-once/mark-as-watched/"
-                    data-mark-as-not-watched-action="/film/everything-everywhere-all-at-once/mark-as-not-watched/"
-                    data-film-link="/film/everything-everywhere-all-at-once/"
-                  >
-                    <div>
-                      <img
-                        src="https://a.ltrbxd.com/resized/film-poster/4/7/4/4/7/4/474474-everything-everywhere-all-at-once-0-230-0-345-crop.jpg?v=281f1a041e"
-                        width="230"
-                        height="345"
-                        alt="Everything Everywhere All at Once"
-                        srcset="
-                          https://a.ltrbxd.com/resized/film-poster/4/7/4/4/7/4/474474-everything-everywhere-all-at-once-0-460-0-690-crop.jpg?v=281f1a041e 2x
-                        "
-                        class="image"
-                      /><a
-                        href="/film/everything-everywhere-all-at-once/"
-                        class="frame"
-                        data-original-title="Everything Everywhere All at Once (2022)"
-                        ><span class="frame-title"
-                          >Everything Everywhere All at Once (2022)</span
-                        ><span class="overlay"></span
-                      ></a>
-                    </div>
-                  </div>
-                  <ul class="film-stats">
-                    <li class="stat filmstat-watches">
-                      <a
-                        href="/film/everything-everywhere-all-at-once/members/"
-                        class="has-icon icon-watched icon-16 tooltip"
-                        data-original-title="Watched by 1,289,825&nbsp;members"
-                        ><span class="icon"></span>1.3M</a
-                      >
-                    </li>
-                    <li class="stat filmstat-lists">
-                      <a
-                        href="/film/everything-everywhere-all-at-once/lists/by/popular/"
-                        class="has-icon icon-list icon-16 tooltip"
-                        data-original-title="Appears in 298,138&nbsp;lists"
-                        ><span class="icon"></span>298K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-likes">
-                      <a
-                        href="/film/everything-everywhere-all-at-once/likes/"
-                        class="has-icon icon-like icon-liked icon-16 tooltip"
-                        data-original-title="Liked by 660,708&nbsp;members"
-                        ><span class="icon"></span>661K</a
-                      >
-                    </li>
-
-                    <li class="stat filmstat-top250">
-                      <a
-                        href="/dave/list/official-top-250-narrative-feature-films/"
-                        class="has-icon icon-top250 icon-16 tooltip"
-                        data-original-title="№ 16 in the Letterboxd Top 250"
-                        ><span class="icon"></span>16</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-
-                <li class="listitem">
-                  <div
-                    class="react-component poster film-poster film-poster-868558 linked-film-poster"
-                    data-component-class="globals.comps.FilmPosterComponent"
-                    data-film-id="868558"
-                    data-film-name="Aftersun"
-                    data-poster-url="/film/aftersun/image-150/"
-                    data-film-release-year="2022"
-                    data-new-list-with-film-action="/list/new/with/aftersun/"
-                    data-remove-from-watchlist-action="/film/aftersun/remove-from-watchlist/"
-                    data-add-to-watchlist-action="/film/aftersun/add-to-watchlist/"
-                    data-rate-action="/film/aftersun/rate/"
-                    data-mark-as-watched-action="/film/aftersun/mark-as-watched/"
-                    data-mark-as-not-watched-action="/film/aftersun/mark-as-not-watched/"
-                    data-film-link="/film/aftersun/"
-                  >
-                    <div>
-                      <img
-                        src="https://a.ltrbxd.com/resized/film-poster/8/6/8/5/5/8/868558-aftersun-0-230-0-345-crop.jpg?v=5ce2118fca"
-                        width="230"
-                        height="345"
-                        alt="Aftersun"
-                        srcset="
-                          https://a.ltrbxd.com/resized/film-poster/8/6/8/5/5/8/868558-aftersun-0-460-0-690-crop.jpg?v=5ce2118fca 2x
-                        "
-                        class="image"
-                      /><a
-                        href="/film/aftersun/"
-                        class="frame"
-                        data-original-title="Aftersun (2022)"
-                        ><span class="frame-title">Aftersun (2022)</span
-                        ><span class="overlay"></span
-                      ></a>
-                    </div>
-                  </div>
-                  <ul class="film-stats">
-                    <li class="stat filmstat-watches">
-                      <a
-                        href="/film/aftersun/members/"
-                        class="has-icon icon-watched icon-16 tooltip"
-                        data-original-title="Watched by 307,741&nbsp;members"
-                        ><span class="icon"></span>308K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-lists">
-                      <a
-                        href="/film/aftersun/lists/by/popular/"
-                        class="has-icon icon-list icon-16 tooltip"
-                        data-original-title="Appears in 100,278&nbsp;lists"
-                        ><span class="icon"></span>100K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-likes">
-                      <a
-                        href="/film/aftersun/likes/"
-                        class="has-icon icon-like icon-liked icon-16 tooltip"
-                        data-original-title="Liked by 138,524&nbsp;members"
-                        ><span class="icon"></span>139K</a
-                      >
-                    </li>
-
-                    <li class="stat filmstat-top250">
-                      <a
-                        href="/dave/list/official-top-250-narrative-feature-films/page/2/"
-                        class="has-icon icon-top250 icon-16 tooltip"
-                        data-original-title="№ 108 in the Letterboxd Top 250"
-                        ><span class="icon"></span>108</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-
-                <li class="listitem">
-                  <div
-                    class="react-component poster film-poster film-poster-734096 linked-film-poster"
-                    data-component-class="globals.comps.FilmPosterComponent"
-                    data-film-id="734096"
-                    data-film-name="TÁR"
-                    data-poster-url="/film/tar-2022/image-150/"
-                    data-film-release-year="2022"
-                    data-new-list-with-film-action="/list/new/with/tar-2022/"
-                    data-remove-from-watchlist-action="/film/tar-2022/remove-from-watchlist/"
-                    data-add-to-watchlist-action="/film/tar-2022/add-to-watchlist/"
-                    data-rate-action="/film/tar-2022/rate/"
-                    data-mark-as-watched-action="/film/tar-2022/mark-as-watched/"
-                    data-mark-as-not-watched-action="/film/tar-2022/mark-as-not-watched/"
-                    data-film-link="/film/tar-2022/"
-                  >
-                    <div>
-                      <img
-                        src="https://a.ltrbxd.com/resized/film-poster/7/3/4/0/9/6/734096-tar-0-230-0-345-crop.jpg?v=e6d8348cff"
-                        width="230"
-                        height="345"
-                        alt="TÁR"
-                        srcset="
-                          https://a.ltrbxd.com/resized/film-poster/7/3/4/0/9/6/734096-tar-0-460-0-690-crop.jpg?v=e6d8348cff 2x
-                        "
-                        class="image"
-                      /><a
-                        href="/film/tar-2022/"
-                        class="frame"
-                        data-original-title="TÁR (2022)"
-                        ><span class="frame-title">TÁR (2022)</span
-                        ><span class="overlay"></span
-                      ></a>
-                    </div>
-                  </div>
-                  <ul class="film-stats">
-                    <li class="stat filmstat-watches">
-                      <a
-                        href="/film/tar-2022/members/"
-                        class="has-icon icon-watched icon-16 tooltip"
-                        data-original-title="Watched by 225,998&nbsp;members"
-                        ><span class="icon"></span>226K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-lists">
-                      <a
-                        href="/film/tar-2022/lists/by/popular/"
-                        class="has-icon icon-list icon-16 tooltip"
-                        data-original-title="Appears in 87,616&nbsp;lists"
-                        ><span class="icon"></span>88K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-likes">
-                      <a
-                        href="/film/tar-2022/likes/"
-                        class="has-icon icon-like icon-liked icon-16 tooltip"
-                        data-original-title="Liked by 76,969&nbsp;members"
-                        ><span class="icon"></span>77K</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-
-                <li class="listitem">
-                  <div
-                    class="react-component poster film-poster film-poster-465649 linked-film-poster"
-                    data-component-class="globals.comps.FilmPosterComponent"
-                    data-film-id="465649"
-                    data-film-name="M3GAN"
-                    data-poster-url="/film/m3gan/image-150/"
-                    data-film-release-year="2022"
-                    data-new-list-with-film-action="/list/new/with/m3gan/"
-                    data-remove-from-watchlist-action="/film/m3gan/remove-from-watchlist/"
-                    data-add-to-watchlist-action="/film/m3gan/add-to-watchlist/"
-                    data-rate-action="/film/m3gan/rate/"
-                    data-mark-as-watched-action="/film/m3gan/mark-as-watched/"
-                    data-mark-as-not-watched-action="/film/m3gan/mark-as-not-watched/"
-                    data-film-link="/film/m3gan/"
-                  >
-                    <div>
-                      <img
-                        src="https://a.ltrbxd.com/resized/film-poster/4/6/5/6/4/9/465649-m3gan-0-230-0-345-crop.jpg?v=7b22fdec79"
-                        width="230"
-                        height="345"
-                        alt="M3GAN"
-                        srcset="
-                          https://a.ltrbxd.com/resized/film-poster/4/6/5/6/4/9/465649-m3gan-0-460-0-690-crop.jpg?v=7b22fdec79 2x
-                        "
-                        class="image"
-                      /><a
-                        href="/film/m3gan/"
-                        class="frame"
-                        data-original-title="M3GAN (2022)"
-                        ><span class="frame-title">M3GAN (2022)</span
-                        ><span class="overlay"></span
-                      ></a>
-                    </div>
-                  </div>
-                  <ul class="film-stats">
-                    <li class="stat filmstat-watches">
-                      <a
-                        href="/film/m3gan/members/"
-                        class="has-icon icon-watched icon-16 tooltip"
-                        data-original-title="Watched by 270,703&nbsp;members"
-                        ><span class="icon"></span>271K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-lists">
-                      <a
-                        href="/film/m3gan/lists/by/popular/"
-                        class="has-icon icon-list icon-16 tooltip"
-                        data-original-title="Appears in 46,151&nbsp;lists"
-                        ><span class="icon"></span>46K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-likes">
-                      <a
-                        href="/film/m3gan/likes/"
-                        class="has-icon icon-like icon-liked icon-16 tooltip"
-                        data-original-title="Liked by 67,097&nbsp;members"
-                        ><span class="icon"></span>67K</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-
-                <li class="listitem">
-                  <div
-                    class="really-lazy-load poster film-poster film-poster-586723 linked-film-poster"
-                    data-image-width="230"
-                    data-image-height="345"
-                    data-film-id="586723"
-                    data-film-slug="/film/glass-onion-a-knives-out-mystery/"
-                    data-linked="linked"
-                    data-target-link="/film/glass-onion-a-knives-out-mystery/"
-                    data-target-link-target=""
-                    data-cache-busting-key="0c10a16c"
-                    data-show-menu="true"
-                  >
-                    <img
-                      src="https://s.ltrbxd.com/static/img/empty-poster-230.876e6b8e.png"
-                      class="image"
-                      width="230"
-                      height="345"
-                      alt="Glass Onion: A Knives Out Mystery"
-                    />
-                    <span class="frame"><span class="frame-title"></span></span>
-                  </div>
-                  <ul class="film-stats">
-                    <li class="stat filmstat-watches">
-                      <a
-                        href="/film/glass-onion-a-knives-out-mystery/members/"
-                        class="has-icon icon-watched icon-16 tooltip"
-                        data-original-title="Watched by 1,086,827&nbsp;members"
-                        ><span class="icon"></span>1.1M</a
-                      >
-                    </li>
-                    <li class="stat filmstat-lists">
-                      <a
-                        href="/film/glass-onion-a-knives-out-mystery/lists/by/popular/"
-                        class="has-icon icon-list icon-16 tooltip"
-                        data-original-title="Appears in 146,508&nbsp;lists"
-                        ><span class="icon"></span>147K</a
-                      >
-                    </li>
-                    <li class="stat filmstat-likes">
-                      <a
-                        href="/film/glass-onion-a-knives-out-mystery/likes/"
-                        class="has-icon icon-like icon-liked icon-16 tooltip"
-                        data-original-title="Liked by 339,276&nbsp;members"
-                        ><span class="icon"></span>339K</a
-                      >
-                    </li>
-                  </ul>
-                </li>
 
                 <li class="listitem">
                   <div
@@ -2366,451 +1702,45 @@
           <div class="live-feed-container has-fade">
             <span class="fadeout"></span>
             <ul class="poster-list -p70 -horizontal">
-              <li class="live-poster">
-                <div
-                  class="react-component poster film-poster film-poster-143135 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="143135"
-                  data-film-name="Wolf Creek 2"
-                  data-poster-url="/film/wolf-creek-2/image-150/"
-                  data-film-release-year="2013"
-                  data-new-list-with-film-action="/list/new/with/wolf-creek-2/"
-                  data-remove-from-watchlist-action="/film/wolf-creek-2/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/wolf-creek-2/add-to-watchlist/"
-                  data-rate-action="/film/wolf-creek-2/rate/"
-                  data-mark-as-watched-action="/film/wolf-creek-2/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/wolf-creek-2/mark-as-not-watched/"
-                  data-film-link="/film/wolf-creek-2/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/sm/upload/b9/7n/n9/c0/5XkLBtZvnDRLkwc4dUH62gvsvRQ-0-70-0-105-crop.jpg?v=e6b72de006"
-                      width="70"
-                      height="105"
-                      alt="Wolf Creek 2"
-                      srcset="
-                        https://a.ltrbxd.com/resized/sm/upload/b9/7n/n9/c0/5XkLBtZvnDRLkwc4dUH62gvsvRQ-0-140-0-210-crop.jpg?v=e6b72de006 2x
-                      "
-                      class="image"
-                    /><a
-                      href="/achou320/film/wolf-creek-2/"
-                      class="frame"
-                      data-original-title="Wolf Creek 2 (2013)"
-                      ><span class="frame-title">Wolf Creek 2 (2013)</span
-                      ><span class="overlay"></span
-                    ></a>
+              <% for (var i = 0; i < topRatedMovieData.results.length; i++) { %>
+                <li class="live-poster">
+                  <div
+                    class="react-component poster film-poster film-poster-<%= topRatedMovieData.results[i].id %> linked-film-poster"
+                    data-film-id="<%= topRatedMovieData.results[i].id %>"
+                    data-film-name="<%= topRatedMovieData.results[i].title %>"
+                    data-poster-url="/film/<%= topRatedMovieData.results[i].title %>/image-150/"
+                    data-film-release-year="<%= topRatedMovieData.results[i].release_date.slice(0, 4) %>"
+                    data-film-link="/film/<%= topRatedMovieData.results[i].title %>/"
+                  >
+                    <div>
+                      <img
+                        src="https://image.tmdb.org/t/p/w500<%= topRatedMovieData.results[i].poster_path %>"
+                        width="70"
+                        height="105"
+                        alt="<%= topRatedMovieData.results[i].title %>"
+                        class="image"
+                      />
+                      <a
+                        href="/film/<%= convertToASCII(topRatedMovieData.results[i].title)
+                            .replace(/[^\w\s-]/g, '')
+                            .replace(/ /g, '-')
+                            .toLowerCase() %>-<%= topRatedMovieData.results[i].release_date.slice(0, 4) %>"
+                        class="frame"
+                        data-original-title="<%= topRatedMovieData.results[i].title %> (<%= topRatedMovieData.results[i].release_date %>)"
+                      >
+                        <span class="frame-title">
+                          <%= topRatedMovieData.results[i].title %> (<%= topRatedMovieData.results[i].release_date %>)
+                        </span>
+                        <span class="overlay"></span>
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </li>
+                </li>
+              <% } %>
 
-              <li class="live-poster">
-                <div
-                  class="react-component poster film-poster film-poster-79901 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="79901"
-                  data-film-name="Repentance"
-                  data-poster-url="/film/repentance/image-150/"
-                  data-film-release-year="1987"
-                  data-new-list-with-film-action="/list/new/with/repentance/"
-                  data-remove-from-watchlist-action="/film/repentance/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/repentance/add-to-watchlist/"
-                  data-rate-action="/film/repentance/rate/"
-                  data-mark-as-watched-action="/film/repentance/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/repentance/mark-as-not-watched/"
-                  data-film-link="/film/repentance/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/film-poster/7/9/9/0/1/79901-repentance-0-70-0-105-crop.jpg?v=819f532ffa"
-                      width="70"
-                      height="105"
-                      alt="Repentance"
-                      srcset="
-                        https://a.ltrbxd.com/resized/film-poster/7/9/9/0/1/79901-repentance-0-140-0-210-crop.jpg?v=819f532ffa 2x
-                      "
-                      class="image"
-                    /><a
-                      href="/tedorato/film/repentance/"
-                      class="frame"
-                      data-original-title="Repentance (1987)"
-                      ><span class="frame-title">Repentance (1987)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-              </li>
 
-              <li class="live-poster">
-                <div
-                  class="react-component poster film-poster film-poster-122225 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="122225"
-                  data-film-name="A Talking Cat!?!"
-                  data-poster-url="/film/a-talking-cat/image-150/"
-                  data-film-release-year="2013"
-                  data-new-list-with-film-action="/list/new/with/a-talking-cat/"
-                  data-remove-from-watchlist-action="/film/a-talking-cat/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/a-talking-cat/add-to-watchlist/"
-                  data-rate-action="/film/a-talking-cat/rate/"
-                  data-mark-as-watched-action="/film/a-talking-cat/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/a-talking-cat/mark-as-not-watched/"
-                  data-film-link="/film/a-talking-cat/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/film-poster/1/2/2/2/2/5/122225-a-talking-cat--0-70-0-105-crop.jpg?v=e0a467eb13"
-                      width="70"
-                      height="105"
-                      alt="A Talking Cat!?!"
-                      srcset="
-                        https://a.ltrbxd.com/resized/film-poster/1/2/2/2/2/5/122225-a-talking-cat--0-140-0-210-crop.jpg?v=e0a467eb13 2x
-                      "
-                      class="image"
-                    /><a
-                      href="/thargthemighty/film/a-talking-cat/"
-                      class="frame"
-                      data-original-title="A Talking Cat!?! (2013)"
-                      ><span class="frame-title">A Talking Cat!?! (2013)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-              </li>
 
-              <li class="live-poster">
-                <div
-                  class="react-component poster film-poster film-poster-52516 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="52516"
-                  data-film-name="Django Unchained"
-                  data-poster-url="/film/django-unchained/image-150/"
-                  data-film-release-year="2012"
-                  data-new-list-with-film-action="/list/new/with/django-unchained/"
-                  data-remove-from-watchlist-action="/film/django-unchained/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/django-unchained/add-to-watchlist/"
-                  data-rate-action="/film/django-unchained/rate/"
-                  data-mark-as-watched-action="/film/django-unchained/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/django-unchained/mark-as-not-watched/"
-                  data-film-link="/film/django-unchained/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/film-poster/5/2/5/1/6/52516-django-unchained-0-70-0-105-crop.jpg?v=f02aed63a3"
-                      width="70"
-                      height="105"
-                      alt="Django Unchained"
-                      srcset="
-                        https://a.ltrbxd.com/resized/film-poster/5/2/5/1/6/52516-django-unchained-0-140-0-210-crop.jpg?v=f02aed63a3 2x
-                      "
-                      class="image"
-                    /><a
-                      href="/s4nti/film/django-unchained/1/"
-                      class="frame"
-                      data-original-title="Django Unchained (2012)"
-                      ><span class="frame-title">Django Unchained (2012)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-              </li>
 
-              <li class="live-poster">
-                <div
-                  class="react-component poster film-poster film-poster-226750 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="226750"
-                  data-film-name="Captain Marvel"
-                  data-poster-url="/film/captain-marvel/image-150/"
-                  data-film-release-year="2019"
-                  data-new-list-with-film-action="/list/new/with/captain-marvel/"
-                  data-remove-from-watchlist-action="/film/captain-marvel/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/captain-marvel/add-to-watchlist/"
-                  data-rate-action="/film/captain-marvel/rate/"
-                  data-mark-as-watched-action="/film/captain-marvel/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/captain-marvel/mark-as-not-watched/"
-                  data-film-link="/film/captain-marvel/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/film-poster/2/2/6/7/5/0/226750-captain-marvel-0-70-0-105-crop.jpg?v=4be3c0c011"
-                      width="70"
-                      height="105"
-                      alt="Captain Marvel"
-                      srcset="
-                        https://a.ltrbxd.com/resized/film-poster/2/2/6/7/5/0/226750-captain-marvel-0-140-0-210-crop.jpg?v=4be3c0c011 2x
-                      "
-                      class="image"
-                    /><a
-                      href="/itschris8776/film/captain-marvel/"
-                      class="frame"
-                      data-original-title="Captain Marvel (2019)"
-                      ><span class="frame-title">Captain Marvel (2019)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-              </li>
-
-              <li class="live-poster">
-                <div
-                  class="react-component poster film-poster film-poster-626795 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="626795"
-                  data-film-name="Your Place or Mine"
-                  data-poster-url="/film/your-place-or-mine-2023/image-150/"
-                  data-film-release-year="2023"
-                  data-new-list-with-film-action="/list/new/with/your-place-or-mine-2023/"
-                  data-remove-from-watchlist-action="/film/your-place-or-mine-2023/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/your-place-or-mine-2023/add-to-watchlist/"
-                  data-rate-action="/film/your-place-or-mine-2023/rate/"
-                  data-mark-as-watched-action="/film/your-place-or-mine-2023/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/your-place-or-mine-2023/mark-as-not-watched/"
-                  data-film-link="/film/your-place-or-mine-2023/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/film-poster/6/2/6/7/9/5/626795-your-place-or-mine-0-70-0-105-crop.jpg?v=fb3379c02e"
-                      width="70"
-                      height="105"
-                      alt="Your Place or Mine"
-                      srcset="
-                        https://a.ltrbxd.com/resized/film-poster/6/2/6/7/9/5/626795-your-place-or-mine-0-140-0-210-crop.jpg?v=fb3379c02e 2x
-                      "
-                      class="image"
-                    /><a
-                      href="/chachamatcha/film/your-place-or-mine-2023/"
-                      class="frame"
-                      data-original-title="Your Place or Mine (2023)"
-                      ><span class="frame-title">Your Place or Mine (2023)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-              </li>
-
-              <li class="live-poster">
-                <div
-                  class="react-component poster film-poster film-poster-97062 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="97062"
-                  data-film-name="The Mortal Instruments: City of Bones"
-                  data-poster-url="/film/the-mortal-instruments-city-of-bones/image-150/"
-                  data-film-release-year="2013"
-                  data-new-list-with-film-action="/list/new/with/the-mortal-instruments-city-of-bones/"
-                  data-remove-from-watchlist-action="/film/the-mortal-instruments-city-of-bones/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/the-mortal-instruments-city-of-bones/add-to-watchlist/"
-                  data-rate-action="/film/the-mortal-instruments-city-of-bones/rate/"
-                  data-mark-as-watched-action="/film/the-mortal-instruments-city-of-bones/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/the-mortal-instruments-city-of-bones/mark-as-not-watched/"
-                  data-film-link="/film/the-mortal-instruments-city-of-bones/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/sm/upload/h4/h8/xt/u1/6tUdKoNdBsu321nMpvQsj81DA8e-0-70-0-105-crop.jpg?v=d3cbf4034f"
-                      width="70"
-                      height="105"
-                      alt="The Mortal Instruments: City of Bones"
-                      srcset="
-                        https://a.ltrbxd.com/resized/sm/upload/h4/h8/xt/u1/6tUdKoNdBsu321nMpvQsj81DA8e-0-140-0-210-crop.jpg?v=d3cbf4034f 2x
-                      "
-                      class="image"
-                    /><a
-                      href="/archerirving/film/the-mortal-instruments-city-of-bones/"
-                      class="frame"
-                      data-original-title="The Mortal Instruments: City of Bones (2013)"
-                      ><span class="frame-title"
-                        >The Mortal Instruments: City of Bones (2013)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-              </li>
-
-              <li class="live-poster">
-                <div
-                  class="react-component poster film-poster film-poster-43280 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="43280"
-                  data-film-name="Aquamarine"
-                  data-poster-url="/film/aquamarine/image-150/"
-                  data-film-release-year="2006"
-                  data-new-list-with-film-action="/list/new/with/aquamarine/"
-                  data-remove-from-watchlist-action="/film/aquamarine/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/aquamarine/add-to-watchlist/"
-                  data-rate-action="/film/aquamarine/rate/"
-                  data-mark-as-watched-action="/film/aquamarine/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/aquamarine/mark-as-not-watched/"
-                  data-film-link="/film/aquamarine/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/film-poster/4/3/2/8/0/43280-aquamarine-0-70-0-105-crop.jpg?v=572746e1a0"
-                      width="70"
-                      height="105"
-                      alt="Aquamarine"
-                      srcset="
-                        https://a.ltrbxd.com/resized/film-poster/4/3/2/8/0/43280-aquamarine-0-140-0-210-crop.jpg?v=572746e1a0 2x
-                      "
-                      class="image"
-                    /><a
-                      href="/schmemally/film/aquamarine/"
-                      class="frame"
-                      data-original-title="Aquamarine (2006)"
-                      ><span class="frame-title">Aquamarine (2006)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-              </li>
-
-              <li class="live-poster">
-                <div
-                  class="react-component poster film-poster film-poster-800848 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="800848"
-                  data-film-name="Holy Spider"
-                  data-poster-url="/film/holy-spider/image-150/"
-                  data-film-release-year="2022"
-                  data-new-list-with-film-action="/list/new/with/holy-spider/"
-                  data-remove-from-watchlist-action="/film/holy-spider/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/holy-spider/add-to-watchlist/"
-                  data-rate-action="/film/holy-spider/rate/"
-                  data-mark-as-watched-action="/film/holy-spider/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/holy-spider/mark-as-not-watched/"
-                  data-film-link="/film/holy-spider/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/film-poster/8/0/0/8/4/8/800848-holy-spider-0-70-0-105-crop.jpg?v=e59fa50a5f"
-                      width="70"
-                      height="105"
-                      alt="Holy Spider"
-                      srcset="
-                        https://a.ltrbxd.com/resized/film-poster/8/0/0/8/4/8/800848-holy-spider-0-140-0-210-crop.jpg?v=e59fa50a5f 2x
-                      "
-                      class="image"
-                    /><a
-                      href="/edward_bloom/film/holy-spider/"
-                      class="frame"
-                      data-original-title="Holy Spider (2022)"
-                      ><span class="frame-title">Holy Spider (2022)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-              </li>
-
-              <li class="live-poster">
-                <div
-                  class="react-component poster film-poster film-poster-46622 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="46622"
-                  data-film-name="Beauty and the Beast"
-                  data-poster-url="/film/beauty-and-the-beast-1991/image-150/"
-                  data-film-release-year="1991"
-                  data-new-list-with-film-action="/list/new/with/beauty-and-the-beast-1991/"
-                  data-remove-from-watchlist-action="/film/beauty-and-the-beast-1991/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/beauty-and-the-beast-1991/add-to-watchlist/"
-                  data-rate-action="/film/beauty-and-the-beast-1991/rate/"
-                  data-mark-as-watched-action="/film/beauty-and-the-beast-1991/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/beauty-and-the-beast-1991/mark-as-not-watched/"
-                  data-film-link="/film/beauty-and-the-beast-1991/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/sm/upload/qw/zu/zk/ky/iLe8yMOF5we6lvYbKLHzho7ATQk-0-70-0-105-crop.jpg?v=c4c6ebbfa3"
-                      width="70"
-                      height="105"
-                      alt="Beauty and the Beast"
-                      srcset="
-                        https://a.ltrbxd.com/resized/sm/upload/qw/zu/zk/ky/iLe8yMOF5we6lvYbKLHzho7ATQk-0-140-0-210-crop.jpg?v=c4c6ebbfa3 2x
-                      "
-                      class="image"
-                    /><a
-                      href="/chickmagnet/film/beauty-and-the-beast-1991/"
-                      class="frame"
-                      data-original-title="Beauty and the Beast (1991)"
-                      ><span class="frame-title"
-                        >Beauty and the Beast (1991)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-              </li>
-
-              <li class="live-poster">
-                <div
-                  class="react-component poster film-poster film-poster-50869 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="50869"
-                  data-film-name="Day for Night"
-                  data-poster-url="/film/day-for-night/image-150/"
-                  data-film-release-year="1973"
-                  data-new-list-with-film-action="/list/new/with/day-for-night/"
-                  data-remove-from-watchlist-action="/film/day-for-night/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/day-for-night/add-to-watchlist/"
-                  data-rate-action="/film/day-for-night/rate/"
-                  data-mark-as-watched-action="/film/day-for-night/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/day-for-night/mark-as-not-watched/"
-                  data-film-link="/film/day-for-night/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/film-poster/5/0/8/6/9/50869-day-for-night-0-70-0-105-crop.jpg?v=2330f1bf19"
-                      width="70"
-                      height="105"
-                      alt="Day for Night"
-                      srcset="
-                        https://a.ltrbxd.com/resized/film-poster/5/0/8/6/9/50869-day-for-night-0-140-0-210-crop.jpg?v=2330f1bf19 2x
-                      "
-                      class="image"
-                    /><a
-                      href="/david_wildhair/film/day-for-night/"
-                      class="frame"
-                      data-original-title="Day for Night (1973)"
-                      ><span class="frame-title">Day for Night (1973)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-              </li>
-
-              <li class="live-poster">
-                <div
-                  class="react-component poster film-poster film-poster-51621 linked-film-poster"
-                  data-component-class="globals.comps.FilmPosterComponent"
-                  data-film-id="51621"
-                  data-film-name="Good Will Hunting"
-                  data-poster-url="/film/good-will-hunting/image-150/"
-                  data-film-release-year="1997"
-                  data-new-list-with-film-action="/list/new/with/good-will-hunting/"
-                  data-remove-from-watchlist-action="/film/good-will-hunting/remove-from-watchlist/"
-                  data-add-to-watchlist-action="/film/good-will-hunting/add-to-watchlist/"
-                  data-rate-action="/film/good-will-hunting/rate/"
-                  data-mark-as-watched-action="/film/good-will-hunting/mark-as-watched/"
-                  data-mark-as-not-watched-action="/film/good-will-hunting/mark-as-not-watched/"
-                  data-film-link="/film/good-will-hunting/"
-                >
-                  <div>
-                    <img
-                      src="https://a.ltrbxd.com/resized/film-poster/5/1/6/2/1/51621-good-will-hunting-0-70-0-105-crop.jpg?v=acb4766abd"
-                      width="70"
-                      height="105"
-                      alt="Good Will Hunting"
-                      srcset="
-                        https://a.ltrbxd.com/resized/film-poster/5/1/6/2/1/51621-good-will-hunting-0-140-0-210-crop.jpg?v=acb4766abd 2x
-                      "
-                      class="image"
-                    /><a
-                      href="/obiwantt/film/good-will-hunting/"
-                      class="frame"
-                      data-original-title="Good Will Hunting (1997)"
-                      ><span class="frame-title">Good Will Hunting (1997)</span
-                      ><span class="overlay"></span
-                    ></a>
-                  </div>
-                </div>
-              </li>
             </ul>
           </div>
         </section>
@@ -2987,7 +1917,7 @@
                           https://a.ltrbxd.com/resized/alternative-poster/5/5/8/0/5/6/p/cwjQ7PnCnA24fW5kv7Se8qh5BGe-0-140-0-210-crop.jpg?v=4f97815c63 2x
                         "
                         class="image"
-                      /><a href="/film/knock-at-the-cabin/" class="frame"
+                      /><a href="/film/knock-at-the-cabin-2023" class="frame"
                         ><span class="frame-title"
                           >Knock at the Cabin (2023)</span
                         ><span class="overlay"></span
@@ -3175,7 +2105,7 @@
                           https://a.ltrbxd.com/resized/film-poster/5/5/8/0/5/6/558056-knock-at-the-cabin-0-140-0-210-crop.jpg?v=a60bcc3c00 2x
                         "
                         class="image"
-                      /><a href="/film/knock-at-the-cabin/" class="frame"
+                      /><a href="/film/knock-at-the-cabin-2023" class="frame"
                         ><span class="frame-title"
                           >Knock at the Cabin (2023)</span
                         ><span class="overlay"></span
@@ -3269,7 +2199,7 @@
                           https://a.ltrbxd.com/resized/alternative-poster/4/7/7/7/6/p/tPp3BJxlClz47kDk3vGzeaqgviT-0-140-0-210-crop.jpg?v=aae6561a9b 2x
                         "
                         class="image"
-                      /><a href="/film/superbad/" class="frame"
+                      /><a href="/film/superbad-2007/" class="frame"
                         ><span class="frame-title">Superbad (2007)</span
                         ><span class="overlay"></span
                       ></a>
@@ -3356,7 +2286,7 @@
                           https://a.ltrbxd.com/resized/film-poster/6/3/0/5/8/63058-avatar-the-way-of-water-0-140-0-210-crop.jpg?v=37a1014065 2x
                         "
                         class="image"
-                      /><a href="/film/avatar-the-way-of-water/" class="frame"
+                      /><a href="/film/avatar-the-way-of-water-2022" class="frame"
                         ><span class="frame-title"
                           >Avatar: The Way of Water (2022)</span
                         ><span class="overlay"></span
@@ -3365,7 +2295,7 @@
                   </div>
                   <div class="film-detail-content">
                     <h2 class="headline-2 prettify">
-                      <a href="/patrickhwillems/film/avatar-the-way-of-water/1/"
+                      <a href="/patrickhwillems/film/avatar-the-way-of-water-2022/"
                         >Avatar: The Way of Water</a
                       >
                       <small class="metadata"
@@ -3394,7 +2324,7 @@
                         <span class="rating -green rated-9"> ★★★★½ </span>
                         <span class="content-metadata"
                           ><a
-                            href="/patrickhwillems/film/avatar-the-way-of-water/1/"
+                            href="/patrickhwillems/film/avatar-the-way-of-water-2022"
                             class="has-icon icon-comment icon-16 comment-count"
                             ><span class="icon"></span>15</a
                           ></span
@@ -3419,7 +2349,7 @@
                     >
                       <span class="like-link"
                         ><a
-                          href="/patrickhwillems/film/avatar-the-way-of-water/1/likes/"
+                          href="/patrickhwillems/film/avatar-the-way-of-water-2022"
                           class="svg-action -like cannot-like"
                           >739 likes</a
                         ></span

@@ -1,0 +1,18 @@
+<%
+function convertToASCII(str) {
+  let converted = str;
+  const specialChars = {
+    "Á": "A",
+    "É": "E",
+    "Ñ": "N",
+    // Add more special characters and their equivalents here
+  };
+
+  for (const specialChar in specialChars) {
+    const regex = new RegExp(specialChar, "g");
+    converted = converted.replace(regex, specialChars[specialChar]);
+  }
+
+  return converted;
+}
+%>
