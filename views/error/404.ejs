@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Letterboxd - Not Found</title>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, "lucida grande", "lucida sans unicode",
+          sans-serif;
+      }
+      body {
+        font-size: 62.5%;
+        color: #fff;
+        background: #14181c;
+        position: relative;
+        background-image: none;
+        overflow: hidden;
+        padding: 30px;
+      }
+      h1 {
+        width: 240px;
+        height: 32px;
+        margin: 0 0 15px -3px;
+        background: url("https://s.ltrbxd.com/static/img/errors/logo-combined-2x.8368601a.png");
+        background-size: 238px 32px;
+      }
+      h1 a {
+        display: block;
+        height: 80px;
+        text-indent: 110%;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      p {
+        margin: 0 0 10px;
+        font-size: 14px;
+        line-height: 1.5;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+      }
+      p strong {
+        font-size: 17px;
+        font-weight: normal;
+      }
+      a {
+        color: #fff;
+      }
+      p a {
+        text-decoration: underline;
+      }
+      p small a {
+        font-size: 11px;
+        text-decoration: none;
+        color: #89a;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+      }
+      #bg {
+        position: absolute;
+        z-index: -1;
+      }
+    </style>
+
+    <script src="https://s.ltrbxd.com/static/js/jquery.min.5cb5785f.js"></script>
+    <script src="https://s.ltrbxd.com/static/js/lib/jquery-plugins/jquery.fullscreenr.min.7ff49a54.js"></script>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-D3ECBB4D7L"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      var analytic_params = {};
+      analytic_params["template"] = "/errors/not_found";
+
+      gtag("set", analytic_params);
+      gtag("config", "G-D3ECBB4D7L", {
+        cookie_domain: "letterboxd.com",
+      });
+    </script>
+  </head>
+
+  <body class="error message-dark">
+    <section class="message">
+      <h1><a href="/">Letterboxd</a></h1>
+
+      <p>
+        <strong>Sorry, we can’t find the page you’ve requested.</strong><br />
+        Perhaps you imagined it? Please <a href="/contact/">contact</a> us if
+        the problem persists.
+      </p>
+
+      <p>
+        <small
+          ><a href="/film/fight-club/"
+            >Still from David Fincher’s Fight Club (1999)</a
+          ></small
+        >
+      </p>
+    </section>
+
+    <script>
+      $.fn.fullscreenr({ width: 1934, height: 800, bgID: "#bg" });
+    </script>
+
+    <img
+      src="https://s.ltrbxd.com/static/img/errors/not-found-4.9da22e2b.jpg"
+      alt="Not Found"
+      id="bg"
+    />
+  </body>
+</html>
