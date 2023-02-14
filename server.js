@@ -21,17 +21,17 @@ app.use("/journal", journalRouter);
 app.get("/", async (req, res) => {
   try {
     const response = await axios.get(
-      "https://api.themoviedb.org/3/movie/popular?api_key=5042d23af1cc65852a1dea00714c63fd"
+      "https://api.themoviedb.org/3/movie/popular?api_key=<your_api_key>"
     );
     const movieData = response.data;
 
     const nowPlayingResponse = await axios.get(
-      "https://api.themoviedb.org/3/movie/now_playing?api_key=5042d23af1cc65852a1dea00714c63fd&language=en-US"
+      "https://api.themoviedb.org/3/movie/now_playing?api_key=<your_api_key>&language=en-US"
     );
     const nowPlayingData = nowPlayingResponse.data;
 
     const upcomingResponse = await axios.get(
-      "https://api.themoviedb.org/3/movie/upcoming?api_key=5042d23af1cc65852a1dea00714c63fd&language=en-US"
+      "https://api.themoviedb.org/3/movie/upcoming?api_key=<your_api_key>&language=en-US"
     );
     const upcomingData = upcomingResponse.data;
 
@@ -95,10 +95,10 @@ app.post("/login",async (req, res) => {
 app.get("/films", async (req, res) => {
   try {
     const popularResponse = await axios.get(
-      "https://api.themoviedb.org/3/movie/popular?api_key=5042d23af1cc65852a1dea00714c63fd"
+      "https://api.themoviedb.org/3/movie/popular?api_key=<your_api_key>"
     );
     const topRatedResponse = await axios.get(
-      "https://api.themoviedb.org/3/movie/top_rated?api_key=5042d23af1cc65852a1dea00714c63fd"
+      "https://api.themoviedb.org/3/movie/top_rated?api_key=<your_api_key>"
     );
 
     const movieData = popularResponse.data;
@@ -121,7 +121,7 @@ app.get("/film/:title-:year", async (req, res) => {
     const movieYear = parts[2];
 
     const searchResponse = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=5042d23af1cc65852a1dea00714c63fd&query=${movieTitle}&year=${movieYear}`
+      `https://api.themoviedb.org/3/search/movie?api_key=<your_api_key>&query=${movieTitle}&year=${movieYear}`
     );
 
     const movieData = searchResponse.data.results.find((result) =>
@@ -132,10 +132,10 @@ app.get("/film/:title-:year", async (req, res) => {
     } else {
       const movieId = movieData.id;
       const movieReviews = await axios.get(
-        `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=5042d23af1cc65852a1dea00714c63fd&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=<your_api_key>&language=en-US&page=1`
       );
       const movieCredits = await axios.get(
-        `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=5042d23af1cc65852a1dea00714c63fd`
+        `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=<your_api_key>`
       );
       const directors = movieCredits.data.crew.filter(
         (member) => member.job === "Director"
@@ -187,7 +187,7 @@ app.get("/search", async (req, res) => {
   try {
     const searchQuery = req.query.q;
     const response = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=5042d23af1cc65852a1dea00714c63fd&query=${searchQuery}`
+      `https://api.themoviedb.org/3/search/movie?api_key=<your_api_key>&query=${searchQuery}`
     );
     const movieData = response.data;
 
