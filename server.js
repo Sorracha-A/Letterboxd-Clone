@@ -35,7 +35,6 @@ app.get("/films", async (req, res) => {
   }
 });
 
-
 app.get("/", async (req, res) => {
   try {
     const response = await axios.get(
@@ -93,15 +92,13 @@ app.get("/film/:title-:year", async (req, res) => {
       const directors = movieCredits.data.crew.filter(
         (member) => member.job === "Director"
       );
-      
+      const cast = movieCredits.data.cast;
+
       const directorNames = directors
         .map((director) => director.name)
         .join(", ");
-      
-       
-      
-      console.log(movieReviews);
-      res.render("film/film", { movieData, directorNames, movieReviews   });
+        
+      res.render("film/film", { movieData, directorNames, movieReviews, cast });
     }
   } catch (err) {
     console.error(err);

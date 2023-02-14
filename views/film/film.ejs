@@ -1968,180 +1968,14 @@
                   <h3 class="hidden">Cast</h3>
                   <div class="cast-list text-sluglist">
                     <p>
-                      <a
-                        href="/actor/michelle-yeoh/"
-                        class="text-slug tooltip"
-                        data-original-title="Evelyn Wang"
-                        >Michelle Yeoh</a
-                      >
-                      <a
-                        href="/actor/ke-huy-quan/"
-                        class="text-slug tooltip"
-                        data-original-title="Waymond Wang"
-                        >Ke Huy Quan</a
-                      >
-                      <a
-                        href="/actor/stephanie-hsu/"
-                        class="text-slug tooltip"
-                        data-original-title="Joy Wang / Jobu Tupaki"
-                        >Stephanie Hsu</a
-                      >
-                      <a
-                        href="/actor/james-hong/"
-                        class="text-slug tooltip"
-                        data-original-title="Gong Gong"
-                        >James Hong</a
-                      >
-                      <a
-                        href="/actor/jamie-lee-curtis/"
-                        class="text-slug tooltip"
-                        data-original-title="Deirdre Beaubeirdra"
-                        >Jamie Lee Curtis</a
-                      >
-                      <a
-                        href="/actor/tallie-medel/"
-                        class="text-slug tooltip"
-                        data-original-title="Becky Sregor"
-                        >Tallie Medel</a
-                      >
-                      <a
-                        href="/actor/jenny-slate/"
-                        class="text-slug tooltip"
-                        data-original-title="Debbie the Dog Mom"
-                        >Jenny Slate</a
-                      >
-                      <a
-                        href="/actor/harry-shum-jr/"
-                        class="text-slug tooltip"
-                        data-original-title="Chad"
-                        >Harry Shum Jr.</a
-                      >
-                      <a
-                        href="/actor/biff-wiff/"
-                        class="text-slug tooltip"
-                        data-original-title="Rick"
-                        >Biff Wiff</a
-                      >
-                      <a
-                        href="/actor/anthony-molinari/"
-                        class="text-slug tooltip"
-                        data-original-title="Police - Confetti"
-                        >Anthony Molinari</a
-                      >
-                      <a
-                        href="/actor/peter-banifaz/"
-                        class="text-slug tooltip"
-                        data-original-title="Alpha RV Officer #1"
-                        >Peter Banifaz</a
-                      >
-                      <a
-                        href="/actor/audrey-wasilewski/"
-                        class="text-slug tooltip"
-                        data-original-title="Alpha RV Officer #2"
-                        >Audrey Wasilewski</a
-                      >
-                      <a
-                        href="/actor/andy-le/"
-                        class="text-slug tooltip"
-                        data-original-title="Alpha Jumper - Bigger Trophy"
-                        >Andy Le</a
-                      >
-                      <a
-                        href="/actor/brian-le/"
-                        class="text-slug tooltip"
-                        data-original-title="Alpha Jumper - Trophy"
-                        >Brian Le</a
-                      >
-                      <a
-                        href="/actor/daniel-scheinert/"
-                        class="text-slug tooltip"
-                        data-original-title="District Manager"
-                        >Daniel Scheinert</a
-                      >
-                      <a
-                        href="/actor/sunita-mani/"
-                        class="text-slug tooltip"
-                        data-original-title="TV Musical - Queen"
-                        >Sunita Mani</a
-                      >
-                      <a
-                        href="/actor/aaron-lazar/"
-                        class="text-slug tooltip"
-                        data-original-title="TV Musical - Soldier"
-                        >Aaron Lazar</a
-                      >
-                      <a
-                        href="/actor/li-jing-5/"
-                        class="text-slug tooltip"
-                        data-original-title="Kung Fu Master"
-                        >Li Jing</a
-                      >
-                      <a
-                        href="/actor/panuvat-anthony-nanakornpanom/"
-                        class="text-slug tooltip"
-                        data-original-title="Police - Luchador"
-                        >Panuvat Anthony Nanakornpanom</a
-                      >
-                      <a
-                        href="/actor/dylan-henry-lau/"
-                        class="text-slug tooltip"
-                        data-original-title="Young Boy Waymond"
-                        >Dylan Henry Lau</a
-                      >
-                      <a
-                        href="/actor/michiko-nishiwaki/"
-                        class="text-slug tooltip"
-                        data-original-title="Kung Fu Competitor / Co-Star"
-                        >Michiko Nishiwaki</a
-                      >
-                      <a
-                        href="/actor/cara-marie-chooljian/"
-                        class="text-slug tooltip"
-                        data-original-title="Alpha Jumper - Jogger"
-                        >Cara Marie Chooljian</a
-                      >
-                      <a
-                        href="/actor/randall-archer/"
-                        class="text-slug tooltip"
-                        data-original-title="Alpha Jumper - Edgelord"
-                        >Randall Archer</a
-                      >
-                      <a
-                        href="/actor/efka-kvaraciejus/"
-                        class="text-slug tooltip"
-                        data-original-title="Alpha Jumper - SWAT"
-                        >Efka Kvaraciejus</a
-                      >
-                      <a
-                        href="/actor/neravana-cabral/"
-                        class="text-slug tooltip"
-                        data-original-title="Security Guard"
-                        >Neravana Cabral</a
-                      >
-                      <a
-                        href="/actor/chelsey-goldsmith/"
-                        class="text-slug tooltip"
-                        data-original-title="Security Guard"
-                        >Chelsey Goldsmith</a
-                      >
-                      <a
-                        href="/actor/craig-henningsen/"
-                        class="text-slug tooltip"
-                        data-original-title="Security Guard"
-                        >Craig Henningsen</a
-                      >
-                      <a
-                        href="/actor/jason-hamer/"
-                        class="text-slug tooltip"
-                        data-original-title="Raccacoonie Puppeteer"
-                        >Jason Hamer</a
-                      >
-                      <a
-                        href="/actor/timothy-ralston/"
-                        class="text-slug tooltip"
-                        data-original-title="Raccacoonie Puppeteer"
-                        >Timothy Ralston</a
-                      >
+                      <% cast.forEach(function(castMember) { %>
+                        <a href="/actor/michelle-yeoh/" class="text-slug tooltip" data-original-title="Evelyn Wang">
+                          <%= castMember.name %>
+                        </a>
+                      <% }); %>
+                      
+        
+
 
                       <a class="text-slug" id="show-cast-overflow">Show All…</a>
                       <span id="cast-overflow" style="display: none">
@@ -3351,14 +3185,18 @@
                                               class="context"
                                               title="Read Bowen Yang’s review"
                                             >
-                                              Review by <strong class="name"><%= movieReviews.data.results[i].author %></strong>
+                                              Review by <strong class="name"><%= movieReviews.data.results[i].author_details.username %></strong>
                                             </a>
-                                            <span class="rating -green rated-10"> ★★★★★ </span>
+                                            <span class="rating -green rated-<%= Math.round(movieReviews.data.results[i].author_details.rating) %>">
+                                              <!-- star icon code goes here -->
+                                            </span>
+                                            
                                             <span class="content-metadata">
-                                              <a
-                                                href="/bowenyang/film/everything-everywhere-all-at-once/"
-                                                class="has-icon icon-comment icon-16 comment-count"
-                                                ><span class="icon"></span>75</a
+                                              <a href="/bowenyang/film/everything-everywhere-all-at-once/" class="has-icon icon-comment icon-16 comment-count">
+                                                <span class="icon"></span>
+                                                <%= Math.floor(Math.random() * 201) %> <!-- generates random number of comments between 0 and 500 -->
+                                              </a>
+                                              
                                               >
                                             </span>
                                           </p>
@@ -3379,11 +3217,12 @@
                                         </div>
                     
                                           <span class="like-link"
-                                            ><a
-                                              href="/bowenyang/film/everything-everywhere-all-at-once/likes/"
-                                              class="svg-action -like cannot-like"
-                                              >31,235 likes</a
-                                            ></span
+                                            ><a href="/bowenyang/film/everything-everywhere-all-at-once/likes/" class="svg-action -like cannot-like">
+                                              <%= Math.floor(Math.random() * 5000) + 100 %> likes
+                                            </a>
+                                            
+                                            
+                                            </span
                                           >
                                         </p>
                                       </div>
