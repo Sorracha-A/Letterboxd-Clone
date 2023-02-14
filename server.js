@@ -2,38 +2,21 @@ const express = require("express");
 const app = express();
 const axios = require("axios");
 const filmsRouter = require("./routes/navbar/films");
-const registerRouter = require("./routes/navbar/create-account");
 const listRouter = require("./routes/navbar/lists");
 const membersRouter = require("./routes/navbar/members");
 const journalRouter = require("./routes/navbar/journal");
-const signinRouter = require("./routes/navbar/sign-in");
+const collection = require("./mongodb");
+
 
 app.use("/public", express.static("public"));
+app.use(express.json())
+app.use(express.urlencoded({extended:false}))
+
 app.set("view engine", "ejs");
+
 app.use("/lists", listRouter);
-app.use("/create-account", registerRouter);
 app.use("/members", membersRouter);
 app.use("/journal", journalRouter);
-app.use("/sign-in", signinRouter);
-
-app.get("/films", async (req, res) => {
-  try {
-    const popularResponse = await axios.get(
-      "https://api.themoviedb.org/3/movie/popular?api_key=5042d23af1cc65852a1dea00714c63fd"
-    );
-    const topRatedResponse = await axios.get(
-      "https://api.themoviedb.org/3/movie/top_rated?api_key=5042d23af1cc65852a1dea00714c63fd"
-    );
-
-    const movieData = popularResponse.data;
-    const topRatedMovieData = topRatedResponse.data;
-
-    res.render("films/films", { movieData, topRatedMovieData });
-  } catch (err) {
-    console.error(err);
-    res.render("homepage/index");
-  }
-});
 
 app.get("/", async (req, res) => {
   try {
@@ -61,9 +44,74 @@ app.get("/", async (req, res) => {
     });
   } catch (err) {
     console.error(err);
+    res.render("homepage/login");
+  }
+});
+
+
+app.get("/sign-in", (req, res) => {
+  res.render("sign-in/login");
+});
+
+app.get("/create-account", (req, res) => {
+  res.render("registration/registration");
+});
+
+app.post("/signup",async (req, res) => {
+  const data={
+    email:req.body.email,
+    username:req.body.username,
+    password:req.body.password,
+  }
+  console.log(data);
+  await collection.insertMany([data]);
+
+
+  
+  res.redirect("/")
+})
+
+app.post("/login",async (req, res) => {
+
+  
+
+  try{
+    const check = await collection.findOne({email:req.body.email})
+    if (check.password === req.body.password){
+      res.redirect("/")
+    }
+    else{
+      res.send("wrong password")
+    }
+  }
+  catch{
+    res.send("wrong email")
+  }
+
+
+})
+
+
+app.get("/films", async (req, res) => {
+  try {
+    const popularResponse = await axios.get(
+      "https://api.themoviedb.org/3/movie/popular?api_key=5042d23af1cc65852a1dea00714c63fd"
+    );
+    const topRatedResponse = await axios.get(
+      "https://api.themoviedb.org/3/movie/top_rated?api_key=5042d23af1cc65852a1dea00714c63fd"
+    );
+
+    const movieData = popularResponse.data;
+    const topRatedMovieData = topRatedResponse.data;
+
+    res.render("films/films", { movieData, topRatedMovieData });
+  } catch (err) {
+    console.error(err);
     res.render("homepage/index");
   }
 });
+
+
 
 app.get("/film/:title-:year", async (req, res) => {
   try {
@@ -97,7 +145,7 @@ app.get("/film/:title-:year", async (req, res) => {
       const directorNames = directors
         .map((director) => director.name)
         .join(", ");
-        
+
       res.render("film/film", { movieData, directorNames, movieReviews, cast });
     }
   } catch (err) {
