@@ -3303,8 +3303,6 @@
               <section
                 id="popular-reviews"
                 class="film-reviews section"
-                data-url="/ajax/everything-everywhere-all-at-once/popular-reviews/"
-                data-how-many="12"
               >
                 <h2 class="section-heading">
                   <a
@@ -3318,201 +3316,84 @@
                   >More</a
                 >
                 <ul class="film-popular-review">
-                  <li
-                    class="film-detail"
-                    data-viewing-id="246941208"
-                    data-person="bowenyang"
-                  >
-                    <a
-                      class="avatar -a40"
-                      href="/bowenyang/"
-                      data-original-title=""
-                    >
-                      <img
-                        src="https://secure.gravatar.com/avatar/54558f74769c6fb167244bafbb3f265b?rating=PG&amp;size=80&amp;border=&amp;default=https%3A%2F%2Fs.ltrbxd.com%2Fstatic%2Fimg%2Favatar80.74798e0d.png"
-                        alt="Bowen Yang"
-                        width="40"
-                        height="40"
-                      />
-                    </a>
-                    <div class="film-detail-content">
-                      <div class="attribution-block -large">
-                        <p class="attribution">
-                          <a
-                            href="/bowenyang/film/everything-everywhere-all-at-once/"
-                            class="context"
-                            title="Read Bowen Yang’s review"
-                          >
-                            Review by <strong class="name">Bowen Yang</strong>
-                          </a>
-                          <span class="rating -green rated-10"> ★★★★★ </span>
-                          <span class="content-metadata">
-                            <a
-                              href="/bowenyang/film/everything-everywhere-all-at-once/"
-                              class="has-icon icon-comment icon-16 comment-count"
-                              ><span class="icon"></span>75</a
-                            >
-                          </span>
-                        </p>
-                      </div>
-                      <div
-                        class="body-text -prose collapsible-text"
-                        data-full-text-url="/s/full-text/viewing:246941208/"
-                      >
-                        <p>
-                          this is one of the best things i’ve ever seen in my
-                          piece of shit life.
-                        </p>
-                      </div>
-                      <p
-                        class="like-link-target react-component -monotone"
-                        data-component-class="globals.comps.LikeLinkComponent"
-                        data-likeable-uid="viewing:246941208"
-                        data-likeable-name="review"
-                        data-likeable="true"
-                        data-likes-page="/bowenyang/film/everything-everywhere-all-at-once/likes/"
-                        data-format="svg"
-                        data-owner="bowenyang"
-                      >
-                        <span class="like-link"
-                          ><a
-                            href="/bowenyang/film/everything-everywhere-all-at-once/likes/"
-                            class="svg-action -like cannot-like"
-                            >31,235 likes</a
-                          ></span
-                        >
-                      </p>
-                    </div>
-                  </li>
+                                  <% if (movieReviews.data.results.length === 0) { %>
+                                    <p>No reviews for this movie yet.</p>
+                                  <% } else { %>
+                                    <% for(var i = 0; i < movieReviews.data.results.length && i < 3; i++) { %>
 
-                  <li
-                    class="film-detail"
-                    data-viewing-id="249053071"
-                    data-person="Kurstboy"
-                  >
-                    <a
-                      class="avatar -a40"
-                      href="/kurstboy/"
-                      data-original-title=""
-                    >
-                      <img
-                        src="https://a.ltrbxd.com/resized/avatar/twitter/4/9/0/4/5/7/shard/http___pbs.twimg.com_profile_images_1001935353740177414_9ZQ0Noe4-0-80-0-80-crop.jpg?v=2627a755b4"
-                        alt="kársten"
-                        width="40"
-                        height="40"
-                      />
-                    </a>
-                    <div class="film-detail-content">
-                      <div class="attribution-block -large">
-                        <p class="attribution">
-                          <a
-                            href="/kurstboy/film/everything-everywhere-all-at-once/"
-                            class="context"
-                            title="Read kársten’s review"
-                          >
-                            Review by <strong class="name">kársten</strong>
-                          </a>
-                          <span class="rating -green rated-8"> ★★★★ </span>
-                        </p>
-                      </div>
-                      <div
-                        class="body-text -prose collapsible-text"
-                        data-full-text-url="/s/full-text/viewing:249053071/"
-                      >
-                        <p>easily one of the top 5 movies about taxes</p>
-                      </div>
-                      <p
-                        class="like-link-target react-component -monotone"
-                        data-component-class="globals.comps.LikeLinkComponent"
-                        data-likeable-uid="viewing:249053071"
-                        data-likeable-name="review"
-                        data-likeable="true"
-                        data-likes-page="/kurstboy/film/everything-everywhere-all-at-once/likes/"
-                        data-format="svg"
-                        data-owner="Kurstboy"
-                      >
-                        <span class="like-link"
-                          ><a
-                            href="/kurstboy/film/everything-everywhere-all-at-once/likes/"
-                            class="svg-action -like cannot-like"
-                            >27,096 likes</a
-                          ></span
-                        >
-                      </p>
-                    </div>
-                  </li>
+                                      <li
+                                      class="film-detail"
+                                      data-viewing-id="246941208"
+                                    >
+                                      <a
+                                        class="avatar -a40"
+                                        href="/bowenyang/"
+                                        data-original-title=""
+                                      >
 
-                  <li
-                    class="film-detail"
-                    data-viewing-id="250825445"
-                    data-person="CosmonautMarkie"
-                  >
-                    <a
-                      class="avatar -a40"
-                      href="/cosmonautmarkie/"
-                      data-original-title=""
-                    >
-                      <img
-                        src="https://a.ltrbxd.com/resized/avatar/upload/4/0/7/3/3/4/7/shard/avtr-0-80-0-80-crop.jpg?v=72ca7a1e72"
-                        alt="CosmonautMarkie"
-                        width="40"
-                        height="40"
-                      />
-                    </a>
-                    <div class="film-detail-content">
-                      <div class="attribution-block -large">
-                        <p class="attribution">
-                          <a
-                            href="/cosmonautmarkie/film/everything-everywhere-all-at-once/"
-                            class="context"
-                            title="Read CosmonautMarkie’s review"
-                          >
-                            Review by
-                            <strong class="name">CosmonautMarkie</strong>
-                          </a>
-                          <span class="rating -green rated-10"> ★★★★★ </span>
-                          <span class="content-metadata">
-                            <a
-                              href="/cosmonautmarkie/film/everything-everywhere-all-at-once/"
-                              class="has-icon icon-comment icon-16 comment-count"
-                              ><span class="icon"></span>247</a
-                            >
-                          </span>
-                        </p>
-                      </div>
-                      <div
-                        class="body-text -prose collapsible-text"
-                        data-full-text-url="/s/full-text/viewing:250825445/"
-                      >
-                        <p>
-                          Watch it and have fun before film Twitter tells you
-                          it’s overrated
-                        </p>
-                      </div>
-                      <p
-                        class="like-link-target react-component -monotone"
-                        data-component-class="globals.comps.LikeLinkComponent"
-                        data-likeable-uid="viewing:250825445"
-                        data-likeable-name="review"
-                        data-likeable="true"
-                        data-likes-page="/cosmonautmarkie/film/everything-everywhere-all-at-once/likes/"
-                        data-format="svg"
-                        data-owner="CosmonautMarkie"
-                      >
-                        <span class="like-link"
-                          ><a
-                            href="/cosmonautmarkie/film/everything-everywhere-all-at-once/likes/"
-                            class="svg-action -like cannot-like"
-                            >17,513 likes</a
-                          ></span
-                        >
-                      </p>
-                    </div>
-                  </li>
+                                      <% let avatarPath = movieReviews.data.results[i].author_details.avatar_path %>
+                                      <% let src = '' %>
+                                      <% if (!avatarPath) {
+                                        src = 'https://s.ltrbxd.com/static/img/avatar80.74798e0d.png'
+                                      } else if (avatarPath.startsWith('/https://')) {
+                                        src = avatarPath.slice(1)
+                                      } else {
+                                        src = 'https://image.tmdb.org/t/p/w500' + avatarPath
+                                      } %>
+                                      
+                                      <img src="<%= src %>" alt="avatar" width="40" height="40">
+                                      </a>
+                                      <div class="film-detail-content">
+                                        <div class="attribution-block -large">
+                                          <p class="attribution">
+                                            <a
+                                              href="/bowenyang/film/everything-everywhere-all-at-once/"
+                                              class="context"
+                                              title="Read Bowen Yang’s review"
+                                            >
+                                              Review by <strong class="name"><%= movieReviews.data.results[i].author %></strong>
+                                            </a>
+                                            <span class="rating -green rated-10"> ★★★★★ </span>
+                                            <span class="content-metadata">
+                                              <a
+                                                href="/bowenyang/film/everything-everywhere-all-at-once/"
+                                                class="has-icon icon-comment icon-16 comment-count"
+                                                ><span class="icon"></span>75</a
+                                              >
+                                            </span>
+                                          </p>
+                                        </div>
+                                        <div
+                                          class="body-text -prose collapsible-text"
+                                          data-full-text-url="/s/full-text/viewing:246941208/"
+                                        >
+                                        <p>
+                                          <p>
+                                            <%- movieReviews.data.results[i].content %>
+                                          </p>
+                                          
+                                          
+                                        </p>
+                                        
+                                        
+                                        </div>
+                    
+                                          <span class="like-link"
+                                            ><a
+                                              href="/bowenyang/film/everything-everywhere-all-at-once/likes/"
+                                              class="svg-action -like cannot-like"
+                                              >31,235 likes</a
+                                            ></span
+                                          >
+                                        </p>
+                                      </div>
+                                    </li>
+                  <% } %>
+                  <% } %>
                 </ul>
               </section>
 
-              <section
+              <!-- <section
                 id="recent-reviews"
                 class="film-reviews section"
                 data-url="/ajax/everything-everywhere-all-at-once/recent-reviews/"
@@ -3683,7 +3564,7 @@
                     </div>
                   </li>
                 </ul>
-              </section>
+              </section> -->
             </section>
 
             <section class="section related-films -clear">
