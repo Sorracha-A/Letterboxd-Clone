@@ -8,7 +8,8 @@
 ![screencapture-127-0-0-1-3500-search-2023-02-14-21_24_27](https://user-images.githubusercontent.com/90688030/218766204-4cfd498e-45d3-47f7-99fa-9f2d70c197d5.png)
 
 # Movie Info Page (Using TMDb API to display all the data of the movie)
-![screencapture-127-0-0-1-3500-film-Everything-Everywhere-All-at-Once-2023-02-13-09_11_32](https://user-images.githubusercontent.com/90688030/218355257-9861cf97-ac26-4fa1-9c78-4f64c651e520.png)
+![screencapture-127-0-0-1-3500-film-everything-everywhere-all-at-once-2022-2023-02-14-21_40_37](https://user-images.githubusercontent.com/90688030/218770260-6556d36b-d01d-4381-bd5f-b503478d2afa.png)
+
 
 # Registration Page (Using MongoDB to store the user's data)
 ![screencapture-127-0-0-1-3500-create-account-2023-02-14-21_32_51](https://user-images.githubusercontent.com/90688030/218768648-9d62c654-ed5a-4255-86e3-16fa95572663.png)
