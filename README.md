@@ -27,7 +27,13 @@ npm install
 
 4. Start MongoDB on your local machine.
 
-5. Change the all the values of `<your_api_key>` in the `server.js` file to be your API key from TMDB (The Movie Database). You can get an API key by creating an account at https://www.themoviedb.org/documentation/api.
+5. Create a `.env` file in the root directory of the project with the following environment variables.
+```bash
+PORT=your-port-number
+MONGODB_URI=mongodb://localhost:<port>/<db-name>
+TMDB_API_KEY=your-api-key
+```
+You can get an API key by creating an account at https://www.themoviedb.org/documentation/api.
 
 ### Running the Project:
 6. After installation, to start the application, run:
@@ -35,7 +41,7 @@ npm install
 npm start
 ```
 
-7. Open your web browser and navigate to http://localhost:3500 to access the application.
+7. Open your web browser and navigate to `http://localhost:<port>` (port that you specified in the `.env`) to access the application.
 
 ## Feature
 - User authentication: sign up, login. ✅
