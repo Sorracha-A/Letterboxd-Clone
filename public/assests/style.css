@@ -5191,12 +5191,7 @@ body.film .filmstat-watchlists {
     font-size: 0.66666667rem;
   }
 }
-/*!
- * Quill Editor v1.3.7
- * https://quilljs.com/
- * Copyright (c) 2014, Jason Chen
- * Copyright (c) 2013, salesforce.com
- */
+
 .ql-container {
   box-sizing: border-box;
   font-family: Helvetica, Arial, sans-serif;
@@ -34288,7 +34283,7 @@ body.error #bg {
 .mobile .view .comment .person-summary {
   margin-bottom: 0.5em;
 }
-/*! svgMap | https://github.com/StephanWagner/svgMap | MIT License | Copyright Stephan Wagner | https://stephanwagner.me */
+
 .stats-map {
   overflow: hidden;
   padding-top: 56.25%;

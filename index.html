@@ -816,11 +816,14 @@
             background-position: center -0px;
           "
         ></div>
+<% const randomMovieIndex = Math.floor(Math.random() * movieData.results.length); %>
+<% const randomMovie = movieData.results[randomMovieIndex]; %>
+
         <div
           class="backdropimage js-backdrop-image"
           style="
             background-position: center 0px;
-            background-image: url('https://a.ltrbxd.com/resized/sm/upload/g5/6a/0u/c6/m3gan-1200-1200-675-675-crop-000000.jpg?v=0f6275b262');
+            background-image: url('https://image.tmdb.org/t/p/original<%= randomMovie.backdrop_path %>');
           "
         ></div>
         <div class="backdropmask js-backdrop-fade"></div>
