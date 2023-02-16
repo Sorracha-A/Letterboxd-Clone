@@ -2,6 +2,9 @@
 
 "Letterboxd Clone" is a web application built using MongoDB, Express, Node.js, and EJS with API integration through Axios, specifically utilizing TMDb (The Movie Database) API. The project aims to replicate the features of the popular movie review website, Letterboxd. Users can create accounts, search for movies, add movies to their personal watchlists, rate and review movies, and interact with other users through a comment system. The application utilizes TMDb's RESTful API to retrieve and display movie data, making it easy to keep the site updated with the latest movie releases. The code is designed to be modular and extensible, making it easy for other developers to contribute and add new features.
 
+## Important Note
+I want to clarify that this project is solely for educational purposes and I don't intend to launch the website as a live platform. I respect the intellectual property of Letterboxd and its team and if they request for the repository to be taken down, I'll do it promptly.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for the testing purpose.
@@ -63,7 +66,7 @@ TMDb API - The Movie Database API for retrieving movie data
 - EJS - A templating language for generating HTML markup with JavaScript
 - Axios - A promise-based HTTP client for making API requests
 
-## Author
+### Author
 Sorracha Aiemmeesri
 
 
