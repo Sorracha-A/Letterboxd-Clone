@@ -1,4 +1,7 @@
 const express = require("express");
+const session = require('express-session');
+require('dotenv').config();
+
 const app = express();
 const axios = require("axios");
 const filmsRouter = require("./routes/navbar/films");
@@ -6,9 +9,15 @@ const listRouter = require("./routes/navbar/lists");
 const membersRouter = require("./routes/navbar/members");
 const journalRouter = require("./routes/navbar/journal");
 const collection = require("./mongodb");
-require('dotenv').config();
 const API_KEY = process.env.TMDB_API_KEY;
 const PORT = process.env.PORT || 3500;
+
+app.use(session({
+  secret: 'my-secret',
+  resave: false,
+  saveUninitialized: false
+}));
+
 
 app.use("/public", express.static("public"));
 
@@ -39,11 +48,21 @@ app.get("/", async (req, res) => {
 
     // console.log(nowPlayingData);
     // console.log(upcomingData);
-    res.render("homepage/index", {
-      movieData,
-      nowPlayingData,
-      upcomingData,
-    });
+
+    if (req.session.isLoggedIn) {
+      res.render("homepage/logged-in", {
+        movieData,
+        nowPlayingData,
+        upcomingData,
+      });
+    } else {
+      res.render("homepage/index", {
+        movieData,
+        nowPlayingData,
+        upcomingData,
+      });
+    }
+
   } catch (err) {
     console.error(err);
     res.render("homepage/login");
@@ -80,6 +99,7 @@ app.post("/login",async (req, res) => {
   try{
     const check = await collection.findOne({email:req.body.email})
     if (check.password === req.body.password){
+      req.session.isLoggedIn = true;
       res.redirect("/")
     }
     else{
