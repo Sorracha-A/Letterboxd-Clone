@@ -151,7 +151,7 @@
         disableAds = false;
 
       supermodelCSRF = "364ebf90f82119a76886";
-      person.username = "panzer27";
+      person.username = "<%= user.username %>" ;
       person.loggedIn = true;
       person.optimisedPosters = false;
       person.role = "member";
@@ -1153,10 +1153,10 @@
                     ><span class="avatar -a24" data-js-user-avatar="true"
                       ><img
                         src="https://s.ltrbxd.com/static/img/avatar48.7a758b1e.png"
-                        alt="panzer27"
+                        alt="<%= user.username %>"
                         width="24"
                         height="24" /></span
-                    >panzer27</a
+                    ><%= user.username %></a
                   >
                   <ul class="subnav">
                     <li>
@@ -1165,22 +1165,22 @@
                         ><span class="avatar -a24" data-js-user-avatar="true"
                           ><img
                             src="https://s.ltrbxd.com/static/img/avatar48.7a758b1e.png"
-                            alt="panzer27"
+                            alt="<%= user.username %>"
                             width="24"
                             height="24" /></span
-                        >panzer27</a
+                        ><%= user.username %></a
                       >
                     </li>
                     <li class="divider"><a href="/">Home</a></li>
-                    <li><a href="/panzer27/">Profile</a></li>
-                    <li><a href="/panzer27/films/">Films</a></li>
-                    <li><a href="/panzer27/films/diary/">Diary</a></li>
-                    <li><a href="/panzer27/films/reviews/">Reviews</a></li>
-                    <li><a href="/panzer27/watchlist/">Watchlist</a></li>
-                    <li><a href="/panzer27/lists/">Lists</a></li>
-                    <li><a href="/panzer27/likes/">Likes</a></li>
-                    <li><a href="/panzer27/tags/">Tags</a></li>
-                    <li><a href="/panzer27/following/">Network</a></li>
+                    <li><a href="/<%= user.username %>/">Profile</a></li>
+                    <li><a href="/<%= user.username %>/films/">Films</a></li>
+                    <li><a href="/<%= user.username %>/films/diary/">Diary</a></li>
+                    <li><a href="/<%= user.username %>/films/reviews/">Reviews</a></li>
+                    <li><a href="/<%= user.username %>/watchlist/">Watchlist</a></li>
+                    <li><a href="/<%= user.username %>/lists/">Lists</a></li>
+                    <li><a href="/<%= user.username %>/likes/">Likes</a></li>
+                    <li><a href="/<%= user.username %>/tags/">Tags</a></li>
+                    <li><a href="/<%= user.username %>/following/">Network</a></li>
                     <li class="divider"><a href="/settings/">Settings</a></li>
                     <li>
                       <a href="/settings/subscriptions/">Subscriptions</a>
@@ -1822,7 +1822,7 @@
         <h1 class="title-hero">
           Welcome back,
 
-          <a href="/panzer27/">panzer27</a>.
+          <a href="/<%= user.username %>/"><%= user.username;  %></a>.
           <span class="mob-hide">Here’s what we’ve been watching…</span>
         </h1>
 

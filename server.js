@@ -50,10 +50,14 @@ app.get("/", async (req, res) => {
     // console.log(upcomingData);
 
     if (req.session.isLoggedIn) {
+      const email = req.session.email;
+      const user = await collection.findOne({ email: email });
+      console.log(user);
       res.render("homepage/logged-in", {
         movieData,
         nowPlayingData,
         upcomingData,
+        user
       });
     } else {
       res.render("homepage/index", {
@@ -92,26 +96,18 @@ app.post("/signup",async (req, res) => {
   res.redirect("/")
 })
 
-app.post("/login",async (req, res) => {
-
-  
-
-  try{
-    const check = await collection.findOne({email:req.body.email})
-    if (check.password === req.body.password){
-      req.session.isLoggedIn = true;
-      res.redirect("/")
-    }
-    else{
-      res.send("wrong password")
-    }
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+  const user = await collection.findOne({ email: email, password: password });
+  if (user) {
+    req.session.email = email;
+    req.session.isLoggedIn = true;
+    res.redirect('/');
+  } else {
+    res.render('login', { error: 'Invalid email or password' });
   }
-  catch{
-    res.send("wrong email")
-  }
+});
 
-
-})
 
 
 app.get("/films", async (req, res) => {
