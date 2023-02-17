@@ -25,9 +25,11 @@ app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 app.set("view engine", "ejs");
 
-app.use("/lists", listRouter);
+
 app.use("/members", membersRouter);
 app.use("/journal", journalRouter);
+
+
 
 app.get("/", async (req, res) => {
   try {
@@ -50,9 +52,7 @@ app.get("/", async (req, res) => {
     // console.log(upcomingData);
 
     if (req.session.isLoggedIn) {
-      const email = req.session.email;
-      const user = await collection.findOne({ email: email });
-      console.log(user);
+      const user = req.session.user
       res.render("homepage/logged-in", {
         movieData,
         nowPlayingData,
@@ -102,6 +102,7 @@ app.post('/login', async (req, res) => {
   if (user) {
     req.session.email = email;
     req.session.isLoggedIn = true;
+    req.session.user  = await collection.findOne({ email: email });
     res.redirect('/');
   } else {
     res.render('login', { error: 'Invalid email or password' });
@@ -110,7 +111,7 @@ app.post('/login', async (req, res) => {
 
 
 
-app.get("/films", async (req, res) => {
+app.get("/lists", async (req, res) => {
   try {
     const popularResponse = await axios.get(
       `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
@@ -121,8 +122,13 @@ app.get("/films", async (req, res) => {
 
     const movieData = popularResponse.data;
     const topRatedMovieData = topRatedResponse.data;
-
-    res.render("films/films", { movieData, topRatedMovieData });
+    if (req.session.isLoggedIn) {
+      const user = req.session.user
+      res.render("lists/lists-member", { movieData, topRatedMovieData,user });
+    } else {
+      res.render("lists/lists", { movieData, topRatedMovieData,user });
+    }
+    
   } catch (err) {
     console.error(err);
     res.render("homepage/index");
@@ -200,6 +206,51 @@ app.get("/film/:title-:year", async (req, res) => {
 //     console.log("No movie found");
 //   }
 // });
+
+app.get("/list/new", async (req, res) => {
+  try {
+    const popularResponse = await axios.get(
+      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+    );
+    const topRatedResponse = await axios.get(
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`
+    );
+
+    const movieData = popularResponse.data;
+    const topRatedMovieData = topRatedResponse.data;
+
+    if (req.session.isLoggedIn) {
+      const user = req.session.user
+      res.render("lists/list-new", { movieData, topRatedMovieData ,user});
+    } else {
+      res.render("lists/lists", { movieData, topRatedMovieData });
+    }
+    
+  } catch (err) {
+    console.error(err);
+    res.render("homepage/index");
+  }
+});
+
+app.get("/lists", async (req, res) => {
+  try {
+    const popularResponse = await axios.get(
+      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+    );
+    const topRatedResponse = await axios.get(
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`
+    );
+
+    const movieData = popularResponse.data;
+    const topRatedMovieData = topRatedResponse.data;
+
+    res.render("films/films", { movieData, topRatedMovieData });
+  } catch (err) {
+    console.error(err);
+    res.render("homepage/index");
+  }
+});
+
 
 app.get("/search", async (req, res) => {
   try {
