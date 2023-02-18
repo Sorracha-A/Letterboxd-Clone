@@ -126,7 +126,7 @@ app.get("/lists", async (req, res) => {
       const user = req.session.user
       res.render("lists/lists-member", { movieData, topRatedMovieData,user });
     } else {
-      res.render("lists/lists", { movieData, topRatedMovieData,user });
+      res.render("lists/lists", { movieData, topRatedMovieData });
     }
     
   } catch (err) {
@@ -232,7 +232,7 @@ app.get("/list/new", async (req, res) => {
   }
 });
 
-app.get("/lists", async (req, res) => {
+app.get("/films", async (req, res) => {
   try {
     const popularResponse = await axios.get(
       `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
@@ -270,9 +270,28 @@ app.get("/search", async (req, res) => {
 app.get('/s/autocompletefilm', async (req, res) => {
   const query = req.query.term;
   const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`);
-  const titles = response.data.results.map((result) => result.title);
+  const titles = response.data.results.map((result) => ({
+    id: result.id,
+    label: `${result.title} (${result.release_date ? new Date(result.release_date).getFullYear() : 'N/A'})`
+  }));
   res.send(titles);
 });
+
+
+app.post('/s/getmoviedetails', async (req, res) => {
+  const movieId = req.body.movieId;
+  const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`);
+  const movieDetails = {
+    title: response.data.title,
+    release_date: response.data.release_date,
+    poster_path: response.data.poster_path
+    // add more movie details here if needed
+  };
+  res.send(movieDetails);
+});
+
+
+
 
 app.use((req, res, next) => {
   res.status(404).render("error/404");

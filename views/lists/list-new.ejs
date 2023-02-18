@@ -1387,7 +1387,7 @@
                         <label class="section-heading heading-no-border"
                           >Add a film</label
                         >
-                        
+
                         <input
                           type="text"
                           class="field ac_input"
@@ -1395,9 +1395,6 @@
                           placeholder="Enter name of film..."
                           autocomplete="off"
                         />
-                        
-                      
-                        
 
                         <small>or</small>
                         <a
@@ -2244,20 +2241,123 @@
 </html>
 
 <script>
-$(function() {
-  $('#frm-list-film-name').autocomplete({
-    source: '/s/autocompletefilm',
-    select: function(event, ui) {
-      var newItem = $('<li>').text(ui.item.value);
-      $('#list-items').append(newItem);
-      $('#frm-list-film-name').val('');
-      $('#frm-list-film-name').trigger('blur');
-      return false;
-    }
+  $(function () {
+    $("#frm-list-film-name")
+      .autocomplete({
+        source: "/s/autocompletefilm",
+        select: function (event, ui) {
+          $.ajax({
+            url: "/s/getmoviedetails",
+            type: "POST",
+            data: { movieId: ui.item.id },
+            success: function (data) {
+              var newItem = $("<li>")
+                .addClass("film-list-entry icon-drag")
+                .css("opacity", 1);
+              var icon = $("<span>").addClass("icon");
+              var listNumber = $("<div>")
+                .addClass("list-number")
+                .text($("#list-items").children().length + 1);
+              var poster = $("<div>").addClass(
+                "react-component poster film-poster film-poster-" + ui.item.id
+              );
+              var img = $("<img>")
+                .attr(
+                  "src",
+                  data.poster_path
+                    ? "https://image.tmdb.org/t/p/w500/" + data.poster_path
+                    : "https://via.placeholder.com/35x52.png?text=No+Poster"
+                )
+                .attr("width", "35")
+                .attr("height", "52")
+                .attr("alt", ui.item.label)
+                .addClass("image");
+              var frame = $("<span>").addClass("frame");
+              var frameTitle = $("<span>")
+                .addClass("frame-title")
+                .text(ui.item.label);
+              frame.append(frameTitle);
+              poster.append($("<div>").append(img).append(frame));
+
+              var listItemDetails = $("<div>").addClass("list-item-details");
+              var h3 = $("<h3>").addClass("headline-2 prettify");
+              var title = $("<span>").text(data.title);
+              var year = $("<small>")
+                .addClass("metadata")
+                .text(
+                  data.release_date
+                    ? " " + data.release_date.slice(0, 4) + ""
+                    : ""
+                );
+              h3.append(title).append(year);
+              var listEntryNotes = $("<div>").addClass("list-entry-notes");
+
+              listItemDetails.append(h3).append(listEntryNotes);
+
+              var listItemActions = $("<span>").addClass("list-item-actions");
+              var listItemRemoveLink = $("<a>")
+                .attr("href", "#")
+                .addClass("list-item-remove replace")
+                .text("Remove");
+              listItemActions.append(listItemRemoveLink);
+              listItemRemoveLink.click(function () {
+                newItem.remove();
+                if ($("#list-items").children().length === 1) {
+                  $("#empty-list-placeholder").show();
+                }
+              });
+
+              newItem
+                .append(icon)
+                .append(listNumber)
+                .append(poster)
+                .append(listItemDetails)
+                .append(listItemActions);
+              $("#list-items").append(newItem);
+              $("#frm-list-film-name").val("");
+              $("#frm-list-film-name").trigger("blur");
+              $("#empty-list-placeholder").hide();
+            },
+          });
+          return false;
+        },
+      })
+      .autocomplete("instance")._renderItem = function (ul, item) {
+      return $("<li>")
+        .append("<div>" + item.label + "</div>")
+        .appendTo(ul);
+    };
   });
-});
 
+  listItemRemoveLink.on("click", function (e) {
+    e.preventDefault();
+    $(this).closest("li").remove();
+  });
 
-
+  // $(function() {
+  //   $('#frm-list-film-name').autocomplete({
+  //     source: '/s/autocompletefilm',
+  //     select: function(event, ui) {
+  //       $.ajax({
+  //         url: '/s/getmoviedetails',
+  //         type: 'POST',
+  //         data: { movieId: ui.item.id },
+  //         success: function(data) {
+  //           var newItem = $('<li>');
+  //           var poster = $('<img>').attr('src', data.poster_path ? 'https://image.tmdb.org/t/p/w92/' + data.poster_path : 'https://via.placeholder.com/92x138.png?text=No+Poster');
+  //           var title = $('<div>').text(data.title);
+  //           newItem.append(poster).append(title);
+  //           $('#list-items').append(newItem);
+  //           $('#frm-list-film-name').val('');
+  //           $('#frm-list-film-name').trigger('blur');
+  //         }
+  //       });
+  //       return false;
+  //     }
+  //   }).autocomplete('instance')._renderItem = function(ul, item) {
+  //     return $('<li>')
+  //       .append('<div>' + item.label + '</div>')
+  //       .appendTo(ul);
+  //   };
+  // });
 </script>
-
