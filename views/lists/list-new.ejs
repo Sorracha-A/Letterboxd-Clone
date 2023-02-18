@@ -8,6 +8,8 @@
 <html id="html" lang="en" class="no-mobile no-js">
   <!--<![endif]-->
   <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script src="https://securepubads.g.doubleclick.net/gpt/pubads_impl_page_level_ads_2023021401.js"></script>
     <script
       type="text/javascript"
@@ -776,6 +778,11 @@
       type="text/javascript"
       src="https://adservice.google.com/adsid/integrator.js?domain=letterboxd.com"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
 
   <body class="lists-new logged-in">
@@ -944,13 +951,21 @@
                     <li class="divider"><a href="/">Home</a></li>
                     <li><a href="/<%= user.username %>/">Profile</a></li>
                     <li><a href="/<%= user.username %>/films/">Films</a></li>
-                    <li><a href="/<%= user.username %>/films/diary/">Diary</a></li>
-                    <li><a href="/<%= user.username %>/films/reviews/">Reviews</a></li>
-                    <li><a href="/<%= user.username %>/watchlist/">Watchlist</a></li>
+                    <li>
+                      <a href="/<%= user.username %>/films/diary/">Diary</a>
+                    </li>
+                    <li>
+                      <a href="/<%= user.username %>/films/reviews/">Reviews</a>
+                    </li>
+                    <li>
+                      <a href="/<%= user.username %>/watchlist/">Watchlist</a>
+                    </li>
                     <li><a href="/<%= user.username %>/lists/">Lists</a></li>
                     <li><a href="/<%= user.username %>/likes/">Likes</a></li>
                     <li><a href="/<%= user.username %>/tags/">Tags</a></li>
-                    <li><a href="/<%= user.username %>/following/">Network</a></li>
+                    <li>
+                      <a href="/<%= user.username %>/following/">Network</a>
+                    </li>
                     <li class="divider"><a href="/settings/">Settings</a></li>
                     <li>
                       <a href="/settings/subscriptions/">Subscriptions</a>
@@ -1372,15 +1387,17 @@
                         <label class="section-heading heading-no-border"
                           >Add a film</label
                         >
+                        
                         <input
                           type="text"
                           class="field ac_input"
                           id="frm-list-film-name"
                           placeholder="Enter name of film..."
-                          data-url="/s/autocompletefilm"
-                          data-new-item-template="/ajax/filmlistentry"
                           autocomplete="off"
                         />
+                        
+                      
+                        
 
                         <small>or</small>
                         <a
@@ -2225,3 +2242,22 @@
     ></iframe>
   </body>
 </html>
+
+<script>
+$(function() {
+  $('#frm-list-film-name').autocomplete({
+    source: '/s/autocompletefilm',
+    select: function(event, ui) {
+      var newItem = $('<li>').text(ui.item.value);
+      $('#list-items').append(newItem);
+      $('#frm-list-film-name').val('');
+      $('#frm-list-film-name').trigger('blur');
+      return false;
+    }
+  });
+});
+
+
+
+</script>
+

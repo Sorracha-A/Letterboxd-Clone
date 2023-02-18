@@ -267,6 +267,13 @@ app.get("/search", async (req, res) => {
   }
 });
 
+app.get('/s/autocompletefilm', async (req, res) => {
+  const query = req.query.term;
+  const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`);
+  const titles = response.data.results.map((result) => result.title);
+  res.send(titles);
+});
+
 app.use((req, res, next) => {
   res.status(404).render("error/404");
 });
