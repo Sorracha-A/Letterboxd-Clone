@@ -305,7 +305,7 @@ app.post('/add-to-list', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.json({ success: false, error });
-  }
+  } 
 });
 
 

@@ -2242,7 +2242,6 @@
 </html>
 
 <script>
-  console.log("JS file loaded");
   $(function () {
     $("#frm-list-film-name")
       .autocomplete({
@@ -2366,13 +2365,16 @@
 
 <script>
   $("#add-all-button").on("click", async function () {
+    console.log("hi");
     const listItems = $("#list-items").children().slice(1);
     const user = "<%= user._id %>"; // get the current user ID from the server
     const films = [];
 
     // Loop through each list item and extract the film data
     listItems.each(function (index, listItem) {
+
       const filmData = {
+        id: $(listItem).find(".film-poster").attr("class").match(/film-poster-(\d+)/)[1],
         title: $(listItem).find(".headline-2").text(),
         year: $(listItem).find(".metadata").text(),
         posterUrl: $(listItem).find("img").attr("src"),

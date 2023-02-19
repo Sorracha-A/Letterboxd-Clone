@@ -26,11 +26,13 @@ const LoginSchema = new mongoose.Schema({
     required: true,
   },
   films: [{
+    id: Number, // add the id property
     title: String,
     year: String,
     posterUrl: String,
   }]
 });
+
 
 
 const collection = new mongoose.model("Collection1", LoginSchema);
