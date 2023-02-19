@@ -2237,10 +2237,12 @@
       height="0"
       style="display: none"
     ></iframe>
+    <button id="add-all-button">Add All Movies</button>
   </body>
 </html>
 
 <script>
+  console.log("JS file loaded");
   $(function () {
     $("#frm-list-film-name")
       .autocomplete({
@@ -2360,4 +2362,45 @@
   //       .appendTo(ul);
   //   };
   // });
+</script>
+
+<script>
+  $("#add-all-button").on("click", async function () {
+    const listItems = $("#list-items").children().slice(1);
+    const user = "<%= user._id %>"; // get the current user ID from the server
+    const films = [];
+
+    // Loop through each list item and extract the film data
+    listItems.each(function (index, listItem) {
+      const filmData = {
+        title: $(listItem).find(".headline-2").text(),
+        year: $(listItem).find(".metadata").text(),
+        posterUrl: $(listItem).find("img").attr("src"),
+      };
+      films.push(filmData);
+    });
+
+    console.log(films); // make sure that films is not empty and contains the expected data
+
+    // Send the film data to the server
+    // Send the film data to the server
+    const response = await fetch("/add-to-list", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user,
+        films,
+      }),
+    });
+
+    // Handle the server's response
+    const responseData = await response.json();
+    if (responseData.success) {
+      alert("Films added to list!");
+    } else {
+      alert("Failed to add films to list.");
+    }
+  });
 </script>

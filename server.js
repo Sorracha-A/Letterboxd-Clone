@@ -290,6 +290,26 @@ app.post('/s/getmoviedetails', async (req, res) => {
   res.send(movieDetails);
 });
 
+app.post('/add-to-list', async (req, res) => {
+  const { user, films } = req.body; // the film data received in the request
+  console.log(films);
+  console.log(user);  
+  try {
+    // Find the current user in the database
+    const currentUser = await collection.findById(user);
+    console.log(currentUser);
+    // Add the film data to the user's document
+    currentUser.films.push(...films);
+    await currentUser.save();
+    res.json({ success: true });
+  } catch (error) {
+    console.error(error);
+    res.json({ success: false, error });
+  }
+});
+
+
+
 
 
 
