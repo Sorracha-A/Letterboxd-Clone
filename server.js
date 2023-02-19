@@ -291,15 +291,22 @@ app.post('/s/getmoviedetails', async (req, res) => {
 });
 
 app.post('/add-to-list', async (req, res) => {
-  const { user, films } = req.body; // the film data received in the request
-  console.log(films);
-  console.log(user);  
+  const { user, listName, films } = req.body;
+  console.log("listname: ",listName);
   try {
-    // Find the current user in the database
     const currentUser = await collection.findById(user);
-    console.log(currentUser);
-    // Add the film data to the user's document
-    currentUser.films.push(...films);
+    const list = currentUser.lists.find((list) => list.name === listName);
+
+    if (list) {
+      list.films.push(...films);
+    } else {
+      const newList = {
+        name: listName,
+        films: films,
+      };
+      currentUser.lists.push(newList);
+    }
+
     await currentUser.save();
     res.json({ success: true });
   } catch (error) {
@@ -307,6 +314,9 @@ app.post('/add-to-list', async (req, res) => {
     res.json({ success: false, error });
   } 
 });
+
+
+
 
 
 

@@ -1232,7 +1232,7 @@
                     <label class="has-icon validated"
                       ><span class="icon"></span>Name of list</label
                     >
-                    <input type="text" name="name" class="field" value="" />
+                    <input type="text" name="name" class="field" id="list-name-input" value="" />
                   </div>
                   <div
                     class="form-row autocomplete-tags-data"
@@ -2365,44 +2365,46 @@
 
 <script>
   $("#add-all-button").on("click", async function () {
-    console.log("hi");
-    const listItems = $("#list-items").children().slice(1);
-    const user = "<%= user._id %>"; // get the current user ID from the server
-    const films = [];
+  const listItems = $("#list-items").children().slice(1);
+  const user = "<%= user._id %>"; // get the current user ID from the server
+  const films = [];
+  const listName = $("#list-name-input").val(); // get the name of the list from the input field
+  console.log(listName)
+  
 
-    // Loop through each list item and extract the film data
-    listItems.each(function (index, listItem) {
-
-      const filmData = {
-        id: $(listItem).find(".film-poster").attr("class").match(/film-poster-(\d+)/)[1],
-        title: $(listItem).find(".headline-2").text(),
-        year: $(listItem).find(".metadata").text(),
-        posterUrl: $(listItem).find("img").attr("src"),
-      };
-      films.push(filmData);
-    });
-
-    console.log(films); // make sure that films is not empty and contains the expected data
-
-    // Send the film data to the server
-    // Send the film data to the server
-    const response = await fetch("/add-to-list", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        user,
-        films,
-      }),
-    });
-
-    // Handle the server's response
-    const responseData = await response.json();
-    if (responseData.success) {
-      alert("Films added to list!");
-    } else {
-      alert("Failed to add films to list.");
-    }
+  // Loop through each list item and extract the film data
+  listItems.each(function (index, listItem) {
+    const filmData = {
+      id: $(listItem).find(".film-poster").attr("class").match(/film-poster-(\d+)/)[1],
+      title: $(listItem).find(".headline-2").text(),
+      year: $(listItem).find(".metadata").text(),
+      posterUrl: $(listItem).find("img").attr("src"),
+    };
+    films.push(filmData);
   });
+
+  console.log(films); // make sure that films is not empty and contains the expected data
+
+  // Send the film data to the server
+  const response = await fetch("/add-to-list", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      user,
+      listName,
+      films,
+    }),
+  });
+
+  // Handle the server's response
+  const responseData = await response.json();
+  if (responseData.success) {
+    alert("Films added to list!");
+  } else {
+    alert("Failed to add films to list.");
+  }
+});
+
 </script>

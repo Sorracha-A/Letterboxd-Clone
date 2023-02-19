@@ -25,13 +25,22 @@ const LoginSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  films: [{
-    id: Number, // add the id property
-    title: String,
-    year: String,
-    posterUrl: String,
-  }]
+  lists: [
+    {
+      name: String,
+      films: [
+        {
+          id: Number,
+          title: String,
+          year: String,
+          posterUrl: String,
+        },
+      ],
+    },
+  ],
 });
+
+
 
 
 
