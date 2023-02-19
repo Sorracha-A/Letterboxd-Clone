@@ -35,6 +35,7 @@ npm install
 PORT=your-port-number
 MONGODB_URI=mongodb://localhost:<port>/<db-name>
 TMDB_API_KEY=your-api-key
+SECRET=your-session-secret
 ```
 You can get an API key by creating an account at https://www.themoviedb.org/documentation/api.
 
