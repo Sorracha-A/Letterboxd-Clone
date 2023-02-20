@@ -101,7 +101,8 @@ app.post("/login", async (req, res) => {
     req.session.user = await collection.findOne({ email: email });
     res.redirect("/");
   } else {
-    res.render("/sign-in/login", { error: "Invalid email or password" });
+    res.render("sign-in/login", { error: "Invalid email or password" });
+    
   }
 });
 

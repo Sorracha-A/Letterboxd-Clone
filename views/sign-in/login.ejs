@@ -56,6 +56,7 @@
     </style>
   </head>
   <body>
+    <div id="error-message"></div>
     <div class="container">
       <form action="/login" method="post">
         <h1 style="color: #9ab">Sign In to Letterboxd</h1>
@@ -68,3 +69,10 @@
     </div>
   </body>
 </html>
+
+<script>
+  const errorMessage = '<%= error %>';
+  if (errorMessage) {
+    alert(errorMessage);
+  }
+</script>
