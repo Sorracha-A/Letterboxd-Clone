@@ -330,6 +330,26 @@ app.get("/:username/lists", nocache(), async (req, res) => {
 });
 
 
+app.get("/:username/list/:listname", nocache(), async (req, res) => {
+  const listname = req.params.listname;
+  console.log(listname);
+  try {
+    if (req.session.isLoggedIn) {
+      const user = await collection.findOne({ email: req.session.user.email });
+      const list = user.lists.find(lists => lists.name === listname)
+      // console.log(user);
+      // console.log(user.lists[0].name);
+      console.log(list);
+      res.render("lists/list-detail", { user,list });
+    } else {
+      res.render("sign-in/login");
+    }
+  } catch (err) {
+    console.error(err);
+    res.render("homepage/index");
+  }
+});
+
 app.use((req, res, next) => {
   res.status(404).render("error/404");
 });

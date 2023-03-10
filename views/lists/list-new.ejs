@@ -924,6 +924,8 @@
                 <li
                   class="navitem nav-account js-nav-account"
                   style="right: 435.664px"
+                  onmouseover="document.querySelector('.subnav').style.display = 'block';"
+                  onmouseout="document.querySelector('.subnav').style.display = 'none';"
                 >
                   <a href="#" class="has-icon toggle-menu"
                     ><span class="icon"></span
@@ -935,7 +937,7 @@
                         height="24" /></span
                     ><%= user.username %></a
                   >
-                  <ul class="subnav">
+                  <ul class="subnav" style="display: none" >
                     <li>
                       <a href="#" class="has-icon toggle-menu"
                         ><span class="icon"></span
