@@ -151,7 +151,7 @@
         disableAds = false;
 
       supermodelCSRF = "364ebf90f82119a76886";
-      person.username = "<%= user.username %>" ;
+      person.username = "<%= user.username %>";
       person.loggedIn = true;
       person.optimisedPosters = false;
       person.role = "member";
@@ -270,11 +270,11 @@
       />
     <![endif]-->
     <!--[if (gt IE 9)|!(IE)]><!-->
-    <link
+    <!-- <link
       href="https://s.ltrbxd.com/static/css/main.min.d4047977.css"
       rel="stylesheet"
       media="screen, projection"
-    />
+    /> -->
     <!--<![endif]-->
     <!--[if lte IE 6
       ]><script>
@@ -297,8 +297,18 @@
       </script><!
     [endif]-->
 
-    <link
+    <!-- <link
       href="https://s.ltrbxd.com/static/css/desktop.min.1c7835d9.css"
+      rel="stylesheet"
+      media="screen, projection"
+    /> -->
+    <link
+      href="/public/assests/style.css"
+      rel="stylesheet"
+      media="screen, projection"
+    />
+    <link
+      href="/public/assests/fontstyle.css"
       rel="stylesheet"
       media="screen, projection"
     />
@@ -1147,6 +1157,8 @@
                 <li
                   class="navitem nav-account js-nav-account"
                   style="right: 474.664px"
+                  onmouseover="document.querySelector('.subnav').style.display = 'block';"
+                  onmouseout="document.querySelector('.subnav').style.display = 'none';"
                 >
                   <a href="#" class="has-icon toggle-menu"
                     ><span class="icon"></span
@@ -1158,7 +1170,7 @@
                         height="24" /></span
                     ><%= user.username %></a
                   >
-                  <ul class="subnav">
+                  <ul class="subnav" style="display: none">
                     <li>
                       <a href="#" class="has-icon toggle-menu"
                         ><span class="icon"></span
@@ -1174,13 +1186,21 @@
                     <li class="divider"><a href="/">Home</a></li>
                     <li><a href="/<%= user.username %>/">Profile</a></li>
                     <li><a href="/<%= user.username %>/films/">Films</a></li>
-                    <li><a href="/<%= user.username %>/films/diary/">Diary</a></li>
-                    <li><a href="/<%= user.username %>/films/reviews/">Reviews</a></li>
-                    <li><a href="/<%= user.username %>/watchlist/">Watchlist</a></li>
+                    <li>
+                      <a href="/<%= user.username %>/films/diary/">Diary</a>
+                    </li>
+                    <li>
+                      <a href="/<%= user.username %>/films/reviews/">Reviews</a>
+                    </li>
+                    <li>
+                      <a href="/<%= user.username %>/watchlist/">Watchlist</a>
+                    </li>
                     <li><a href="/<%= user.username %>/lists/">Lists</a></li>
                     <li><a href="/<%= user.username %>/likes/">Likes</a></li>
                     <li><a href="/<%= user.username %>/tags/">Tags</a></li>
-                    <li><a href="/<%= user.username %>/following/">Network</a></li>
+                    <li>
+                      <a href="/<%= user.username %>/following/">Network</a>
+                    </li>
                     <li class="divider"><a href="/settings/">Settings</a></li>
                     <li>
                       <a href="/settings/subscriptions/">Subscriptions</a>
@@ -1822,7 +1842,7 @@
         <h1 class="title-hero">
           Welcome back,
 
-          <a href="/<%= user.username %>/"><%= user.username;  %></a>.
+          <a href="/<%= user.username %>/"><%= user.username; %></a>.
           <span class="mob-hide">Here’s what we’ve been watching…</span>
         </h1>
 
@@ -8056,5 +8076,3 @@
     </div>
   </body>
 </html>
-
-
